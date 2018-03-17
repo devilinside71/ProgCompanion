@@ -3,44 +3,70 @@ var elemNum = 6;
 $(document).ready(function () {
     var i = 1;
     var typeOptions = new Array(
-        "String", "Long", "Integer", "Boolean", "Double", "Date", "Variant", "Object", "SheetName", "Worksheet", "Outlook"
+        "String", "Long", "Integer", "Boolean", "Double", "Date", "Variant",
+        "Object", "SheetName", "Worksheet", "Outlook"
     );
     for (i = 1; i < elemNum + 1; i++) {
         $("#tabla").find('tbody')
             .append($('<tr>')
                 .append($('<td class="nameColumn">Parameter' + i + ':</td>'))
-                .append($('<td class="otherColumns"><input type="text" id="Name' + i + '" />'))
-                .append($('<td class="otherColumns"><select id="TypePar' + i + '">'))
+                .append($(
+                    '<td class="otherColumns"><input type="text" id="Name' +
+                    i + '" />'))
+                .append($(
+                    '<td class="otherColumns"><select id="TypePar' + i + '">'))
                 .append($('<td class="otherColumns">'))
             );
     }
     for (i = 1; i < elemNum + 1; i++) {
         $('#TypePar' + i)
-            .append($('<option value="' + typeOptions[0] + '">' + typeOptions[0] + '</option>'))
-            .append($('<option value="' + typeOptions[1] + '">' + typeOptions[1] + '</option>'))
-            .append($('<option value="' + typeOptions[2] + '">' + typeOptions[2] + '</option>'))
-            .append($('<option value="' + typeOptions[3] + '">' + typeOptions[3] + '</option>'))
-            .append($('<option value="' + typeOptions[4] + '">' + typeOptions[4] + '</option>'))
-            .append($('<option value="' + typeOptions[5] + '">' + typeOptions[5] + '</option>'))
-            .append($('<option value="' + typeOptions[6] + '">' + typeOptions[6] + '</option>'))
-            .append($('<option value="' + typeOptions[7] + '">' + typeOptions[7] + '</option>'))
-            .append($('<option value="' + typeOptions[8] + '">' + typeOptions[8] + '</option>'))
-            .append($('<option value="' + typeOptions[9] + '">' + typeOptions[9] + '</option>'))
-            .append($('<option value="' + typeOptions[10] + '">' + typeOptions[10] + '</option>'));
+            .append($('<option value="' + typeOptions[0] + '">' +
+                typeOptions[0] + '</option>'))
+            .append($('<option value="' + typeOptions[1] + '">' +
+                typeOptions[1] + '</option>'))
+            .append($('<option value="' + typeOptions[2] + '">' +
+                typeOptions[2] + '</option>'))
+            .append($('<option value="' + typeOptions[3] + '">' +
+                typeOptions[3] + '</option>'))
+            .append($('<option value="' + typeOptions[4] + '">' +
+                typeOptions[4] + '</option>'))
+            .append($('<option value="' + typeOptions[5] + '">' +
+                typeOptions[5] + '</option>'))
+            .append($('<option value="' + typeOptions[6] + '">' +
+                typeOptions[6] + '</option>'))
+            .append($('<option value="' + typeOptions[7] + '">' +
+                typeOptions[7] + '</option>'))
+            .append($('<option value="' + typeOptions[8] + '">' +
+                typeOptions[8] + '</option>'))
+            .append($('<option value="' + typeOptions[9] + '">' +
+                typeOptions[9] + '</option>'))
+            .append($('<option value="' + typeOptions[10] + '">' +
+                typeOptions[10] + '</option>'));
     }
 
     $('#TypeFunc')
-        .append($('<option value="' + typeOptions[0] + '">' + typeOptions[0] + '</option>'))
-        .append($('<option value="' + typeOptions[1] + '">' + typeOptions[1] + '</option>'))
-        .append($('<option value="' + typeOptions[2] + '">' + typeOptions[2] + '</option>'))
-        .append($('<option value="' + typeOptions[3] + '">' + typeOptions[3] + '</option>'))
-        .append($('<option value="' + typeOptions[4] + '">' + typeOptions[4] + '</option>'))
-        .append($('<option value="' + typeOptions[5] + '">' + typeOptions[5] + '</option>'))
-        .append($('<option value="' + typeOptions[6] + '">' + typeOptions[6] + '</option>'))
-        .append($('<option value="' + typeOptions[7] + '">' + typeOptions[7] + '</option>'))
-        .append($('<option value="' + typeOptions[8] + '">' + typeOptions[8] + '</option>'))
-        .append($('<option value="' + typeOptions[9] + '">' + typeOptions[9] + '</option>'))
-        .append($('<option value="' + typeOptions[10] + '">' + typeOptions[10] + '</option>'));
+        .append($('<option value="' + typeOptions[0] + '">' +
+            typeOptions[0] + '</option>'))
+        .append($('<option value="' + typeOptions[1] + '">' +
+            typeOptions[1] + '</option>'))
+        .append($('<option value="' + typeOptions[2] + '">' +
+            typeOptions[2] + '</option>'))
+        .append($('<option value="' + typeOptions[3] + '">' +
+            typeOptions[3] + '</option>'))
+        .append($('<option value="' + typeOptions[4] + '">' +
+            typeOptions[4] + '</option>'))
+        .append($('<option value="' + typeOptions[5] + '">' +
+            typeOptions[5] + '</option>'))
+        .append($('<option value="' + typeOptions[6] + '">' +
+            typeOptions[6] + '</option>'))
+        .append($('<option value="' + typeOptions[7] + '">' +
+            typeOptions[7] + '</option>'))
+        .append($('<option value="' + typeOptions[8] + '">' +
+            typeOptions[8] + '</option>'))
+        .append($('<option value="' + typeOptions[9] + '">' +
+            typeOptions[9] + '</option>'))
+        .append($('<option value="' + typeOptions[10] + '">' +
+            typeOptions[10] + '</option>'));
 
 
     $('#generate').click(function () {
@@ -66,9 +92,10 @@ function resetNames() {
 function createFunction() {
     var i = 1;
     var inputPars = "";
-    for (i = 1; i < elemNum +1; i++) {
+    for (i = 1; i < elemNum + 1; i++) {
         if ($('#Name' + i).val() != "") {
-            inputPars = inputPars + capitalizeFirstLetter($('#Name' + i).val()) +
+            inputPars = inputPars +
+                capitalizeFirstLetter($('#Name' + i).val()) +
                 " As " + getDeclareType($('#TypePar' + i).val()) + ", ";
         }
     }
@@ -88,12 +115,13 @@ function createFunction() {
         funcText = funcText + "()";
     }
     funcText = funcText + "\n";
-    funcText = funcText + "    '" + document.getElementById("remarkText").value + "\n";
+    funcText = funcText + "    '" + $('#remarkText').val() + "\n";
     funcText = funcText + "    'Parameters:\n";
 
-    for (i = 1; i < elemNum +1; i++) {
+    for (i = 1; i < elemNum + 1; i++) {
         if ($('#Name' + i).val() != "") {
-            funcText = funcText + "    '           " + capitalizeFirstLetter($('#Name' + i).val()) + "\n";
+            funcText = funcText + "    '           " +
+                capitalizeFirstLetter($('#Name' + i).val()) + "\n";
         }
     }
     funcText = funcText + "    'Returns:\n";
@@ -108,7 +136,9 @@ function createFunction() {
     funcText = funcText + "\n    On Error GoTo FUNC_ERR\n\n";
     funcText = funcText + "    " + getPrefix($('#TypeFunc').val()) + "Res"
     if ($('#arrayFunction').prop('checked')) {
-        funcText = funcText + " = Split(" + capitalizeFirstLetter(document.getElementById("Name1").value) + '," ")\n';
+        funcText = funcText + " = Split(" +
+            capitalizeFirstLetter(document.getElementById("Name1").value) +
+            '," ")\n';
     } else {
         funcText = funcText + getConstInitValue($('#TypeFunc').val()) + "\n";
     }
@@ -120,7 +150,8 @@ function createFunction() {
     funcText = funcText + "    On Error GoTo 0\n";
     funcText = funcText + "    Exit Function\n";
     funcText = funcText + "FUNC_ERR:\n";
-    funcText = funcText + '    Debug.Print  "Error in Function ' + capitalizeFirstLetter($('#NameFunc').val()) + '"\n';
+    funcText = funcText + '    Debug.Print  "Error in Function ' +
+        capitalizeFirstLetter($('#NameFunc').val()) + '"\n';
     funcText = funcText + "    If Err.Number Then\n";
     funcText = funcText + "        Debug.Print  Err.Description\n";
     funcText = funcText + "    End If\n";
@@ -131,16 +162,17 @@ function createFunction() {
 
     //Test code
     var dimPars = "";
-    for (i = 1; i < elemNum +1; i++) {
+    for (i = 1; i < elemNum + 1; i++) {
         if ($('#Name' + i).val() != "") {
-            dimPars = dimPars + "    Dim " + getPrefix($('#TypePar' + i).val()) +
+            dimPars = dimPars + "    Dim " +
+                getPrefix($('#TypePar' + i).val()) +
                 capitalizeFirstLetter($('#Name' + i).val()) +
                 " As " + getDeclareType($('#TypePar' + i).val()) + "\n";
         }
     }
 
     dimPars = dimPars + "\n";
-    for (i = 1; i < elemNum +1; i++) {
+    for (i = 1; i < elemNum + 1; i++) {
         if ($('#Name' + i).val() != "") {
             dimPars = dimPars + "    " + getPrefix($('#TypePar' + i).val()) +
                 capitalizeFirstLetter($('#Name' + i).val()) +
@@ -150,7 +182,7 @@ function createFunction() {
 
 
     var testPars = "";
-    for (i = 1; i < elemNum +1; i++) {
+    for (i = 1; i < elemNum + 1; i++) {
         if ($('#Name' + i).val() != "") {
             testPars = testPars + getPrefix($('#TypePar' + i).val()) +
                 capitalizeFirstLetter($('#Name' + i).val()) + ", ";
@@ -163,22 +195,27 @@ function createFunction() {
 
 
     funcText = "Private Sub ";
-    funcText = funcText + capitalizeFirstLetter($('#NameFunc').val()) + "Test\n";
+    funcText = funcText +
+        capitalizeFirstLetter($('#NameFunc').val()) + "Test\n";
     if ($('#classFunction').prop('checked')) {
-        funcText = funcText + "    'Test procedure for " + capitalizeFirstLetter($('#className').val()) + "." +
+        funcText = funcText + "    'Test procedure for " +
+            capitalizeFirstLetter($('#className').val()) + "." +
             capitalizeFirstLetter($('#NameFunc').val()) + "\n"
     } else {
-        funcText = funcText + "    'Test procedure for " + capitalizeFirstLetter($('#NameFunc').val()) + "\n";
+        funcText = funcText + "    'Test procedure for " +
+            capitalizeFirstLetter($('#NameFunc').val()) + "\n";
     }
-    funcText = funcText + "    '" + document.getElementById("remarkText").value + "\n";
+    funcText = funcText + "    '" + $('#remarkText').val() + "\n";
     if ($('#classFunction').prop('checked')) {
-        funcText = funcText + "    Dim cl" + capitalizeFirstLetter($('#className').val()) + " As New " +
+        funcText = funcText + "    Dim cl" +
+            capitalizeFirstLetter($('#className').val()) + " As New " +
             capitalizeFirstLetter($('#className').val()) + "\n";
     }
     funcText = funcText + "    Dim dtmStartTime As Date\n";
     funcText = funcText + dimPars + "\n\n";
     if ($('#arrayFunction').prop('checked')) {
-        funcText = funcText + "    Dim Arr() As " + getDeclareType($('#TypeFunc').val()) + "\n";
+        funcText = funcText + "    Dim Arr() As " +
+            getDeclareType($('#TypeFunc').val()) + "\n";
     }
     funcText = funcText + "    dtmStartTime = Now()\n";
 
@@ -187,23 +224,33 @@ function createFunction() {
         if ($('#classFunction').prop('checked')) {
             funcText = funcText + "    Arr = cl" +
                 capitalizeFirstLetter($('#className').val()) + '.' +
-                capitalizeFirstLetter($('#NameFunc').val()) + '(' + testPars + ')\n';;
+                capitalizeFirstLetter($('#NameFunc').val()) + '(' +
+                testPars + ')\n';;
         } else {
-            funcText = funcText + "    Arr = " + capitalizeFirstLetter($('#NameFunc').val()) + '(' + testPars + ')\n';;
+            funcText = funcText + "    Arr = " +
+                capitalizeFirstLetter($('#NameFunc').val()) + '(' +
+                testPars + ')\n';;
         }
         funcText = funcText + "    For iTer = LBound(Arr) to UBound(Arr)\n";
         funcText = funcText + '        Debug.Print  "Function ' +
-            capitalizeFirstLetter($('#NameFunc').val()) + ' test " & iTer & " >> " & Arr(iTer)\n';
+            capitalizeFirstLetter($('#NameFunc').val()) +
+            ' test " & iTer & " >> " & Arr(iTer)\n';
         funcText = funcText + "    Next iTer\n";
     } else {
         if ($('#classFunction').prop('checked')) {
-            funcText = funcText + '    Debug.Print  "Function ' + capitalizeFirstLetter($('#NameFunc').val()) + ' test: >> " & cl' +
+            funcText = funcText + '    Debug.Print  "Function ' +
+                capitalizeFirstLetter($('#NameFunc').val()) +
+                ' test: >> " & cl' +
                 capitalizeFirstLetter($('#className').val()) + '.' +
-                capitalizeFirstLetter($('#NameFunc').val()) + '(' + testPars + ')\n';
-            funcText = funcText + "    Set cl" + capitalizeFirstLetter($('#className').val()) + " = Nothing\n";
+                capitalizeFirstLetter($('#NameFunc').val()) +
+                '(' + testPars + ')\n';
+            funcText = funcText + "    Set cl" +
+                capitalizeFirstLetter($('#className').val()) + " = Nothing\n";
         } else {
-            funcText = funcText + '    Debug.Print  "Function ' + capitalizeFirstLetter($('#NameFunc').val()) + ' test: >> " & ' +
-                capitalizeFirstLetter($('#NameFunc').val()) + '(' + testPars + ')\n';
+            funcText = funcText + '    Debug.Print  "Function ' +
+                capitalizeFirstLetter($('#NameFunc').val()) + ' test: >> " & ' +
+                capitalizeFirstLetter($('#NameFunc').val()) +
+                '(' + testPars + ')\n';
         }
     }
 

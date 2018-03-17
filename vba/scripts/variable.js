@@ -3,15 +3,24 @@ var elemNum = 6;
 $(document).ready(function () {
     var i = 1;
     var typeOptions = new Array(
-        "String", "Long", "Integer", "Boolean", "Double", "Date", "Variant", "Object", "SheetName", "Worksheet", "Outlook"
+        "String", "Long", "Integer", "Boolean", "Double", "Date", "Variant",
+        "Object", "SheetName", "Worksheet", "Outlook"
     );
     for (i = 1; i < elemNum + 1; i++) {
         $("#tabla").find('tbody')
             .append($('<tr>')
-                .append($('<td class="nameColumn"><input type="text" id="Name' + i + '" />'))
-                .append($('<td class="otherColumns"><select id="Dimension' + i + '">'))
-                .append($('<td class="otherColumns"><select id="Scope' + i + '">'))
-                .append($('<td class="otherColumns"><select id="Type' + i + '">'))
+                .append(
+                    $('<td class="nameColumn"><input type="text" id="Name' + i +
+                        '" />'))
+                .append(
+                    $('<td class="otherColumns"><select id="Dimension' + i +
+                        '">'))
+                .append(
+                    $('<td class="otherColumns"><select id="Scope' + i +
+                        '">'))
+                .append(
+                    $('<td class="otherColumns"><select id="Type' + i +
+                        '">'))
             );
     }
     for (i = 1; i < elemNum + 1; i++) {
@@ -28,17 +37,28 @@ $(document).ready(function () {
     }
     for (i = 1; i < elemNum + 1; i++) {
         $('#Type' + i)
-        .append($('<option value="'+typeOptions[0]+'">'+typeOptions[0]+'</option>'))
-        .append($('<option value="'+typeOptions[1]+'">'+typeOptions[1]+'</option>'))
-        .append($('<option value="'+typeOptions[2]+'">'+typeOptions[2]+'</option>'))
-        .append($('<option value="'+typeOptions[3]+'">'+typeOptions[3]+'</option>'))
-        .append($('<option value="'+typeOptions[4]+'">'+typeOptions[4]+'</option>'))
-        .append($('<option value="'+typeOptions[5]+'">'+typeOptions[5]+'</option>'))
-        .append($('<option value="'+typeOptions[6]+'">'+typeOptions[6]+'</option>'))
-        .append($('<option value="'+typeOptions[7]+'">'+typeOptions[7]+'</option>'))
-        .append($('<option value="'+typeOptions[8]+'">'+typeOptions[8]+'</option>'))
-        .append($('<option value="'+typeOptions[9]+'">'+typeOptions[9]+'</option>'))
-        .append($('<option value="'+typeOptions[10]+'">'+typeOptions[10]+'</option>'));
+            .append($('<option value="' + typeOptions[0] + '">' +
+                typeOptions[0] + '</option>'))
+            .append($('<option value="' + typeOptions[1] + '">' +
+                typeOptions[1] + '</option>'))
+            .append($('<option value="' + typeOptions[2] + '">' +
+                typeOptions[2] + '</option>'))
+            .append($('<option value="' + typeOptions[3] + '">' +
+                typeOptions[3] + '</option>'))
+            .append($('<option value="' + typeOptions[4] + '">' +
+                typeOptions[4] + '</option>'))
+            .append($('<option value="' + typeOptions[5] + '">' +
+                typeOptions[5] + '</option>'))
+            .append($('<option value="' + typeOptions[6] + '">' +
+                typeOptions[6] + '</option>'))
+            .append($('<option value="' + typeOptions[7] + '">' +
+                typeOptions[7] + '</option>'))
+            .append($('<option value="' + typeOptions[8] + '">' +
+                typeOptions[8] + '</option>'))
+            .append($('<option value="' + typeOptions[9] + '">' +
+                typeOptions[9] + '</option>'))
+            .append($('<option value="' + typeOptions[10] + '">' +
+                typeOptions[10] + '</option>'));
     }
 
     $('#generate').click(function () {
@@ -60,8 +80,10 @@ function declareVars() {
         var scope = $('#Scope' + i).val()
         var type = $('#Type' + i).val()
         if (name != "") {
-            declarations = declarations + getDeclars(name, dimension, scope, type) + "\n";
-            initvals = initvals + getInitValues(name, dimension, scope, type) + "\n";
+            declarations = declarations +
+                getDeclars(name, dimension, scope, type) + "\n";
+            initvals = initvals +
+                getInitValues(name, dimension, scope, type) + "\n";
         }
     }
     declarations = declarations + "--------------------------\n"

@@ -28,6 +28,7 @@
         "brace-style":"warn",
         "no-delete-var":"warn",
         "no-label-var":"warn",
-        "vars-on-top":"off"
+        "vars-on-top":"off",
+        "max-len": ["warn", {"code":80}]
     }
 }
