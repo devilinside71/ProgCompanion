@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script type="text/javascript" src="../scripts/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="scripts/text2code.js"></script>
+        <link href="styles/vba.css" rel="stylesheet" type="text/css" />
+        <title>VBA Function</title>
+    </head>
+
+<body class="bodyStyle">
+
+        <table class="full">
+            <tr>
+                <td>
+                    <h3>Text to Code
+                        <select id="langChoice" name="Select1">
+                            <option value="VBA">VBA</option>
+                            <option value="XML">XML</option>
+                        </select>
+                        <input id="textVar" name="Text1" type="text" value="textString" />
+                    </h3>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="half">Source text:</td>
+                <td>Converted text:</td>
+            </tr>
+            <tr>
+                <td class="half">
+
+                    <textarea cols="20" name="TextArea1" rows="30" class="textArea" id="Code"></textarea>
+                </td>
+                <td>
+
+                    <textarea cols="20" name="TextArea2" rows="30" class="textArea" id="CodeFormat"></textarea>
+                </td>
+            </tr>
+        </table>
+
+
+        <input name="Button1" type="button" value="Convert" id="convert"  />
+        <input name="Button2"  type="button" value="Clear" id="clear" />
+</body>
+
+</html>
