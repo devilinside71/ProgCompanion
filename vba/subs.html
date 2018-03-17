@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="../scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="scripts/subs.js"></script>
+    <link href="styles/vba.css" rel="stylesheet" type="text/css" />
+    <title>VBA Procedure</title>
+</head>
+
+<body class="bodyStyle">
+    <div>
+        <table class="half" id="tablaF">
+            <tr>
+                <td colspan="3">
+                    <h3>VBA Procedure</h3>
+                </td>
+            </tr>
+            <tr>
+                <td class="nameColumn">&nbsp;</td>
+                <td class="otherColumns">Name</td>
+                <td class="otherColumns"></td>
+                <td class="otherColumns"></td>
+
+            </tr>
+            <tr>
+                <td class="nameColumn">Procedure:</td>
+                <td class="otherColumns">
+                    <input name="Text2" type="text" id="NameFunc" />
+                </td>
+<td class="otherColumns"></td>
+            </tr>
+        </table>
+
+        <div class="tableDivider"></div>
+
+        <table class="half" id="tabla">
+            <tr>
+                <td class="nameColumn"></td>
+                <td class="otherColumns"></td>
+                <td class="otherColumns"></td>
+                <td class="otherColumns"></td>
+            </tr>
+            <!-- jquery -->
+
+        </table>
+
+        <div class="tableDivider"></div>
+
+        <table class="half" id="tablaA">
+            <tr>
+                <td class="nameColumn">
+                    <input id="classFunction" name="Checkbox1" type="checkbox" />Class</td>
+                <td colspan="2" class="otherColumns">
+                    <input id="className" name="Text5" type="text" class="full" value="ClassName" />
+                </td>
+ 
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="otherColumns">&nbsp;</td>
+                <td class="otherColumns">&nbsp;</td>
+                <td class="otherColumns">&nbsp;</td>
+                <td class="otherColumns">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="nameColumn">&nbsp;</td>
+                <td class="otherColumns">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="teaxtareaLabel">Procedure code:</td>
+                <td colspan="3">
+
+                    <textarea cols="20" name="TextArea1" rows="15" class="textArea" id="Code"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="teaxtareaLabel">Test code:</td>
+                <td colspan="3">
+                    <textarea cols="20" name="TextArea2" rows="15" class="textArea" id="CodeTest"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Remark:</td>
+                <td colspan="2">
+                    <input id="remarkText" name="Text1" type="text" value="Description" class="full" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <input name="Button1" type="button" value="Generate" id="generate" />
+
+    <input name="Button2" type="button" value="Clear" id="clear" />
+</body>
+
+</html>
