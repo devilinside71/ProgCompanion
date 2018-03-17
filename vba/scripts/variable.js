@@ -2,13 +2,13 @@
 var elemNum = 6;
 $(document).ready(function () {
     var i = 1;
-var typeOptions=new Array(
-    "String", "Long","Integer","Boolean","Double","Date","Variant","Object","SheetName","Worksheet","Outlook"
-);
+    var typeOptions = new Array(
+        "String", "Long", "Integer", "Boolean", "Double", "Date", "Variant", "Object", "SheetName", "Worksheet", "Outlook"
+    );
     for (i = 1; i < elemNum + 1; i++) {
         $("#tabla").find('tbody')
             .append($('<tr>')
-                .append($('<td class="nameColumn"><input name="Text1" type="text" id="Name' + i + '" />'))
+                .append($('<td class="nameColumn"><input type="text" id="Name' + i + '" />'))
                 .append($('<td class="otherColumns"><select id="Dimension' + i + '">'))
                 .append($('<td class="otherColumns"><select id="Scope' + i + '">'))
                 .append($('<td class="otherColumns"><select id="Type' + i + '">'))
@@ -28,17 +28,17 @@ var typeOptions=new Array(
     }
     for (i = 1; i < elemNum + 1; i++) {
         $('#Type' + i)
-            .append($('<option value="String">String</option>'))
-            .append($('<option value="Long">Long</option>'))
-            .append($('<option value="Integer">Integer</option>'))
-            .append($('<option value="Boolean">Boolean</option>'))
-            .append($('<option value="Double">Double</option>'))
-            .append($('<option value="Date">Date</option>'))
-            .append($('<option value="Variant">Variant</option>'))
-            .append($('<option value="Object">Object</option>'))
-            .append($('<option value="SheetName">Sheet name</option>'))
-            .append($('<option value="Worksheet">Worksheet</option>'))
-            .append($('<option value="Outlook">Outlook</option>'));
+        .append($('<option value="'+typeOptions[0]+'">'+typeOptions[0]+'</option>'))
+        .append($('<option value="'+typeOptions[1]+'">'+typeOptions[1]+'</option>'))
+        .append($('<option value="'+typeOptions[2]+'">'+typeOptions[2]+'</option>'))
+        .append($('<option value="'+typeOptions[3]+'">'+typeOptions[3]+'</option>'))
+        .append($('<option value="'+typeOptions[4]+'">'+typeOptions[4]+'</option>'))
+        .append($('<option value="'+typeOptions[5]+'">'+typeOptions[5]+'</option>'))
+        .append($('<option value="'+typeOptions[6]+'">'+typeOptions[6]+'</option>'))
+        .append($('<option value="'+typeOptions[7]+'">'+typeOptions[7]+'</option>'))
+        .append($('<option value="'+typeOptions[8]+'">'+typeOptions[8]+'</option>'))
+        .append($('<option value="'+typeOptions[9]+'">'+typeOptions[9]+'</option>'))
+        .append($('<option value="'+typeOptions[10]+'">'+typeOptions[10]+'</option>'));
     }
 
     $('#generate').click(function () {
@@ -299,6 +299,6 @@ function capitalizeFirstLetter(string) {
 
 function resetNames() {
     for (var i = 1; i < elemNum + 1; i++) {
-        $('#Name'+i).val("");
+        $('#Name' + i).val("");
     }
 }
