@@ -14,15 +14,16 @@ $(document).ready(function () {
             .append($('<tr>')
                 .append($('<td class="Col1">Menu' + i + '</td>'))
                 .append($(
-                    '<td class="checkBoxCol"><input type="checkbox" id="MenuCheck' +
+                    '<td class="checkBoxCol">' +
+                    '<input type="checkbox" id="MenuCheck' +
                     i + '" /></td>'))
                 .append($('<td class="Col2"><input id="Cap' +
                     i + '" type="text" value="Menu' + i +
                     '" class="textBox" /></td>'))
                 .append($('<td class="Col3"><input id="Face' +
                     i + '" type="text" value="1244" class="textBox" /></td>'))
-                .append($('<td class="Col4"><input id="Onaction' +
-                    i + '" type="text" value="MenuNULL" class="textBox" /></td>'))
+                .append($('<td class="Col4"><input id="Onaction' + i +
+                    '" type="text" value="MenuNULL" class="textBox" /></td>'))
                 .append($('<td class="Col5"><input id="TTip' +
                     i + '" type="text" value="Menu' + i +
                     ' végrehajtása" class="textBox" /></td>'))
@@ -33,12 +34,15 @@ $(document).ready(function () {
             .append($('<tr>')
                 .append($('<td class="Col1">Property' + i + '</td>'))
                 .append($(
-                    '<td class="checkBoxCol"><input type="checkbox" id="ClassCheck' +
+                    '<td class="checkBoxCol">' +
+                    '<input type="checkbox" id="ClassCheck' +
                     i + '" /></td>'))
                 .append($('<td class="Col2"><input id="Clprop' + i +
-                    '" type="text" value="Prop' + i + '" class="textBox" /></td>'))
+                    '" type="text" value="Prop' + i +
+                    '" class="textBox" /></td>'))
                 .append($('<td class="Col3"><input id="Clpar' + i +
-                    '" type="text" value="Par' + i + '" class="textBox" /></td>'))
+                    '" type="text" value="Par' + i +
+                    '" class="textBox" /></td>'))
                 .append($('<td class="Col4"><select id="Type' + i + '">'))
                 .append($('<td class="Col5"><select id="Mode' + i + '">'))
             );
@@ -269,22 +273,27 @@ function createClass() {
         outtxtClass = outtxtClass + '    Col_Letter = vArr(0)\n';
         outtxtClass = outtxtClass + 'End Function\n';
         outtxtClass = outtxtClass +
-            'Private Function Col_LetterHeader(sheetName As String, headText As String, Optional headRow = 1) As String\n';
+            'Private Function Col_LetterHeader(sheetName As String,' +
+            ' headText As String, Optional headRow = 1) As String\n';
         outtxtClass = outtxtClass + '    ' + "'" +
             'Get column letter from header text\n';
         outtxtClass = outtxtClass + '    Dim lngColNumber As Long\n';
         outtxtClass = outtxtClass + '    \n';
-        outtxtClass = outtxtClass + '    lngColNumber = Col_NumberHeader(sheetName, headText, headRow)\n';
-        outtxtClass = outtxtClass + '    Col_LetterHeader = Col_Letter(lngColNumber)\n';
+        outtxtClass = outtxtClass + '    lngColNumber = ' +
+            'Col_NumberHeader(sheetName, headText, headRow)\n';
+        outtxtClass = outtxtClass + '    Col_LetterHeader = ' +
+            'Col_Letter(lngColNumber)\n';
         outtxtClass = outtxtClass + 'End Function\n';
-        outtxtClass = outtxtClass + 'Private Function Col_Number(colLetter) As Long\n';
+        outtxtClass = outtxtClass +
+            'Private Function Col_Number(colLetter) As Long\n';
         outtxtClass = outtxtClass + '    ' + "'" +
             'Get column number from column letter\n';
         outtxtClass = outtxtClass +
             '    Col_Number = Range(colLetter & "1").Column\n';
         outtxtClass = outtxtClass + 'End Function\n';
         outtxtClass = outtxtClass +
-            'Private Function Col_NumberHeader(sheetName As String, headText As String, Optional headRow = 1) As Long\n';
+            'Private Function Col_NumberHeader(sheetName As String, ' +
+            'headText As String, Optional headRow = 1) As Long\n';
         outtxtClass = outtxtClass + '    ' + "'" +
             'Get column number from header text\n';
         outtxtClass = outtxtClass + '    Dim i As Long\n';
@@ -293,7 +302,8 @@ function createClass() {
         outtxtClass = outtxtClass + '    Col_NumberHeader = 0\n';
         outtxtClass = outtxtClass + '    For i = 1 To 400\n';
         outtxtClass = outtxtClass +
-            '        strCellString = Trim(CStr(Sheets(sheetName).Cells(headRow, i)))\n';
+            '        strCellString = ' +
+            'Trim(CStr(Sheets(sheetName).Cells(headRow, i)))\n';
         outtxtClass = outtxtClass +
             '        If strCellString = headText Then\n';
         outtxtClass = outtxtClass + '            Col_NumberHeader = i\n';
@@ -303,7 +313,8 @@ function createClass() {
         outtxtClass = outtxtClass + 'End Function\n';
         outtxtClass = outtxtClass + 'Private Sub ColLetterTests()\n';
         outtxtClass = outtxtClass + '    ' + "'" +
-            'Test for Col_Letter, Col_LetterHeader, Col_Number and Col_NumberHeader\n';
+            'Test for Col_Letter, Col_LetterHeader, ' +
+            'Col_Number and Col_NumberHeader\n';
         outtxtClass = outtxtClass +
             '    Debug.Print Col_Letter(12)\n';
         outtxtClass = outtxtClass +
@@ -313,7 +324,8 @@ function createClass() {
             '    Debug.Print Col_NumberHeader("Hogyallunk", "Any.csop.")\n';
         outtxtClass = outtxtClass + 'End Sub\n';
         outtxtClass = outtxtClass +
-            'Private Function GetLastRow(sheetName As String, checkColumn As Long, _\n';
+            'Private Function GetLastRow(sheetName As String, ' +
+            'checkColumn As Long, _\n';
         outtxtClass = outtxtClass +
             '    Optional firstrow = 2, Optional lastrow = 600000, _\n';
         outtxtClass = outtxtClass +
@@ -350,7 +362,8 @@ function createClass() {
         outtxtClass = outtxtClass + '    curSheet.Activate\n';
         outtxtClass = outtxtClass + '    Set curSheet = Nothing\n';
         outtxtClass = outtxtClass +
-            '    Debug.Print "LastRow of " & sheetName & ": " & GetLastRow & " ChkCol:" & checkColumn\n';
+            '    Debug.Print "LastRow of " & sheetName & ": " &' +
+            ' GetLastRow & " ChkCol:" & checkColumn\n';
         outtxtClass = outtxtClass + 'End Function\n';
         outtxtClass = outtxtClass + '\n';
         outtxtClass = outtxtClass + '\n';
@@ -384,7 +397,8 @@ function createClass() {
     //SAP body
     if ($('#ClassCompCheck3').prop('checked')) {
         outtxtClass = outtxtClass +
-            'Private Function GetPathOfFile(FullFilename As String) As String\n';
+            'Private Function GetPathOfFile(FullFilename ' +
+            'As String) As String\n';
         outtxtClass = outtxtClass + '    ' + "'" +
             'Comments  : Get path of a full filename with path\n';
         outtxtClass = outtxtClass + '    ' + "'" + 'Parameters:\n';
@@ -422,7 +436,8 @@ function createClass() {
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + 'End Function\n';
         outtxtClass = outtxtClass +
-            'Private Function GetFilenameOfFile(FullFilename As String) As String\n';
+            'Private Function GetFilenameOfFile(FullFilename ' +
+            'As String) As String\n';
         outtxtClass = outtxtClass + '    ' + "'" +
             'Comments  : Get filename of a full filename with path\n';
         outtxtClass = outtxtClass + '    ' + "'" + 'Parameters:\n';
@@ -559,7 +574,8 @@ function createClass() {
         outtxtClass = outtxtClass + '    Resume PROC_EXIT\n';
         outtxtClass = outtxtClass + 'End Sub\n';
         outtxtClass = outtxtClass +
-            'Sub DuplicateSheet(NewSheetname As String, Optional Alert As Boolean = False)\n';
+            'Sub DuplicateSheet(NewSheetname As String, ' +
+            'Optional Alert As Boolean = False)\n';
         outtxtClass = outtxtClass + '    ' + "'" +
             'Comments  : Duplicate full hogyallunk sheet\n';
         outtxtClass = outtxtClass + '    ' + "'" + 'Parameters:\n';
@@ -601,9 +617,11 @@ function createClass() {
         outtxtClass = outtxtClass + '    Resume PROC_EXIT\n';
         outtxtClass = outtxtClass + 'End Sub\n';
         outtxtClass = outtxtClass +
-            'Sub CopySheetContent(NewSheetname As String, PasteSpec As Boolean, Optional Alert As Boolean = False)\n';
+            'Sub CopySheetContent(NewSheetname As String, ' +
+            'PasteSpec As Boolean, Optional Alert As Boolean = False)\n';
         outtxtClass = outtxtClass + '    ' + "'" +
-            'Comments  : Copy the (filtered, viewable) content of hogyallunk sheet\n';
+            'Comments  : Copy the (filtered, viewable) ' +
+            'content of hogyallunk sheet\n';
         outtxtClass = outtxtClass + '    ' + "'" + 'Parameters:\n';
         outtxtClass = outtxtClass + '    ' + "'" + '' + "'" +
             '           Alert\n';
@@ -633,7 +651,8 @@ function createClass() {
         outtxtClass = outtxtClass + '    Range("A1").Select\n';
         outtxtClass = outtxtClass + '    If PasteSpec Then\n';
         outtxtClass = outtxtClass +
-            '        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _\n';
+            '        Selection.PasteSpecial Paste:=xlPasteValues, ' +
+            'Operation:=xlNone, SkipBlanks _\n';
         outtxtClass = outtxtClass + '            :=False, Transpose:=False\n';
         outtxtClass = outtxtClass + '    Else\n';
         outtxtClass = outtxtClass + '        ActiveSheet.Paste\n';
@@ -656,7 +675,9 @@ function createClass() {
         outtxtClass = outtxtClass + '    Resume PROC_EXIT\n';
         outtxtClass = outtxtClass + 'End Sub\n';
         outtxtClass = outtxtClass +
-            'Function GetOpenFilename(Optional Title = "Fájl", Optional CollectionName = "Fájlok", Optional Extensions = "*.*") As String\n';
+            'Function GetOpenFilename(Optional Title = "Fájl", ' +
+            'Optional CollectionName = ' +
+            '"Fájlok", Optional Extensions = "*.*") ' + 'As String\n';
         outtxtClass = outtxtClass + '    ' + "'" + ' Comments:\n';
         outtxtClass = outtxtClass + '    ' + "'" + ' Params  : Title\n';
         outtxtClass = outtxtClass + '    ' + "'" +
@@ -696,14 +717,21 @@ function createClass() {
         outtxtClass = outtxtClass + '    Exit Function\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    PROC_ERR:\n';
-        outtxtClass = outtxtClass + '    Debug.Print Err.Description, vbCritical, "' + className + '.GetOpenFilename"\n';
+        outtxtClass = outtxtClass +
+            '    Debug.Print Err.Description, vbCritical, "' +
+            className + '.GetOpenFilename"\n';
         outtxtClass = outtxtClass + '    Resume PROC_EXIT\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + 'End Function\n';
-        outtxtClass = outtxtClass + 'Sub SetFilenameWithDialog(Optional Title = "Fájl", Optional CollectionName = "Fájlok", Optional Extensions = "*.*")\n';
-        outtxtClass = outtxtClass + '    ' + "'" + 'Comments  : Load data from SAP exported CSV (text)\n';
+        outtxtClass = outtxtClass +
+            'Sub SetFilenameWithDialog(Optional Title = "Fájl", ' +
+            'Optional CollectionName = "Fájlok", ' +
+            'Optional Extensions = "*.*")\n';
+        outtxtClass = outtxtClass + '    ' + "'" +
+            'Comments  : Load data from SAP exported CSV (text)\n';
         outtxtClass = outtxtClass + '    ' + "'" + ' Params  : Title\n';
-        outtxtClass = outtxtClass + '    ' + "'" + '           CollectionName\n';
+        outtxtClass = outtxtClass + '    ' + "'" +
+            '           CollectionName\n';
         outtxtClass = outtxtClass + '    ' + "'" + '           Extensions\n';
         outtxtClass = outtxtClass + '    ' + "'" + 'Created by: Laszlo Tamas\n';
         outtxtClass = outtxtClass + '    \n';
@@ -712,13 +740,21 @@ function createClass() {
         outtxtClass = outtxtClass + '    On Error GoTo PROC_ERR\n';
         outtxtClass = outtxtClass + '    ' + "'" + 'Code here\n';
         outtxtClass = outtxtClass + '    \n';
-        outtxtClass = outtxtClass + '    strRes = GetOpenFilename(Title, CollectionName, Extensions)\n';
+        outtxtClass = outtxtClass +
+            '    strRes = GetOpenFilename(Title, CollectionName, Extensions)\n';
         outtxtClass = outtxtClass + '    m_strFullFilename = strRes\n';
-        outtxtClass = outtxtClass + '    Debug.Print "' + className + '.SetFilenameWithDialog FullFilename has been set to: " & m_strFullFilename\n';
+        outtxtClass = outtxtClass + '    Debug.Print "' +
+            className + '.SetFilenameWithDialog FullFilename ' +
+            'has been set to: " & m_strFullFilename\n';
         outtxtClass = outtxtClass + '    m_strPath = GetPathOfFile(strRes)\n';
-        outtxtClass = outtxtClass + '    Debug.Print "' + className + '.SetFilenameWithDialog Path has been set to: " & m_strPath\n';
-        outtxtClass = outtxtClass + '    m_strFilename = GetFilenameOfFile(strRes)\n';
-        outtxtClass = outtxtClass + '    Debug.Print "' + className + '.SetFilenameWithDialog Filename has been set to: " & m_strFilename\n';
+        outtxtClass = outtxtClass + '    Debug.Print "' +
+            className + '.SetFilenameWithDialog Path ' +
+            'has been set to: " & m_strPath\n';
+        outtxtClass = outtxtClass + '    m_strFilename = ' +
+            'GetFilenameOfFile(strRes)\n';
+        outtxtClass = outtxtClass + '    Debug.Print "' +
+            className + '.SetFilenameWithDialog Filename ' +
+            'has been set to: " & m_strFilename\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    PROC_EXIT:\n';
         outtxtClass = outtxtClass + '    On Error GoTo 0\n';
@@ -727,31 +763,45 @@ function createClass() {
         outtxtClass = outtxtClass + '    Exit Sub\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    PROC_ERR:\n';
-        outtxtClass = outtxtClass + '    Debug.Print "Error in Sub ' + className + '.SetFilenameWithDialog"\n';
+        outtxtClass = outtxtClass + '    Debug.Print "Error in Sub ' +
+            className + '.SetFilenameWithDialog"\n';
         outtxtClass = outtxtClass + '    If Err.Number Then\n';
-        outtxtClass = outtxtClass + '        ' + "'" + 'MsgBox Err.Description\n';
+        outtxtClass = outtxtClass + '        ' + "'" +
+            'MsgBox Err.Description\n';
         outtxtClass = outtxtClass + '        Debug.Print Err.Description\n';
         outtxtClass = outtxtClass + '    End If\n';
         outtxtClass = outtxtClass + '    Resume PROC_EXIT\n';
         outtxtClass = outtxtClass + 'End Sub\n';
-        outtxtClass = outtxtClass + 'Function GetSaveFilename(Optional DTitle = "Fájl", Optional FFilter = "Excel files , *.xlsx") As String\n';
+        outtxtClass = outtxtClass +
+            'Function GetSaveFilename(Optional DTitle = "Fájl", ' +
+            'Optional FFilter = "Excel files , *.xlsx") As String\n';
         outtxtClass = outtxtClass + '    ' + "'" + ' Comments:\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    On Error GoTo PROC_ERR\n';
         outtxtClass = outtxtClass + '    GetSaveFilename = vbNullString\n';
-        outtxtClass = outtxtClass + '    GetSaveFilename = Application.GetSaveAsFilename(InitialFileName:=m_strOutputFilename, FileFilter:=FFilter, Title:=DTitle)\n';
-        outtxtClass = outtxtClass + '    ' + "'" + '    Debug.Print "GetOpenFilename: " & GetSaveFilename & " Title:" & Title\n';
+        outtxtClass = outtxtClass +
+            '    GetSaveFilename = Application.GetSaveAsFilename(' +
+            'InitialFileName:=m_strOutputFilename, ' +
+            'FileFilter:=FFilter, Title:=DTitle)\n';
+        outtxtClass = outtxtClass + '    ' + "'" +
+            '    Debug.Print "GetOpenFilename: " & ' +
+            'GetSaveFilename & " Title:" & Title\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    PROC_EXIT:\n';
         outtxtClass = outtxtClass + '    Exit Function\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    PROC_ERR:\n';
-        outtxtClass = outtxtClass + '    Debug.Print Err.Description, vbCritical, "' + className + '.GetSaveFilename"\n';
+        outtxtClass = outtxtClass +
+            '    Debug.Print Err.Description, vbCritical, "' +
+            className + '.GetSaveFilename"\n';
         outtxtClass = outtxtClass + '    Resume PROC_EXIT\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + 'End Function\n';
-        outtxtClass = outtxtClass + 'Sub SetOutputFilenameWithDialog(Optional DTitle = "Fájl", Optional FFilter = "Excel files , *.xlsx")\n';
-        outtxtClass = outtxtClass + '    ' + "'" + 'Comments  : Load data from SAP exported CSV (text)\n';
+        outtxtClass = outtxtClass +
+            'Sub SetOutputFilenameWithDialog(Optional DTitle = ' +
+            '"Fájl", Optional FFilter = "Excel files , *.xlsx")\n';
+        outtxtClass = outtxtClass + '    ' + "'" +
+            'Comments  : Load data from SAP exported CSV (text)\n';
         outtxtClass = outtxtClass + '    ' + "'" + 'Created by: Laszlo Tamas\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    Dim strRes As String\n';
@@ -759,9 +809,13 @@ function createClass() {
         outtxtClass = outtxtClass + '    On Error GoTo PROC_ERR\n';
         outtxtClass = outtxtClass + '    ' + "'" + 'Code here\n';
         outtxtClass = outtxtClass + '    \n';
-        outtxtClass = outtxtClass + '    strRes = GetSaveFilename(DTitle, FFilter)\n';
+        outtxtClass = outtxtClass +
+            '    strRes = GetSaveFilename(DTitle, FFilter)\n';
         outtxtClass = outtxtClass + '    m_strOutputFilename = strRes\n';
-        outtxtClass = outtxtClass + '    Debug.Print "' + className + '.SetOutputFilenameWithDialog FullFilename has been set to: " & m_strOutputFilename\n';
+        outtxtClass = outtxtClass +
+            '    Debug.Print "' + className +
+            '.SetOutputFilenameWithDialog FullFilename ' +
+            'has been set to: " & m_strOutputFilename\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    PROC_EXIT:\n';
@@ -771,14 +825,17 @@ function createClass() {
         outtxtClass = outtxtClass + '    Exit Sub\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    PROC_ERR:\n';
-        outtxtClass = outtxtClass + '    Debug.Print "Error in Sub ' + className + '.SetOutputFilenameWithDialog"\n';
+        outtxtClass = outtxtClass + '    Debug.Print "Error in Sub ' +
+            className + '.SetOutputFilenameWithDialog"\n';
         outtxtClass = outtxtClass + '    If Err.Number Then\n';
-        outtxtClass = outtxtClass + '        ' + "'" + 'MsgBox Err.Description\n';
+        outtxtClass = outtxtClass + '        ' + "'" +
+            'MsgBox Err.Description\n';
         outtxtClass = outtxtClass + '        Debug.Print Err.Description\n';
         outtxtClass = outtxtClass + '    End If\n';
         outtxtClass = outtxtClass + '    Resume PROC_EXIT\n';
         outtxtClass = outtxtClass + 'End Sub\n';
-        outtxtClass = outtxtClass + 'Sub LoadText(Optional PasteSpec As Boolean = False)\n';
+        outtxtClass = outtxtClass +
+            'Sub LoadText(Optional PasteSpec As Boolean = False)\n';
         outtxtClass = outtxtClass + '    On Error GoTo PROC_ERR\n';
         outtxtClass = outtxtClass + '    Sheets(m_strSheetname).Select\n';
         outtxtClass = outtxtClass + '    Cells.Select\n';
@@ -786,28 +843,35 @@ function createClass() {
         outtxtClass = outtxtClass + '    Selection.Delete Shift:=xlUp\n';
         outtxtClass = outtxtClass + '    Range("A1").Select\n';
         outtxtClass = outtxtClass + '    \n';
-        outtxtClass = outtxtClass + '    Workbooks.OpenText Filename:=m_strFullFilename, _\n';
+        outtxtClass = outtxtClass +
+            '    Workbooks.OpenText Filename:=m_strFullFilename, _\n';
         outtxtClass = outtxtClass + '        Origin:=XLOrigin_UTF, _\n';
         outtxtClass = outtxtClass + '            DataType:=xlDelimited, _\n';
         outtxtClass = outtxtClass + '                Semicolon:=True\n';
         outtxtClass = outtxtClass + '    \n';
-        outtxtClass = outtxtClass + '    mstrOpenWorkbookName = ActiveWorkbook.Name\n';
+        outtxtClass = outtxtClass +
+            '    mstrOpenWorkbookName = ActiveWorkbook.Name\n';
         outtxtClass = outtxtClass + '    Cells.Select\n';
         outtxtClass = outtxtClass + '    Selection.Copy\n';
-        outtxtClass = outtxtClass + '    Windows(mstrMainWorkbookName).Activate\n';
+        outtxtClass = outtxtClass +
+            '    Windows(mstrMainWorkbookName).Activate\n';
         outtxtClass = outtxtClass + '    Sheets(m_strSheetname).Select\n';
         outtxtClass = outtxtClass + '    Range("A1").Select\n';
         outtxtClass = outtxtClass + '    If PasteSpec Then\n';
-        outtxtClass = outtxtClass + '        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _\n';
+        outtxtClass = outtxtClass +
+            '        Selection.PasteSpecial Paste:=xlPasteValues, ' +
+            'Operation:=xlNone, SkipBlanks _\n';
         outtxtClass = outtxtClass + '            :=False, Transpose:=False\n';
         outtxtClass = outtxtClass + '    Else\n';
         outtxtClass = outtxtClass + '        ActiveSheet.Paste\n';
         outtxtClass = outtxtClass + '    End If\n';
-        outtxtClass = outtxtClass + '    Windows(mstrOpenWorkbookName).Activate\n';
+        outtxtClass = outtxtClass +
+            '    Windows(mstrOpenWorkbookName).Activate\n';
         outtxtClass = outtxtClass + '    Application.DisplayAlerts = False\n';
         outtxtClass = outtxtClass + '    ActiveWindow.Close (False)\n';
         outtxtClass = outtxtClass + '    Application.DisplayAlerts = True\n';
-        outtxtClass = outtxtClass + '    Windows(mstrMainWorkbookName).Activate\n';
+        outtxtClass = outtxtClass +
+            '    Windows(mstrMainWorkbookName).Activate\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    PROC_EXIT:\n';
         outtxtClass = outtxtClass + '    On Error GoTo 0\n';
@@ -816,9 +880,11 @@ function createClass() {
         outtxtClass = outtxtClass + '    Exit Sub\n';
         outtxtClass = outtxtClass + '    \n';
         outtxtClass = outtxtClass + '    PROC_ERR:\n';
-        outtxtClass = outtxtClass + '    Debug.Print "Error in Sub ' + className + '.LoadText"\n';
+        outtxtClass = outtxtClass +
+            '    Debug.Print "Error in Sub ' + className + '.LoadText"\n';
         outtxtClass = outtxtClass + '    If Err.Number Then\n';
-        outtxtClass = outtxtClass + '        ' + "'" + 'MsgBox Err.Description\n';
+        outtxtClass = outtxtClass +
+            '        ' + "'" + 'MsgBox Err.Description\n';
         outtxtClass = outtxtClass + '        Debug.Print Err.Description\n';
         outtxtClass = outtxtClass + '    End If\n';
         outtxtClass = outtxtClass + '    Resume PROC_EXIT\n';
@@ -849,14 +915,16 @@ function createMainModule() {
     outtextMain = outtextMain + '    On Error GoTo 0\n';
     outtextMain = outtextMain + '    Exit Sub\n';
     outtextMain = outtextMain + 'PROC_ERR:\n';
-    outtextMain = outtextMain + '    Debug.Print  "Error in Procedure ' + projectName + '"\n';
+    outtextMain = outtextMain +
+        '    Debug.Print  "Error in Procedure ' + projectName + '"\n';
     outtextMain = outtextMain + '    If Err.Number Then\n';
     outtextMain = outtextMain + '        Debug.Print  Err.Description\n';
     outtextMain = outtextMain + '    End If\n';
     outtextMain = outtextMain + '    Resume PROC_EXIT\n';
     outtextMain = outtextMain + 'End Sub\n';
     outtextMain = outtextMain + 'Private Sub ' + projectName + 'Test\n';
-    outtextMain = outtextMain + '    ' + "'" + 'Test procedure for ' + projectName + '\n';
+    outtextMain = outtextMain +
+        '    ' + "'" + 'Test procedure for ' + projectName + '\n';
     outtextMain = outtextMain + '    Dim dtmStartTime As Date\n';
     outtextMain = outtextMain + '\n';
     outtextMain = outtextMain + '\n';
@@ -869,60 +937,89 @@ function createMainModule() {
         outtextMain = outtextMain + '' + "'" + '----------------\n';
         outtextMain = outtextMain + '' + "'" + 'Columns and Rows\n';
         outtextMain = outtextMain + '' + "'" + '----------------\n';
-        outtextMain = outtextMain + 'Private Function Col_Letter(lngCol As Long) As String\n';
-        outtextMain = outtextMain + '    ' + "'" + 'Get letter from column number\n';
+        outtextMain = outtextMain +
+            'Private Function Col_Letter(lngCol As Long) As String\n';
+        outtextMain = outtextMain +
+            '    ' + "'" + 'Get letter from column number\n';
         outtextMain = outtextMain + '    Dim vArr\n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + '    ' + "'" + '  On Error Resume Next\n';
-        outtextMain = outtextMain + '    vArr = Split(Cells(1, lngCol).Address(True, False), "$")\n';
+        outtextMain = outtextMain +
+            '    vArr = Split(Cells(1, lngCol).Address(True, False), "$")\n';
         outtextMain = outtextMain + '    Col_Letter = vArr(0)\n';
         outtextMain = outtextMain + 'End Function\n';
-        outtextMain = outtextMain + 'Private Function Col_LetterHeader(sheetName As String, headText As String, Optional headRow = 1) As String\n';
-        outtextMain = outtextMain + '    ' + "'" + 'Get column letter from header text\n';
+        outtextMain = outtextMain +
+            'Private Function Col_LetterHeader(sheetName As String, ' +
+            'headText As String, Optional headRow = 1) As String\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            'Get column letter from header text\n';
         outtextMain = outtextMain + '    Dim lngColNumber As Long\n';
         outtextMain = outtextMain + '    \n';
-        outtextMain = outtextMain + '    lngColNumber = Col_NumberHeader(sheetName, headText, headRow)\n';
-        outtextMain = outtextMain + '    Col_LetterHeader = Col_Letter(lngColNumber)\n';
+        outtextMain = outtextMain +
+            '    lngColNumber = Col_NumberHeader(sheetName, ' +
+            'headText, headRow)\n';
+        outtextMain = outtextMain +
+            '    Col_LetterHeader = Col_Letter(lngColNumber)\n';
         outtextMain = outtextMain + 'End Function\n';
-        outtextMain = outtextMain + 'Private Function Col_Number(colLetter) As Long\n';
-        outtextMain = outtextMain + '    ' + "'" + 'Get column number from column letter\n';
-        outtextMain = outtextMain + '    Col_Number = Range(colLetter & "1").Column\n';
+        outtextMain = outtextMain +
+            'Private Function Col_Number(colLetter) As Long\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            'Get column number from column letter\n';
+        outtextMain = outtextMain +
+            '    Col_Number = Range(colLetter & "1").Column\n';
         outtextMain = outtextMain + 'End Function\n';
-        outtextMain = outtextMain + 'Private Function Col_NumberHeader(sheetName As String, headText As String, Optional headRow = 1) As Long\n';
-        outtextMain = outtextMain + '    ' + "'" + 'Get column number from header text\n';
+        outtextMain = outtextMain +
+            'Private Function Col_NumberHeader(sheetName As String, ' +
+            'headText As String, Optional headRow = 1) As Long\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            'Get column number from header text\n';
         outtextMain = outtextMain + '    Dim i As Long\n';
         outtextMain = outtextMain + '    Dim strCellString As String\n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + '    Col_NumberHeader = 0\n';
         outtextMain = outtextMain + '    For i = 1 To 400\n';
-        outtextMain = outtextMain + '        strCellString = Trim(CStr(Sheets(sheetName).Cells(headRow, i)))\n';
-        outtextMain = outtextMain + '        If strCellString = headText Then\n';
+        outtextMain = outtextMain +
+            '        strCellString = ' +
+            'Trim(CStr(Sheets(sheetName).Cells(headRow, i)))\n';
+        outtextMain = outtextMain +
+            '        If strCellString = headText Then\n';
         outtextMain = outtextMain + '            Col_NumberHeader = i\n';
         outtextMain = outtextMain + '            Exit Function\n';
         outtextMain = outtextMain + '        End If\n';
         outtextMain = outtextMain + '    Next i\n';
         outtextMain = outtextMain + 'End Function\n';
         outtextMain = outtextMain + 'Private Sub ColLetterTests()\n';
-        outtextMain = outtextMain + '    ' + "'" + 'Test for Col_Letter, Col_LetterHeader, Col_Number and Col_NumberHeader\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            'Test for Col_Letter, Col_LetterHeader, Col_Number ' +
+            'and Col_NumberHeader\n';
         outtextMain = outtextMain + '    Debug.Print Col_Letter(12)\n';
-        outtextMain = outtextMain + '    Debug.Print Col_LetterHeader("Hogyallunk", "Any.csop.")\n';
+        outtextMain = outtextMain +
+            '    Debug.Print Col_LetterHeader("Hogyallunk", "Any.csop.")\n';
         outtextMain = outtextMain + '    Debug.Print Col_Number("H")\n';
-        outtextMain = outtextMain + '    Debug.Print Col_NumberHeader("Hogyallunk", "Any.csop.")\n';
+        outtextMain = outtextMain +
+            '    Debug.Print Col_NumberHeader("Hogyallunk", "Any.csop.")\n';
         outtextMain = outtextMain + 'End Sub\n';
-        outtextMain = outtextMain + 'Private Function GetLastRow(sheetName As String, checkColumn As Long, _\n';
-        outtextMain = outtextMain + '    Optional firstrow = 2, Optional lastrow = 600000, _\n';
-        outtextMain = outtextMain + '        Optional backwardCheck = True) As Long\n';
+        outtextMain = outtextMain +
+            'Private Function GetLastRow(sheetName As String, ' +
+            'checkColumn As Long, _\n';
+        outtextMain = outtextMain +
+            '    Optional firstrow = 2, Optional lastrow = 600000, _\n';
+        outtextMain = outtextMain +
+            '        Optional backwardCheck = True) As Long\n';
         outtextMain = outtextMain + '    ' + "'" + 'Adott fül utolsó sora\n';
         outtextMain = outtextMain + '    Dim i As Long\n';
         outtextMain = outtextMain + '    Dim curSheet As Worksheet\n';
         outtextMain = outtextMain + '    Dim strCell As String\n';
         outtextMain = outtextMain + '    \n';
-        outtextMain = outtextMain + '    Set curSheet = ActiveWorkbook.ActiveSheet\n';
+        outtextMain = outtextMain +
+            '    Set curSheet = ActiveWorkbook.ActiveSheet\n';
         outtextMain = outtextMain + '    Sheets(sheetName).Activate\n';
         outtextMain = outtextMain + '    GetLastRow = 0\n';
         outtextMain = outtextMain + '    If backwardCheck Then\n';
-        outtextMain = outtextMain + '        For i = lastrow To firstrow Step -1\n';
-        outtextMain = outtextMain + '            strCell = Trim(CStr(Cells(i, checkColumn)))\n';
+        outtextMain = outtextMain +
+            '        For i = lastrow To firstrow Step -1\n';
+        outtextMain = outtextMain +
+            '            strCell = Trim(CStr(Cells(i, checkColumn)))\n';
         outtextMain = outtextMain + '            If strCell <> "" Then\n';
         outtextMain = outtextMain + '                GetLastRow = i\n';
         outtextMain = outtextMain + '                Exit For\n';
@@ -930,7 +1027,8 @@ function createMainModule() {
         outtextMain = outtextMain + '        Next i\n';
         outtextMain = outtextMain + '    Else\n';
         outtextMain = outtextMain + '        For i = firstrow To lastrow\n';
-        outtextMain = outtextMain + '            strCell = Trim(CStr(Cells(i, checkColumn)))\n';
+        outtextMain = outtextMain +
+            '            strCell = Trim(CStr(Cells(i, checkColumn)))\n';
         outtextMain = outtextMain + '            If strCell = "" Then\n';
         outtextMain = outtextMain + '                GetLastRow = i - 1\n';
         outtextMain = outtextMain + '                Exit For\n';
@@ -939,7 +1037,9 @@ function createMainModule() {
         outtextMain = outtextMain + '    End If\n';
         outtextMain = outtextMain + '    curSheet.Activate\n';
         outtextMain = outtextMain + '    Set curSheet = Nothing\n';
-        outtextMain = outtextMain + '    Debug.Print "LastRow of " & sheetName & ": " & GetLastRow & " ChkCol:" & checkColumn\n';
+        outtextMain = outtextMain +
+            '    Debug.Print "LastRow of " & sheetName & ": " & ' +
+            'GetLastRow & " ChkCol:" & checkColumn\n';
         outtextMain = outtextMain + 'End Function\n';
         outtextMain = outtextMain + '\n';
         outtextMain = outtextMain + '\n';
@@ -954,7 +1054,8 @@ function createMainModule() {
         outtextMain = outtextMain + '    With Application\n';
         outtextMain = outtextMain + '        .ScreenUpdating = False\n';
         outtextMain = outtextMain + '        .EnableEvents = False\n';
-        outtextMain = outtextMain + '        ' + "'" + '.Calculation = xlCalculationManual\n';
+        outtextMain = outtextMain + '        ' + "'" +
+            '.Calculation = xlCalculationManual\n';
         outtextMain = outtextMain + '    End With\n';
         outtextMain = outtextMain + 'End Sub\n';
         outtextMain = outtextMain + 'Private Sub RefreshON()\n';
@@ -962,7 +1063,8 @@ function createMainModule() {
         outtextMain = outtextMain + '    With Application\n';
         outtextMain = outtextMain + '        .ScreenUpdating = True\n';
         outtextMain = outtextMain + '        .EnableEvents = True\n';
-        outtextMain = outtextMain + '        ' + "'" + '.Calculation = xlCalculationAutomatic\n';
+        outtextMain = outtextMain + '        ' + "'" +
+            '.Calculation = xlCalculationAutomatic\n';
         outtextMain = outtextMain + '    End With\n';
         outtextMain = outtextMain + 'End Sub\n';
         outtextMain = outtextMain + '\n';
@@ -973,34 +1075,45 @@ function createMainModule() {
         outtextMain = outtextMain + '' + "'" + '----------------------\n';
         outtextMain = outtextMain + 'Private Sub SwitchToENG()\n';
         outtextMain = outtextMain + '    ' + "'" + 'Váltás angolra\n';
-        outtextMain = outtextMain + '    Call ActivateKeyboardLayout(1033, 0)\n';
+        outtextMain = outtextMain +
+            '    Call ActivateKeyboardLayout(1033, 0)\n';
         outtextMain = outtextMain + 'End Sub\n';
         outtextMain = outtextMain + 'Private Sub SwitchToHUN()\n';
         outtextMain = outtextMain + '    ' + "'" + 'Váltás magyarra\n';
-        outtextMain = outtextMain + '    Call ActivateKeyboardLayout(1038, 0)\n';
+        outtextMain = outtextMain +
+            '    Call ActivateKeyboardLayout(1038, 0)\n';
         outtextMain = outtextMain + 'End Sub\n';
         outtextMain = outtextMain + 'Private Sub SwitchToTUR()\n';
         outtextMain = outtextMain + '    ' + "'" + 'Váltás törökre\n';
-        outtextMain = outtextMain + '    Call ActivateKeyboardLayout(1055, 0)\n';
+        outtextMain = outtextMain +
+            '    Call ActivateKeyboardLayout(1055, 0)\n';
         outtextMain = outtextMain + 'End Sub\n';
         outtextMain = outtextMain + '\n';
         outtextMain = outtextMain + '\n';
 
     }
     if ($('#CompCheck4').prop('checked')) {
-        outtextMain = outtextMain + '' + "'" + '------------------------------------------\n';
-        outtextMain = outtextMain + '' + "'" + 'Create Outlook Appointment for ' + projectName + '\n';
-        outtextMain = outtextMain + '' + "'" + '------------------------------------------\n';
-        outtextMain = outtextMain + 'Public Sub CreateAppt' + projectName + '(sSubject, sBodyText, sDate)\n';
-        outtextMain = outtextMain + '    ' + "'" + 'A CreateObject módszerrel Office verzió független\n';
+        outtextMain = outtextMain + '' + "'" +
+            '------------------------------------------\n';
+        outtextMain = outtextMain + '' + "'" +
+            'Create Outlook Appointment for ' + projectName + '\n';
+        outtextMain = outtextMain + '' + "'" +
+            '------------------------------------------\n';
+        outtextMain = outtextMain + 'Public Sub CreateAppt' +
+            projectName + '(sSubject, sBodyText, sDate)\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            'A CreateObject módszerrel Office verzió független\n';
         outtextMain = outtextMain + '    Dim olApp As Object\n';
         outtextMain = outtextMain + '    \n';
-        outtextMain = outtextMain + '    Set olApp = CreateObject("Outlook.Application")\n';
+        outtextMain = outtextMain +
+            '    Set olApp = CreateObject("Outlook.Application")\n';
         outtextMain = outtextMain + '    \n';
-        outtextMain = outtextMain + '    ' + "'" + '    Dim olApp As Outlook.Application\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            '    Dim olApp As Outlook.Application\n';
         outtextMain = outtextMain + '    Dim olAppt As Object\n';
         outtextMain = outtextMain + '    \n';
-        outtextMain = outtextMain + '    Set olAppt = olApp.CreateItem(1) ' + "'" + '0, mail, 1 appointment\n';
+        outtextMain = outtextMain + '    Set olAppt = olApp.CreateItem(1) ' +
+            "'" + '0, mail, 1 appointment\n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + '    Dim blnCreated As Boolean\n';
         outtextMain = outtextMain + '    Dim olNs As Object\n';
@@ -1016,7 +1129,8 @@ function createMainModule() {
         outtextMain = outtextMain + '    Dim colNev\n';
         outtextMain = outtextMain + '    Dim colSznap\n';
         outtextMain = outtextMain + '    \n';
-        outtextMain = outtextMain + '    ' + "'" + '    Dim oPattern As RecurrencePattern\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            '    Dim oPattern As RecurrencePattern\n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + '    colNev = 1\n';
         outtextMain = outtextMain + '    colSznap = 2\n';
@@ -1029,43 +1143,66 @@ function createMainModule() {
         outtextMain = outtextMain + '    strCalSubject = vbNullString\n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + '    On Error Resume Next\n';
-        outtextMain = outtextMain + '    ' + "'" + '    Set olApp = Outlook.Application\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            '    Set olApp = Outlook.Application\n';
         outtextMain = outtextMain + '    ' + "'" + '\n';
-        outtextMain = outtextMain + '    ' + "'" + '    If olApp Is Nothing Then\n';
-        outtextMain = outtextMain + '    ' + "'" + '        Set olApp = Outlook.Application\n';
-        outtextMain = outtextMain + '    ' + "'" + '        blnCreated = True\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            '    If olApp Is Nothing Then\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            '        Set olApp = Outlook.Application\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            '        blnCreated = True\n';
         outtextMain = outtextMain + '    ' + "'" + '        Err.Clear\n';
         outtextMain = outtextMain + '    ' + "'" + '    Else\n';
-        outtextMain = outtextMain + '    ' + "'" + '        blnCreated = False\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            '        blnCreated = False\n';
         outtextMain = outtextMain + '    ' + "'" + '    End If\n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + '    On Error GoTo 0\n';
         outtextMain = outtextMain + '    \n';
-        outtextMain = outtextMain + '    Set olNs = olApp.GetNamespace("MAPI")\n';
-        outtextMain = outtextMain + '    Set CalFolder = olNs.GetDefaultFolder(9) ' + "'" + '9 olFolderCalendar\n';
+        outtextMain = outtextMain +
+            '    Set olNs = olApp.GetNamespace("MAPI")\n';
+        outtextMain = outtextMain +
+            '    Set CalFolder = olNs.GetDefaultFolder(9) ' + "'" +
+            '9 olFolderCalendar\n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + '    \n';
-        outtextMain = outtextMain + '    ' + "'" + '    arrCal = cmstrCalSzuletesnapok ' + "'" + 'Naptár neve\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            '    arrCal = cmstrCalSzuletesnapok ' + "'" + 'Naptár neve\n';
         outtextMain = outtextMain + '    ' + "'" + '\n';
-        outtextMain = outtextMain + '    ' + "'" + '    Set subFolder = CalFolder.Folders(arrCal)\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            '    Set subFolder = CalFolder.Folders(arrCal)\n';
         outtextMain = outtextMain + '    \n';
-        outtextMain = outtextMain + '    Set olAppt = CalFolder.Items.Add(1) ' + "'" + '1 olAppointmentItem\n';
+        outtextMain = outtextMain +
+            '    Set olAppt = CalFolder.Items.Add(1) ' + "'" +
+            '1 olAppointmentItem\n';
         outtextMain = outtextMain + '    \n';
-        outtextMain = outtextMain + '    ' + "'" + 'MsgBox subFolder, vbOKCancel, "Folder Name"\n';
+        outtextMain = outtextMain + '    ' + "'" +
+            'MsgBox subFolder, vbOKCancel, "Folder Name"\n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + '    With olAppt\n';
         outtextMain = outtextMain + '        \n';
-        outtextMain = outtextMain + '        ' + "'" + 'Define calendar item properties\n';
+        outtextMain = outtextMain + '        ' + "'" +
+            'Define calendar item properties\n';
         outtextMain = outtextMain + '        \n';
-        outtextMain = outtextMain + '        ' + "'" + 'Debug.Print DateValue("2016." & Right(Trim(CStr(Cells(i, colSznap))), 4)) + TimeValue("0:00:00")\n';
-        outtextMain = outtextMain + '        .Start = DateTime.DateSerial(CInt(Left(sDate, 4)), CInt(Mid(sDate, 6, 2)), CInt(Mid(sDate, 9, 2))) + TimeValue("9:00:00") ' + "'" + 'Given date 09:00\n';
+        outtextMain = outtextMain + '        ' + "'" +
+            'Debug.Print DateValue("2016." & ' +
+            'Right(Trim(CStr(Cells(i, colSznap))), 4)) + ' +
+            'TimeValue("0:00:00")\n';
+        outtextMain = outtextMain +
+            '        .Start = DateTime.DateSerial(CInt(Left(sDate, 4)), ' +
+            'CInt(Mid(sDate, 6, 2)), CInt(Mid(sDate, 9, 2))) + ' +
+            'TimeValue("9:00:00") ' + "'" + 'Given date 09:00\n';
         outtextMain = outtextMain + '        .Subject = sSubject\n';
         outtextMain = outtextMain + '        .Body = sBodyText\n';
         outtextMain = outtextMain + '        .ReminderSet = True\n';
-        outtextMain = outtextMain + '        .ReminderMinutesBeforeStart = 4320 ' + "'" + '3 days, 72 hours\n';
-        outtextMain = outtextMain + '        .MeetingStatus = 0 ' + "'" + '0 olNonMeeting\n';
+        outtextMain = outtextMain +
+            '        .ReminderMinutesBeforeStart = 4320 ' + "'" +
+            '3 days, 72 hours\n';
+        outtextMain = outtextMain + '        .MeetingStatus = 0 ' +
+            "'" + '0 olNonMeeting\n';
         outtextMain = outtextMain + '        .Save\n';
         outtextMain = outtextMain + '    End With\n';
         outtextMain = outtextMain + '    \n';
@@ -1077,11 +1214,15 @@ function createMainModule() {
         outtextMain = outtextMain + '    Exit Sub\n';
         outtextMain = outtextMain + '    \n';
         outtextMain = outtextMain + 'PROC_ERR:\n';
-        outtextMain = outtextMain + '    MsgBox "An error occurred - Exporting items to Calendar." & vbCrLf & Err.Number & " " & Err.Description\n';
+        outtextMain = outtextMain +
+            '    MsgBox "An error occurred - Exporting items to Calendar." & ' +
+            'vbCrLf & Err.Number & " " & Err.Description\n';
         outtextMain = outtextMain + '    Resume PROC_EXIT\n';
         outtextMain = outtextMain + 'End Sub\n';
-        outtextMain = outtextMain + 'Private Sub CreateAppt' + projectName + '_Test()\n';
-        outtextMain = outtextMain + '    Call CreateAppt' + projectName + '("Kórház2", "Teszt szöveg2", "2017.10.18")\n';
+        outtextMain = outtextMain + 'Private Sub CreateAppt' +
+            projectName + '_Test()\n';
+        outtextMain = outtextMain + '    Call CreateAppt' + projectName +
+            '("Kórház2", "Teszt szöveg2", "2017.10.18")\n';
         outtextMain = outtextMain + 'End Sub\n';
         outtextMain = outtextMain + '\n';
         outtextMain = outtextMain + '\n';
@@ -1097,50 +1238,67 @@ function createMenu() {
     var ribbonName = projectName + "Ribbon";
 
     var outtxtThisWorkbook = "";
-    outtxtThisWorkbook = outtxtThisWorkbook + 'Private Sub Workbook_BeforeClose(Cancel As Boolean)\n';
-    outtxtThisWorkbook = outtxtThisWorkbook + '    Call DeleteRibbons' + projectName + '\n';
+    outtxtThisWorkbook = outtxtThisWorkbook +
+        'Private Sub Workbook_BeforeClose(Cancel As Boolean)\n';
+    outtxtThisWorkbook = outtxtThisWorkbook +
+        '    Call DeleteRibbons' + projectName + '\n';
     outtxtThisWorkbook = outtxtThisWorkbook + 'End Sub\n';
     outtxtThisWorkbook = outtxtThisWorkbook + '\n';
     outtxtThisWorkbook = outtxtThisWorkbook + 'Private Sub Workbook_Open()\n';
-    outtxtThisWorkbook = outtxtThisWorkbook + '    Call AddRibbons' + projectName + '\n';
+    outtxtThisWorkbook = outtxtThisWorkbook +
+        '    Call AddRibbons' + projectName + '\n';
     outtxtThisWorkbook = outtxtThisWorkbook + 'End Sub\n';
     $('#textThisWb').val(outtxtThisWorkbook);
 
     var outtxtMenuModule = "";
     outtxtMenuModule = outtxtMenuModule + 'Option Explicit\n';
-    outtxtMenuModule = outtxtMenuModule + 'Global Const sToolbar' + projectName + ' As String = "' + ribbonName + '"\n';
+    outtxtMenuModule = outtxtMenuModule +
+        'Global Const sToolbar' + projectName + ' As String = "' +
+        ribbonName + '"\n';
     outtxtMenuModule = outtxtMenuModule + '\n';
-    outtxtMenuModule = outtxtMenuModule + 'Public Sub AddRibbons' + projectName + '()\n';
-    outtxtMenuModule = outtxtMenuModule + '    ' + "'" + 'Add user ribbons, call it from Workbook_Open\n';
-    outtxtMenuModule = outtxtMenuModule + '    Call AddRibbonLine' + projectName + '\n';
+    outtxtMenuModule = outtxtMenuModule +
+        'Public Sub AddRibbons' + projectName + '()\n';
+    outtxtMenuModule = outtxtMenuModule +
+        '    ' + "'" + 'Add user ribbons, call it from Workbook_Open\n';
+    outtxtMenuModule = outtxtMenuModule +
+        '    Call AddRibbonLine' + projectName + '\n';
     outtxtMenuModule = outtxtMenuModule + 'End Sub\n';
-    outtxtMenuModule = outtxtMenuModule + 'Public Sub DeleteRibbons' + projectName + '()\n';
-    outtxtMenuModule = outtxtMenuModule + '    ' + "'" + 'Delete ribbons, call it from Workbook_BeforeClose\n';
+    outtxtMenuModule = outtxtMenuModule +
+        'Public Sub DeleteRibbons' + projectName + '()\n';
+    outtxtMenuModule = outtxtMenuModule +
+        '    ' + "'" + 'Delete ribbons, call it from Workbook_BeforeClose\n';
     outtxtMenuModule = outtxtMenuModule + '    On Error Resume Next\n';
-    outtxtMenuModule = outtxtMenuModule + '    Application.CommandBars(sToolbar' + projectName + ').Delete\n';
+    outtxtMenuModule = outtxtMenuModule +
+        '    Application.CommandBars(sToolbar' + projectName + ').Delete\n';
     outtxtMenuModule = outtxtMenuModule + 'End Sub\n';
     outtxtMenuModule = outtxtMenuModule + '\n';
 
-    outtxtMenuModule = outtxtMenuModule + 'Sub AddRibbonLine' + projectName + '()\n';
+    outtxtMenuModule = outtxtMenuModule +
+        'Sub AddRibbonLine' + projectName + '()\n';
     outtxtMenuModule = outtxtMenuModule + '    ' + "'" + ribbonName + '\n';
     outtxtMenuModule = outtxtMenuModule + '    Dim cbToolBar\n';
     outtxtMenuModule = outtxtMenuModule + '    \n';
 
     for (var i = 1; i < menuNum + 1; i++) {
         if ($('#MenuCheck' + i).promise('checked')) {
-            outtxtMenuModule = outtxtMenuModule + '	Dim ctButton' + i.toString() + '\n';
+            outtxtMenuModule = outtxtMenuModule +
+                '	Dim ctButton' + i.toString() + '\n';
         }
     }
 
 
     outtxtMenuModule = outtxtMenuModule + '    \n';
     outtxtMenuModule = outtxtMenuModule + '    On Error Resume Next\n';
-    outtxtMenuModule = outtxtMenuModule + '    Set cbToolBar = Application.CommandBars.Add(sToolbar' + projectName + ', msoBarTop, False, True)\n';
+    outtxtMenuModule = outtxtMenuModule +
+        '    Set cbToolBar = Application.CommandBars.Add(sToolbar' +
+        projectName + ', msoBarTop, False, True)\n';
     outtxtMenuModule = outtxtMenuModule + '    With cbToolBar\n';
 
     for (i = 1; i < menuNum + 1; i++) {
         if ($('#MenuCheck' + i).promise('checked')) {
-            outtxtMenuModule = outtxtMenuModule + '        Set ctButton' + i.toString() + ' = .Controls.Add(Type:=msoControlButton, ID:=2950)\n';
+            outtxtMenuModule = outtxtMenuModule +
+                '        Set ctButton' + i.toString() +
+                ' = .Controls.Add(Type:=msoControlButton, ID:=2950)\n';
         }
     }
 
@@ -1150,12 +1308,18 @@ function createMenu() {
 
     for (i = 1; i < menuNum + 1; i++) {
         if ($('#MenuCheck' + i).promise('checked')) {
-            outtxtMenuModule = outtxtMenuModule + '    With ctButton' + i.toString() + '\n';
-            outtxtMenuModule = outtxtMenuModule + '        .Caption = "' + $('#Cap' + i).val() + '\n';
-            outtxtMenuModule = outtxtMenuModule + '        .FaceId = ' + $('#Face' + i).val() + '\n';
-            outtxtMenuModule = outtxtMenuModule + '        .OnAction = "' + $('#Onaction' + i).val() + '"\n';
-            outtxtMenuModule = outtxtMenuModule + '        .TooltipText = "' + $('#TTip' + i).val() + '"\n';
-            outtxtMenuModule = outtxtMenuModule + '        .Style = msoButtonIconAndCaption\n';
+            outtxtMenuModule = outtxtMenuModule +
+                '    With ctButton' + i.toString() + '\n';
+            outtxtMenuModule = outtxtMenuModule +
+                '        .Caption = "' + $('#Cap' + i).val() + '\n';
+            outtxtMenuModule = outtxtMenuModule +
+                '        .FaceId = ' + $('#Face' + i).val() + '\n';
+            outtxtMenuModule = outtxtMenuModule +
+                '        .OnAction = "' + $('#Onaction' + i).val() + '"\n';
+            outtxtMenuModule = outtxtMenuModule +
+                '        .TooltipText = "' + $('#TTip' + i).val() + '"\n';
+            outtxtMenuModule = outtxtMenuModule +
+                '        .Style = msoButtonIconAndCaption\n';
             outtxtMenuModule = outtxtMenuModule + '    End With\n';
             outtxtMenuModule = outtxtMenuModule + '    \n';
         }
@@ -1166,13 +1330,15 @@ function createMenu() {
     outtxtMenuModule = outtxtMenuModule + '    \n';
     outtxtMenuModule = outtxtMenuModule + '    With cbToolBar\n';
     outtxtMenuModule = outtxtMenuModule + '        .Visible = True\n';
-    outtxtMenuModule = outtxtMenuModule + '        .Protection = msoBarNoChangeVisible\n';
+    outtxtMenuModule = outtxtMenuModule +
+        '        .Protection = msoBarNoChangeVisible\n';
     outtxtMenuModule = outtxtMenuModule + '    End With\n';
     outtxtMenuModule = outtxtMenuModule + 'End Sub\n';
 
 
     outtxtMenuModule = outtxtMenuModule + 'Sub MenuNULL()\n';
-    outtxtMenuModule = outtxtMenuModule + '    ' + "'" + 'Empty dummy subroutine\n';
+    outtxtMenuModule = outtxtMenuModule +
+        '    ' + "'" + 'Empty dummy subroutine\n';
     outtxtMenuModule = outtxtMenuModule + 'End Sub\n';
 
 
