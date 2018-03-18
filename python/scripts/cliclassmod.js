@@ -1,6 +1,6 @@
 /// <reference path="../../typings/globals/jquery/index.d.ts" />
 var argNum = 6;
-var funcNum = 5;
+var funcNum = 8;
 $(document).ready(function () {
     var i = 1;
     for (i = 1; i < argNum + 1; i++) {
@@ -85,10 +85,15 @@ function generateMain() {
     textString = textString + '    def __init__(self):\n';
     textString = textString + '        pass\n';
     textString = textString + '\n';
-    textString = textString + '    def sample_func(self):\n';
-    textString = textString + '        pass\n';
-    textString = textString + '\n';
-    textString = textString + '\n';
+
+    for (i = 1; i < funcNum + 1; i++) {
+        if ($('#funcs' + i).val() != "") {
+            textString = textString + '    def ' + $('#funcs' + i).val() + '(self):\n';
+            textString = textString + '        pass\n';
+            textString = textString + '\n';
+            textString = textString + '\n';
+        }
+    }
     textString = textString + 'def parse_arguments():\n';
     textString = textString + '    """\n';
     textString = textString + '    Parse program arguments.\n';
@@ -146,10 +151,12 @@ function generateMain() {
                 $('#funcs' + i).val() + "'" + ':\n';
             textString = textString + '        if args.verbose:\n';
             textString = textString + '            ret = ' +
-                $('#ClassName').val().toUpperCase() + '.sample_func()\n';
+                $('#ClassName').val().toUpperCase() + '.' +
+                $('#funcs' + i).val() + '()\n';
             textString = textString + '        else:\n';
             textString = textString + '            ret = ' +
-                $('#ClassName').val().toUpperCase() + '.sample_func()\n';
+                $('#ClassName').val().toUpperCase() + '.' +
+                $('#funcs' + i).val() + '()\n';
         }
     }
     textString = textString + '\n';
