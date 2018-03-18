@@ -56,6 +56,7 @@ function addDefaults() {
     $('#argsSh1').val('i');
     $('#args1').val('input_file');
     $('#help1').val('input file name');
+    $('#funcs1').val('sample_func');
 }
 
 function generateMain() {
@@ -196,6 +197,10 @@ function generateNotes() {
                 $('#funcs' + i).val() + ' -v\n';
         }
     }
+
+    textString = textString + '\n';
+    textString = textString + 'from ' + $('#ClassName').val().toLowerCase() +
+    ' import ' + $('#ClassName').val() + '\n';
 
     $('#TextAreaNotes').val(textString);
 }
