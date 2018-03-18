@@ -180,7 +180,11 @@ function generateNotes() {
     var argums = "";
     for (i = 1; i < argNum + 1; i++) {
         if ($('#argsSh' + i).val() != "") {
-            argums = argums + ' -' + $('#argsSh' + i).val() + ' "testdata"';
+            if ($('#argscheck' + i).prop('checked')) {
+                argums = argums + ' -' + $('#argsSh' + i).val();
+            } else {
+                argums = argums + ' -' + $('#argsSh' + i).val() + ' "testdata"';
+            }
         }
     }
 
