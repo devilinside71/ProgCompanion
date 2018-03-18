@@ -90,6 +90,9 @@ $(document).ready(function () {
     $('#setpredef').click(function () {
         setPredef();
     });
+    $('#NameProj').on('input',(function () {
+        $('#NameClass').val($('#NameProj').val()+"Class");
+    }));
 });
 
 function createProject() {
