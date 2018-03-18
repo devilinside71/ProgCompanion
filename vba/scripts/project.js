@@ -90,8 +90,8 @@ $(document).ready(function () {
     $('#setpredef').click(function () {
         setPredef();
     });
-    $('#NameProj').on('input',(function () {
-        $('#NameClass').val($('#NameProj').val()+"Class");
+    $('#NameProj').on('input', (function () {
+        $('#NameClass').val($('#NameProj').val() + "Class");
     }));
 });
 
@@ -121,7 +121,7 @@ function createClass() {
         className + ' As New ' + className + '\n';
     outtextClasstest = outtextClasstest + '    \n';
     for (i = 1; i < propNum + 1; i++) {
-        if ($('#ClassCheck'+1).prop('checked')) {
+        if ($('#ClassCheck' + 1).prop('checked')) {
             outtextClasstest = outtextClasstest + '    cl' +
                 className + '.' + $('#Clprop' + i).val() +
                 getConstInitValue($('#Type' + i).val()) + '\n';
@@ -142,7 +142,7 @@ function createClass() {
     outtxtClass = outtxtClass + '\n';
 
     for (i = 1; i < propNum + 1; i++) {
-        if ($('#ClassCheck'+1).prop('checked')) {
+        if ($('#ClassCheck' + 1).prop('checked')) {
             outtxtClass = outtxtClass + 'Private m_' +
                 getPrefix($('#Type' + i).val()) +
                 $('#Clprop' + i).val() + ' As ' +
@@ -1127,7 +1127,7 @@ function createMenu() {
     outtxtMenuModule = outtxtMenuModule + '    \n';
 
     for (var i = 1; i < menuNum + 1; i++) {
-        if ($('#MenuCheck'+i).promise('checked')) {
+        if ($('#MenuCheck' + i).promise('checked')) {
             outtxtMenuModule = outtxtMenuModule + '	Dim ctButton' + i.toString() + '\n';
         }
     }
@@ -1139,7 +1139,7 @@ function createMenu() {
     outtxtMenuModule = outtxtMenuModule + '    With cbToolBar\n';
 
     for (i = 1; i < menuNum + 1; i++) {
-        if ($('#MenuCheck'+i).promise('checked')) {
+        if ($('#MenuCheck' + i).promise('checked')) {
             outtxtMenuModule = outtxtMenuModule + '        Set ctButton' + i.toString() + ' = .Controls.Add(Type:=msoControlButton, ID:=2950)\n';
         }
     }
@@ -1149,12 +1149,12 @@ function createMenu() {
     outtxtMenuModule = outtxtMenuModule + '    \n';
 
     for (i = 1; i < menuNum + 1; i++) {
-        if ($('#MenuCheck'+i).promise('checked')) {
+        if ($('#MenuCheck' + i).promise('checked')) {
             outtxtMenuModule = outtxtMenuModule + '    With ctButton' + i.toString() + '\n';
-            outtxtMenuModule = outtxtMenuModule + '        .Caption = "' + $('#Cap'+i).val() + '\n';
-            outtxtMenuModule = outtxtMenuModule + '        .FaceId = ' + $('#Face'+i).val() + '\n';
-            outtxtMenuModule = outtxtMenuModule + '        .OnAction = "' +  $('#Onaction'+i).val() + '"\n';
-            outtxtMenuModule = outtxtMenuModule + '        .TooltipText = "' + $('#TTip'+i).val() + '"\n';
+            outtxtMenuModule = outtxtMenuModule + '        .Caption = "' + $('#Cap' + i).val() + '\n';
+            outtxtMenuModule = outtxtMenuModule + '        .FaceId = ' + $('#Face' + i).val() + '\n';
+            outtxtMenuModule = outtxtMenuModule + '        .OnAction = "' + $('#Onaction' + i).val() + '"\n';
+            outtxtMenuModule = outtxtMenuModule + '        .TooltipText = "' + $('#TTip' + i).val() + '"\n';
             outtxtMenuModule = outtxtMenuModule + '        .Style = msoButtonIconAndCaption\n';
             outtxtMenuModule = outtxtMenuModule + '    End With\n';
             outtxtMenuModule = outtxtMenuModule + '    \n';
@@ -1221,7 +1221,7 @@ function setPredef() {
         $('#Clpar5').val('parOutputFilename');
         $('#Type5').val('String');
         $('#Mode5').val('Let and Get');
-        
+
     }
 
 }
