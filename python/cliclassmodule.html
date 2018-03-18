@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta content="hu" http-equiv="Content-Language" />
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<script type="text/javascript" src="../scripts/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="scripts/cliclassmod.js"></script>
+	<link href="styles/python.css" rel="stylesheet" type="text/css" />
+	<title>Python CLI Class module</title>
+</head>
+
+<body class="bodyStyle">
+
+	<table class="half">
+		<tr>
+			<td colspan="2">
+				<h3>Python CLI class module</h3>
+			</td>
+		</tr>
+		<tr>
+			<td class="Col1">
+				<h4>Class name:</h4>
+			</td>
+			<td>
+
+				<input name="Text1" type="text" value="SampleClass" class="half" id="ClassName" />
+			</td>
+		</tr>
+	</table>
+
+	<table class="half" id="tableargs">
+		<tr>
+			<td class="Col1">
+				<h4>Arguments</h4>
+			</td>
+			<td class="Col2">&nbsp;</td>
+			<td class="Col1">&nbsp;</td>
+
+			<td class="half">&nbsp;</td>
+		</tr>
+		<tr>
+		<td class="Col1">
+			<h4></h4>
+		</td>
+		<td class="Col2">Short</td>
+		<td class="Col1">Long</td>
+
+		<td class="half">Help</td>
+		</tr>
+		<!-- jQuery -->
+		<!-- <tr>
+			<td class="titleCol2">Argument1:</td>
+			<td class="half"><input id="args1" type="text" class="full" /></td>
+			<td><input id="argscheck1" type="checkbox" />Boolean</td>
+		</tr> -->
+
+
+	</table>
+
+	<table class="half" id="tablefuncs">
+		<tr>
+			<td class="Col1">
+				<h4>Functions</h4>
+			</td>
+			<td class="half">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<!-- jQuery -->
+		<!-- <tr>
+			<td class="titleCol2">Function1:</td>
+			<td class="half"><input name="Text2" type="text" class="full" /></td>
+			<td>&nbsp;</td>
+		</tr> -->
+
+	</table>
+	<input name="Button1" type="button" value="Generate" id="generate" />
+
+	<input name="Button2" type="button" value="Clear" id="clear" />
+
+	<table class="half" id="tablaA">
+		<tr>
+			<td class="teaxtareaLabel">
+				<h4>Main module:
+					<br />
+					<input type="text" id="mainName" class="full" value="sampleclass.py" />
+				</h4>
+			</td>
+			<td>
+
+				<textarea cols="20" id="TextAreaMain" rows="20" class="textArea"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="teaxtareaLabel">
+				<h4>Test code:
+					<br />
+					<input type="text" id="testName" class="full" value="sampleclass_test.py" />
+				</h4>
+			</td>
+
+			<td>
+				<textarea cols="20" id="TextAreaTest" rows="20" class="textArea" ></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="teaxtareaLabel">
+				<h4>Notes:
+					<br />
+					<input type="text" id="notesName" class="full" value="sampleclass_notes.txt" />
+				</h4>
+			</td>
+
+			<td>
+				<textarea cols="20" id="TextAreaNotes" rows="20" class="textArea" ></textarea>
+			</td>
+		</tr>
+
+	</table>
+
+</body>
+
+</html>
