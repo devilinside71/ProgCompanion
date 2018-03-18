@@ -87,7 +87,10 @@ function generateMain() {
     textString = textString + '    def __init__(self):\n';
     for (i = 1; i < argNum + 1; i++) {
         if ($('#argsSh' + i).val() != "") {
-            if ($('#argscheck' + i).prop('checked')) {} else {
+            if ($('#argscheck' + i).prop('checked')) {
+                textString = textString + '        self.' +
+                    $('#args' + i).val() + ' = True\n';
+            } else {
                 textString = textString + '        self.' +
                     $('#args' + i).val() + ' = "testdata"\n';
             }
@@ -161,10 +164,36 @@ function generateMain() {
             textString = textString + '    if args.function == ' + "'" +
                 $('#funcs' + i).val() + "'" + ':\n';
             textString = textString + '        if args.verbose:\n';
+            for (var k = 1; k < argNum + 1; k++) {
+                if ($('#argsSh' + k).val() != "") {
+                    if ($('#argscheck' + k).prop('checked')) {
+                        textString = textString + '            ' +
+                            $('#ClassName').val().toUpperCase() + '.' +
+                            $('#args' + k).val() + ' = True\n';
+                    } else {
+                        textString = textString + '            ' +
+                            $('#ClassName').val().toUpperCase() + '.' +
+                            $('#args' + k).val() + ' = "testdata"\n';
+                    }
+                }
+            }
             textString = textString + '            ret = ' +
                 $('#ClassName').val().toUpperCase() + '.' +
                 $('#funcs' + i).val() + '()\n';
             textString = textString + '        else:\n';
+            for (var k = 1; k < argNum + 1; k++) {
+                if ($('#argsSh' + k).val() != "") {
+                    if ($('#argscheck' + k).prop('checked')) {
+                        textString = textString + '            ' +
+                            $('#ClassName').val().toUpperCase() + '.' +
+                            $('#args' + k).val() + ' = True\n';
+                    } else {
+                        textString = textString + '            ' +
+                            $('#ClassName').val().toUpperCase() + '.' +
+                            $('#args' + k).val() + ' = "testdata"\n';
+                    }
+                }
+            }
             textString = textString + '            ret = ' +
                 $('#ClassName').val().toUpperCase() + '.' +
                 $('#funcs' + i).val() + '()\n';
@@ -252,7 +281,11 @@ function generateTest() {
             textString = textString + '        """\n';
             for (var k = 1; k < argNum + 1; k++) {
                 if ($('#argsSh' + k).val() != "") {
-                    if ($('#argscheck' + k).prop('checked')) {} else {
+                    if ($('#argscheck' + k).prop('checked')) {
+                        textString = textString + '        self.' +
+                            $('#ClassName').val().toLowerCase() + '_t.' +
+                            $('#args' + k).val() + ' = True\n';
+                    } else {
                         textString = textString + '        self.' +
                             $('#ClassName').val().toLowerCase() + '_t.' +
                             $('#args' + k).val() + ' = "testdata"\n';
