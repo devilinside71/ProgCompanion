@@ -33,4 +33,34 @@
 .teaxtareaLabel {
     vertical-align: top;
     width: 20%;
+    text-align: right;
+}
+
+.checkBoxCol {
+    width: 3%;
+}
+
+.Col1 {
+    width: 20%;
+}
+
+.Col2 {
+    width: 8%;
+}
+
+.Col3 {
+    width: 8%;
+}
+
+.Col4 {
+    width: 8%;
+}
+
+.Col5 {
+    width: 8%;
+}
+
+.faceIdImage {
+    width: 700px;
+    height: 402px;
 }

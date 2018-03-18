@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="../scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="scripts/project.js"></script>
+    <link href="styles/vba.css" rel="stylesheet" type="text/css" />
+    <title>VBA Project</title>
+</head>
+
+<body class="bodyStyle">
+
+
+    <table class="half">
+        <tr>
+            <td colspan="6">
+                <h3>
+                    <a name="Project_builder">VBA Project builder</a>
+                </h3>
+            </td>
+
+        </tr>
+    </table>
+    <p class="tableDivider"></p>
+    <table class="half" id="tableMenu">
+        <tr>
+            <td class="Col1">
+                <h4>Project name:</h4>
+            </td>
+            <td class="checkBoxCol">&nbsp;</td>
+            <td class="Col2">
+                <input id="NameProj" class="projName" type="text" value="Project" />
+            </td>
+            <td class="Col3">&nbsp;</td>
+            <td class="Col4">
+                <a href="#FaceIDs">Show FaceIDs</a>
+            </td>
+            <td class="Col5">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="Col1">
+                <h4>Menu</h4>
+            </td>
+            <td class="checkBoxCol"></td>
+            <td class="Col2">Caption</td>
+            <td class="Col3">FaceID</td>
+            <td class="Col4">OnAction</td>
+            <td class="Col5">ToolTip</td>
+        </tr>
+        <!-- jquery -->
+
+
+    </table>
+    <p class="tableDivider"></p>
+    <table class="half">
+        <tr>
+            <td class="Col1">
+                <h4>Components</h4>
+            </td>
+            <td class="checkBoxCol">&nbsp;</td>
+            <td class="Col2">
+                <input name="Checkbox2" type="checkbox" id="CompCheck1" checked="checked" />Col and row handling</td>
+            <td class="Col3">
+                <input name="Checkbox3" type="checkbox" id="CompCheck2" />Refresh On-Off
+            </td>
+            <td class="Col4">
+                <input name="Checkbox4" type="checkbox" id="CompCheck3" />Keyboard layout
+            </td>
+            <td class="Col5">
+                <input name="Checkbox9" type="checkbox" id="CompCheck4" />Outlook Appt
+            </td>
+        </tr>
+        <tr>
+            <td class="Col1">&nbsp;</td>
+            <td class="checkBoxCol">&nbsp;</td>
+            <td class="Col2">&nbsp;</td>
+            <td class="Col3">&nbsp;</td>
+            <td class="Col4">&nbsp;</td>
+            <td class="Col5">&nbsp;</td>
+
+        </tr>
+    </table>
+    <hr class="tableDivider" />
+    <table class="half">
+        <tr>
+            <td class="Col1">
+                <h4>Class</h4>
+            </td>
+            <td class="checkBoxCol">&nbsp;</td>
+            <td class="Col2">
+                <input id="NameClass" class="projName" name="Text2" type="text" value="ProjectClass" />
+            </td>
+            <td class="Col3">&nbsp;</td>
+            <td class="Col4">&nbsp;</td>
+            <td class="Col5">&nbsp;</td>
+        </tr>
+
+    </table>
+    
+   
+    <table class="half" id="tableProps">
+            <tr>
+                    <td class="Col1">
+                        <h4>Properties</h4>
+                    </td>
+                    <td class="checkBoxCol">&nbsp;</td>
+                    <td class="Col2">Property name</td>
+                    <td class="Col3">Parameter name</td>
+                    <td class="Col4">Type</td>
+                    <td class="Col5">Mode</td>
+        
+                </tr>        <!-- jquery -->
+
+    </table>
+    <p class="tableDivider"></p>
+    <table class="half">
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <input name="Checkbox17" type="checkbox" id="ClassCompCheck1" />Col and Row</td>
+            <td>
+                <input name="Checkbox18" type="checkbox" id="ClassCompCheck2" />Refresh On-Off
+            </td>
+            <td>
+                <input name="Checkbox19" type="checkbox" id="ClassCompCheck3" />SAP body
+            </td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td class="Col1">&nbsp;</td>
+            <td class="checkBoxCol">&nbsp;</td>
+            <td class="Col2">&nbsp;</td>
+            <td class="Col3">&nbsp;</td>
+            <td class="Col4">&nbsp;</td>
+            <td class="Col5">&nbsp;</td>
+        </tr>
+    </table>
+    <input name="Button1" type="button" value="Generate" id="createproject" />
+    <input name="Button3" type="button" value="Class only" id="createclass" />
+    <input name="Button1" type="button" value="Clear" id="clear" />
+    <select id="ProjPredef" name="Select1">
+        <option value="blank"></option>
+        <option value="SAP">SAP</option>
+    </select>
+    <input name="Button2" type="button" value="Predefined settings" id="setpredef" />
+    <br />
+    <table class="projectCode">
+        <tr>
+            <td class="teaxtareaLabel">ThisWorkbook:</td>
+            <td>
+                <textarea class="textArea" cols="20" name="TextArea1" id="textThisWb" rows="8"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="teaxtareaLabel">Menu module:</td>
+            <td>
+                <textarea class="textArea" cols="20" name="TextArea2" id="textMenu" rows="12"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="teaxtareaLabel">
+                Main module with class test:</td>
+            <td>
+                <textarea class="textArea" cols="20" name="TextArea3" rows="12" id="textMain"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="teaxtareaLabel">Class module:</td>
+            <td>
+                <textarea class="textArea" cols="20" name="TextArea4" rows="15" id="textClass"></textarea>
+            </td>
+        </tr>
+    </table>
+
+
+    <table class="tableMain">
+        <tr>
+            <td>
+                <a href="#Project_builder">Back to Top</a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <a name="FaceIDs">
+                    <img alt="" class="faceIdImage" src="images/FaceID_0_299.jpg" />
+                </a>
+                <img alt="" class="faceIdImage" src="images/FaceID_300_599.jpg" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#Project_builder">Back to Top</a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <img alt="" class="faceIdImage" src="images/FaceID_600_899.jpg" />
+                <img alt="" class="faceIdImage" src="images/FaceID_900_1199.jpg" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#Project_builder">Back to Top</a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <img alt="" class="faceIdImage" src="images/FaceID_1200_1499.jpg" />
+                <img alt="" class="faceIdImage" src="images/FaceID_1500_1799.jpg" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#Project_builder">Back to Top</a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <img alt="" class="faceIdImage" src="images/FaceID_1800_2099.jpg" />
+                <img alt="" class="faceIdImage" src="images/FaceID_2100_2399.jpg" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#Project_builder">Back to Top</a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <img alt="" class="faceIdImage" src="images/FaceID_2400_2699.jpg" />
+                <img alt="" class="faceIdImage" src="images/FaceID_2700_2999.jpg" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#Project_builder">Back to Top</a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <img alt="" class="faceIdImage" src="images/FaceID_3000_3299.jpg" />
+                <img alt="" class="faceIdImage" src="images/FaceID_3900_4199.jpg" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#Project_builder">Back to Top</a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
