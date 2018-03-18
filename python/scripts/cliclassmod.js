@@ -36,9 +36,9 @@ $(document).ready(function () {
 });
 
 function generateModules() {
-
     generateFilenames();
     generateMain();
+    generateTest();
     generateNotes();
 }
 
@@ -89,7 +89,8 @@ function generateMain() {
 
     for (i = 1; i < funcNum + 1; i++) {
         if ($('#funcs' + i).val() != "") {
-            textString = textString + '    def ' + $('#funcs' + i).val() + '(self):\n';
+            textString = textString + '    def ' +
+                $('#funcs' + i).val() + '(self):\n';
             textString = textString + '        pass\n';
             textString = textString + '\n';
             textString = textString + '\n';
@@ -185,11 +186,64 @@ function generateNotes() {
 
     for (i = 1; i < funcNum + 1; i++) {
         if ($('#funcs' + i).val() != "") {
-            textString = textString + 'python ' + $('#ClassName').val().toLowerCase() + '.py';
-            textString = textString + ' ' + argums + ' -f ' + $('#funcs' + i).val() + ' -v\n';
+            textString = textString + 'python ' +
+                $('#ClassName').val().toLowerCase() + '.py';
+            textString = textString + ' ' + argums + ' -f ' +
+                $('#funcs' + i).val() + ' -v\n';
+        }
+    }
+
+    $('#TextAreaNotes').val(textString);
+}
+
+function generateTest() {
+    var textString = "";
+    var i = 1;
+    var argums = "";
+    textString = textString + '# -*- coding: utf-8 -*-\n';
+    textString = textString + '"""\n';
+    textString = textString + 'This module contains tests for ' +
+        $('#ClassName').val().toLowerCase() + ' module.\n';
+    textString = textString + '"""\n';
+    textString = textString + '\n';
+    textString = textString + 'import unittest\n';
+    textString = textString + 'from ' + $('#ClassName').val().toLowerCase() +
+        ' import ' + $('#ClassName').val() + '\n';
+    textString = textString + '\n';
+    textString = textString + '\n';
+    textString = textString + 'class TestFunctions(unittest.TestCase):\n';
+    textString = textString + '    """Test functions.\n';
+    textString = textString + '\n';
+    textString = textString + '    Arguments:\n';
+    textString = textString +
+        '        unittest {unittest} -- Calling attribute\n';
+    textString = textString + '    """\n';
+    textString = textString + '\n';
+    textString = textString + '    def setUp(self):\n';
+    textString = textString + '        self.' +
+        $('#ClassName').val().toLowerCase() + '_t = ' +
+        $('#ClassName').val() + '()\n';
+    textString = textString + '\n';
+
+    for (i = 1; i < funcNum + 1; i++) {
+        if ($('#funcs' + i).val() != "") {
+            textString = textString + '    def test_' + $('#funcs' + i).val() +
+                '(self):\n';
+            textString = textString + '        """Test.\n';
+            textString = textString + '        """\n';
+            textString = textString + '        self.assertEqual(self.' +
+                $('#ClassName').val().toLowerCase() + '_t.' +
+                $('#funcs' + i).val() + '(),"RESULT")\n';
+            textString = textString + '\n';
+            textString = textString + '\n';
         }
     }
 
 
-    $('#TextAreaNotes').val(textString);
+    textString = textString + 'if __name__ == ' + "'" +
+        '__main__' + "'" + ':\n';
+    textString = textString + '    unittest.main()\n';
+    textString = textString + '\n';
+    $('#TextAreaTest').val(textString);
+
 }
