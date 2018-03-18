@@ -39,6 +39,7 @@ function generateModules() {
 
     generateFilenames();
     generateMain();
+    generateNotes();
 }
 
 function resetNames() {
@@ -170,4 +171,25 @@ function generateMain() {
 
     $('#TextAreaMain').val(textString);
 
+}
+
+function generateNotes() {
+    var textString = "";
+    var i = 1;
+    var argums = "";
+    for (i = 1; i < argNum + 1; i++) {
+        if ($('#argsSh' + i).val() != "") {
+            argums = argums + ' -' + $('#argsSh' + i).val() + ' "testdata"';
+        }
+    }
+
+    for (i = 1; i < funcNum + 1; i++) {
+        if ($('#funcs' + i).val() != "") {
+            textString = textString + 'python ' + $('#ClassName').val().toLowerCase() + '.py';
+            textString = textString + ' ' + argums + ' -f ' + $('#funcs' + i).val() + ' -v\n';
+        }
+    }
+
+
+    $('#TextAreaNotes').val(textString);
 }
