@@ -1280,7 +1280,7 @@ function createMenu() {
     outtxtMenuModule = outtxtMenuModule + '    \n';
 
     for (var i = 1; i < menuNum + 1; i++) {
-        if ($('#MenuCheck' + i).promise('checked')) {
+        if ($('#MenuCheck' + i).prop('checked')) {
             outtxtMenuModule = outtxtMenuModule +
                 '	Dim ctButton' + i.toString() + '\n';
         }
@@ -1295,7 +1295,7 @@ function createMenu() {
     outtxtMenuModule = outtxtMenuModule + '    With cbToolBar\n';
 
     for (i = 1; i < menuNum + 1; i++) {
-        if ($('#MenuCheck' + i).promise('checked')) {
+        if ($('#MenuCheck' + i).prop('checked')) {
             outtxtMenuModule = outtxtMenuModule +
                 '        Set ctButton' + i.toString() +
                 ' = .Controls.Add(Type:=msoControlButton, ID:=2950)\n';
@@ -1307,7 +1307,7 @@ function createMenu() {
     outtxtMenuModule = outtxtMenuModule + '    \n';
 
     for (i = 1; i < menuNum + 1; i++) {
-        if ($('#MenuCheck' + i).promise('checked')) {
+        if ($('#MenuCheck' + i).prop('checked')) {
             outtxtMenuModule = outtxtMenuModule +
                 '    With ctButton' + i.toString() + '\n';
             outtxtMenuModule = outtxtMenuModule +
