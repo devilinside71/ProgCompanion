@@ -13,8 +13,9 @@ $(document).ready(function () {
                     '" type="text" class="full" /></td>'))
                 .append($('<td class="half"><input id="help' + i +
                     '" type="text" class="full" /></td>'))
-                .append($('<td class="Col2"><input id="argscheck' + i +
-                    '" type="checkbox" />Boolean</td>'))
+                .append($('<td class="checkBoxCol"><input id="argscheck' + i +
+                    '" type="checkbox" /></td>'))
+                .append($('<td>Boolean</td>'))
             );
     }
     for (i = 1; i < funcNum + 1; i++) {
@@ -30,9 +31,9 @@ $(document).ready(function () {
     $('#generate').click(function () {
         generateModules();
     });
-    $('#clear').click(function () {
-        resetNames();
-    });
+    // $('#clear').click(function () {
+    //     resetNames();
+    // });
 });
 
 function generateModules() {
@@ -62,6 +63,7 @@ function addDefaults() {
 function generateMain() {
     var textString = "";
     var i = 1;
+    var k = 1;
     textString = textString + '# -*- coding: utf-8 -*-\n';
     textString = textString + '"""\n';
     textString = textString + 'This module deals with code.\n';
@@ -164,7 +166,7 @@ function generateMain() {
             textString = textString + '    if args.function == ' + "'" +
                 $('#funcs' + i).val() + "'" + ':\n';
             textString = textString + '        if args.verbose:\n';
-            for (var k = 1; k < argNum + 1; k++) {
+            for (k = 1; k < argNum + 1; k++) {
                 if ($('#argsSh' + k).val() != "") {
                     if ($('#argscheck' + k).prop('checked')) {
                         textString = textString + '            ' +
@@ -182,7 +184,7 @@ function generateMain() {
                 $('#funcs' + i).val() + '()\n';
             textString = textString + '            print(ret)\n';
             textString = textString + '        else:\n';
-            for (var k = 1; k < argNum + 1; k++) {
+            for (k = 1; k < argNum + 1; k++) {
                 if ($('#argsSh' + k).val() != "") {
                     if ($('#argscheck' + k).prop('checked')) {
                         textString = textString + '            ' +
@@ -238,6 +240,14 @@ function generateNotes() {
     }
 
     textString = textString + '\n';
+    textString = textString + 'python ' +
+        $('#ClassName').val().toLowerCase() + '_test.py -v\n'
+    textString = textString + '\n';
+    textString = textString + 'python ' +
+        $('#ClassName').val().toLowerCase() + '.py -h\n'
+    textString = textString + 'python ' +
+        $('#ClassName').val().toLowerCase() + '.py --help\n'
+    textString = textString + '\n';
     textString = textString + 'from ' + $('#ClassName').val().toLowerCase() +
         ' import ' + $('#ClassName').val() + '\n';
 
@@ -268,10 +278,6 @@ function generateTest() {
     textString = textString + '    """\n';
     textString = textString + '\n';
     textString = textString + '    def setUp(self):\n';
-
-    // textString = textString + '        self.' +
-    //     $('#ClassName').val().toLowerCase() + '_t = ' +
-    //     $('#ClassName').val() + '()\n';
     textString = textString + '        pass\n';
 
     textString = textString + '\n';
@@ -297,7 +303,7 @@ function generateTest() {
             }
             textString = textString + '        self.assertEqual(' +
                 $('#ClassName').val().toUpperCase() + '.' +
-                $('#funcs' + i).val() + '(),"RESULT")\n';
+                $('#funcs' + i).val() + '(), "RESULT")\n';
             textString = textString + '\n';
             textString = textString + '\n';
         }
