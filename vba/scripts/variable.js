@@ -4,7 +4,7 @@ $(document).ready(function () {
     var i = 1;
     var typeOptions = new Array(
         "String", "Long", "Integer", "Boolean", "Double", "Date", "Variant",
-        "Object", "SheetName", "Worksheet", "Outlook"
+        "Object", "SheetName", "Worksheet", "ColumnName", "Outlook"
     );
     for (i = 1; i < elemNum + 1; i++) {
         $("#tabla").find('tbody')
@@ -58,7 +58,9 @@ $(document).ready(function () {
             .append($('<option value="' + typeOptions[9] + '">' +
                 typeOptions[9] + '</option>'))
             .append($('<option value="' + typeOptions[10] + '">' +
-                typeOptions[10] + '</option>'));
+                typeOptions[10] + '</option>'))
+            .append($('<option value="' + typeOptions[10] + '">' +
+                typeOptions[11] + '</option>'));
     }
 
     $('#generate').click(function () {
@@ -153,10 +155,13 @@ function getInitValue(varType) {
         return " = Nothing";
     }
     if (varType == "SheetName") {
-        return ' = "Sheet"';
+        return ' = "SheetName"';
     }
     if (varType == "Worksheet") {
         return " = ActiveSheet";
+    }
+    if (varType == "ColumnName") {
+        return ' = "ColumnName"';
     }
     if (varType == "Outlook") {
         return " = Nothing";
@@ -196,6 +201,9 @@ function getPrefix(varType) {
     if (varType == "Worksheet") {
         return "wst";
     }
+    if (varType == "ColumnName") {
+        return "col";
+    }    
     if (varType == "Outlook") {
         return "ol";
     }
@@ -233,6 +241,9 @@ function getDeclareType(varType) {
     if (varType == "Worksheet") {
         return "Worksheet";
     }
+    if (varType == "ColumnName") {
+        return "String";
+    }    
     if (varType == "Outlook") {
         return "Outlook";
     }
@@ -270,6 +281,9 @@ function getConstInitValue(varType) {
     if (varType == "Worksheet") {
         return " = ActiveSheet";
     }
+    if (varType == "ColumnName") {
+        return ' = "A"';
+    }    
     if (varType == "Outlook") {
         return " = ";
     }
