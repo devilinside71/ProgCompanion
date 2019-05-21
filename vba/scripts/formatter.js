@@ -19,6 +19,14 @@ function formatVBA() {
         "private property", "public property",
         "end enum", "end property",
         "for", "next", "with", "end with", "do", "loop");
+    var commandsUp = new Array("If", "Else", "Else If", "End If",
+        "Sub", "Private Sub", "Public Sub", "Function",
+        "Private Function", "Public Function",
+        "End Sub", "End Function",
+        "Enum", "Private enum", "Public Enum", "Property",
+        "Private Property", "Public Property",
+        "End Enum", "End Property",
+        "For", "Next", "With", "End With", "Do", "Loop");
     var commandsBefore = new Array("", "-", "-", "-",
         "0", "0", "0", "0", "0", "0",
         "0", "0",
