@@ -11,21 +11,14 @@ $(document).ready(function () {
 });
 
 function formatVBA() {
-    var commands = new Array("if", "else", "else if", "end if",
-        "sub", "private sub", "public sub", "function",
-        "private function", "public function",
-        "end sub", "end function",
-        "enum", "private enum", "public enum", "property",
-        "private property", "public property",
-        "end enum", "end property",
-        "for", "next", "with", "end with", "do", "loop");
+
     var commandsUp = new Array("AppActivate",
         "Beep", "Call", "ChDir", "ChDrive", "Close",
         "Const", "Date", "Declare", "DeleteSetting",
-        "Dim", "Do-Loop", "End", "Erase",
+        "Dim", "Do", "Do While", "Loop", "End", "Erase",
         "Error", "Exit Do", "Exit For", "Exit Function",
         "Exit Property", "Exit Sub", "FileCopy", "For",
-        "Each", "Next", "Function", "Get",
+        "Each", "Next", "For Each", "Function", "Get",
         "GoSub", "Return", "GoTo", "If",
         "Then", "Else", "Input #", "Kill",
         "Let", "Line Input #", "Load", "Lock",
@@ -41,7 +34,7 @@ function formatVBA() {
         "Type", "Unload", "While", "Wend",
         "Width #", "With", "Write #",
         "End Sub", "End Function",
-        "Debug.Print", "MsgBox"
+        "Debug.Print", "MsgBox", "Wait"
     );
     var funcsUp = new Array(
         "Abs", "Array", "Asc", "Atn", "CBool", "CByte",
@@ -65,18 +58,32 @@ function formatVBA() {
         "Weekday", "WeekdayName", "Year",
         "addItem", "getCellRangeByName", "getCellByPosition", "getByName",
         "setActiveSheet", "Worksheets", "Sheets", "findSheetIndex", "InsertNewByName",
-        "LoadLibrary", "getURL", "DirectoryNameoutofPath"
+        "LoadLibrary", "getURL", "DirectoryNameoutofPath", "callFunction", "hasLocation",
+        "Wait", "FileNameOutOfPath", "GetDocumentType", "HasUnoInterfaces",
+        "getComponents", "createEnumeration", "hasMoreElements", "nextElement"
     );
     var typesUp = new Array(
         " As String", " As Integer", " As Double",
-        " As WorkSheet", " As WorkBook",
-        " As Object"
+        " As WorkSheet", " As WorkBook", " As Long", " As Variant", " As Boolean",
+        " As Object", " As Date", " Then"
     );
     var objectsUp = new Array(
         "ThisComponent", "CurrentController",
         "ActiveSheet", "ActiveWorkbook", "GlobalScope",
         "BasicLibraries"
     );
+    var activityUp = new Array(
+        "Activate", "ActiveSheet", "getCurrentSelection",
+        "ScreenUpdating", "LockControllers"
+    );
+    var commands = new Array("if", "else", "else if", "end if",
+        "sub", "private sub", "public sub", "function",
+        "private function", "public function",
+        "end sub", "end function",
+        "enum", "private enum", "public enum", "property",
+        "private property", "public property",
+        "end enum", "end property",
+        "for", "next", "with", "end with", "do", "loop");
     var commandsBefore = new Array("", "-", "-", "-",
         "0", "0", "0", "0", "0", "0",
         "0", "0",
@@ -140,6 +147,10 @@ function formatVBA() {
         //make uppercase objects
         for (k = 0; k < objectsUp.length; k++) {
             line = line.replace(new RegExp(objectsUp[k] + '\\.', 'gi'), objectsUp[k] + '.');
+        }
+        //make uppercase activity
+        for (k = 0; k < activityUp.length; k++) {
+            line = line.replace(new RegExp('\\.' + activityUp[k], 'gi'), '.' + activityUp[k]);
         }
         outText = outText + getIndent(beforeIndent) + line + "\n";
         if (afterIndent == 1) {
