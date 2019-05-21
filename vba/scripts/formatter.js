@@ -60,7 +60,8 @@ function formatVBA() {
         "setActiveSheet", "Worksheets", "Sheets", "findSheetIndex", "InsertNewByName",
         "LoadLibrary", "getURL", "DirectoryNameoutofPath", "callFunction", "hasLocation",
         "Wait", "FileNameOutOfPath", "GetDocumentType", "HasUnoInterfaces",
-        "getComponents", "createEnumeration", "hasMoreElements", "nextElement"
+        "getComponents", "createEnumeration", "hasMoreElements", "nextElement",
+        "loadComponentFromURL", "Open", "getCount"
     );
     var typesUp = new Array(
         " As String", " As Integer", " As Double",
@@ -70,11 +71,11 @@ function formatVBA() {
     var objectsUp = new Array(
         "ThisComponent", "CurrentController",
         "ActiveSheet", "ActiveWorkbook", "GlobalScope",
-        "BasicLibraries"
+        "BasicLibraries", "StarDesktop", "RunAutoMacros"
     );
     var activityUp = new Array(
         "Activate", "ActiveSheet", "getCurrentSelection",
-        "ScreenUpdating", "LockControllers"
+        "ScreenUpdating", "LockControllers", "Open", "Name", "Value"
     );
     var commands = new Array("if", "else", "else if", "end if",
         "sub", "private sub", "public sub", "function",
