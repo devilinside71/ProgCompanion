@@ -70,9 +70,15 @@ function formatVBA() {
                 }
             }
 
-
         }
-
+        //make uppercase
+        for (k = 0; k < commandsUp.length; k++) {
+            if ((commands[k] + " ").toLowerCase() ==
+                line.slice(0, commands[k].length + 1).toLowerCase().trim() +
+                " ") {
+                line = line.replace(line.slice(0, commandsUp[k].length), commandsUp[k])
+            }
+        }
         outText = outText + getIndent(beforeIndent) + line + "\n";
         if (afterIndent == 1) {
             afterIndent = 0;
