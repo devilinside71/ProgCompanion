@@ -75,7 +75,8 @@ function formatVBA() {
     );
     var activityUp = new Array(
         "Activate", "ActiveSheet", "getCurrentSelection",
-        "ScreenUpdating", "LockControllers", "Open", "Name", "Value"
+        "ScreenUpdating", "LockControllers", "Open", "Name", "Value", "String",
+        "Address", "Select"
     );
     var commands = new Array("if", "else", "else if", "end if",
         "sub", "private sub", "public sub", "function",
