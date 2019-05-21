@@ -1,0 +1,44 @@
+ Sub MyProc    
+Dim URLStr as sTring   
+ Dim Path as string  
+  REM Load the included "Tools" library    
+GlobalScope.basicLibraries.LoaDLibrary("Tools")
+        URLStr = ThisComponent.GetURL()
+    Path = DirectoryNameoutofpath(URLStr, "/") 
+if alme then
+majom
+end If
+kutya.ScreenUpdatinG
+End SUb 
+
+Sub MyProc   
+ dim oSheet as object
+    oSheet = ThisComponent.CurrentController.activeSheet 
+  set oSheet = ThisComponent.CurrentController.AcTiveSheet 
+end SuB
+
+Sub MyProc    
+Dim wbk as Workbook    
+For each wbk in Workbooks        
+msgbox wbk.Name    
+next 
+End Sub 
+ Sub ListDocs
+ Dim oDocs As Object, oDoc As Object  
+ REM Load the included "Tools" library  
+ GlobalScope.BasicLibraries.LoadLibrary("Tools")  
+ oDocs = StarDesktop.getComponents().createEnumeration() 
+ Do While oDocs.hasMoreElements()  
+ oDoc = oDocs.nextElement()  
+ ReM Ignore any component that is not a document.  
+ REM The IDE, for example   
+ If hasUnoInterfaces(oDoc, "com.sun.star.frame.XModel") Then 
+ REM If there is no URL, then do not try to find it    
+ If oDoc.HasLocation() Then     
+ Rem Use the FileNameOutOfPath routine included with OOo  
+ msgbox FilenameOutOfPath(oDoc.getURL()) &_
+ " is of type " & GetDocumentType(oDoc)    
+ End If  
+ End IF 
+ LooP
+ End Sub 
