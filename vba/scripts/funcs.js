@@ -181,7 +181,7 @@ function createFunction() {
             dimPars = dimPars + "    Dim " +
                 dictTypes[$('#TypePar' + i).val()][prefIndex] +
                 capitalizeFirstLetter($('#Name' + i).val()) +
-                " As " + dictTypes[$('#TypePar' + i).val()][4] + "\n";
+                ' As ' + dictTypes[$('#TypePar' + i).val()][4] + "\n";
         }
     }
 
