@@ -28,10 +28,6 @@ var scopeTypes = {
 var prefIndex = 1;
 $(document).ready(function () {
     var i = 1;
-    var typeOptions = new Array(
-        "String", "Long", "Integer", "Boolean", "Double", "Date", "Variant",
-        "Object", "SheetName", "Worksheet", "Outlook"
-    );
     for (i = 1; i < elemNum + 1; i++) {
         $("#tabla").find('tbody')
             .append($('<tr>')
