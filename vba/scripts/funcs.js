@@ -1,5 +1,31 @@
 /// <reference path="../../typings/globals/jquery/index.d.ts" />
 var elemNum = 6;
+//virtualtype,long,short,init,declaration,constantinit,precommand
+var dictTypes = {
+    'String': ['String', 'str', 's', ' = vbNullString', 'String', ' = "text"', ''],
+    'Long': ['Long', 'lng', 'l', ' = 0', 'Long', ' = 0', ''],
+    'Integer': ['Integer', 'int', 'i', ' = 0', 'Integer', ' = 0', ''],
+    'Boolean': ['Boolean', 'bln', 'b', ' = False', 'Boolean', ' = False', ''],
+    'Double': ['Double', 'dbl', 'd', ' = 0.1', 'Double', ' = 0.1', ''],
+    'Date': ['Date', 'dat', 'dat', ' = CDate("04/22/2016 12:00 AM")', 'Date', ' = CDate("04/22/2016 12:00 AM")', ''],
+    'Variant': ['Variant', 'vnt', 'v', ' = 0', 'Variant', ' = 0', ''],
+    'Object': ['Object', 'obj', 'o', ' = Nothing', 'Object', ' = Nothing', 'Set '],
+    'SheetName': ['SheetName', 'sh', 'sh', ' = "Munka1"', 'String', ' = "Munka1"', ''],
+    'Worksheet': ['Worksheet', 'wsh', 'wsh', ' = ActiveSheet', 'Worksheet', ' = ActiveSheet', 'Set '],
+    'WorkbookName': ['WorkbookName', 'wb', 'wb', ' = "ThisBook"', 'String', ' = "ThisBook"', ''],
+    'Workbook': ['Workbook', 'wbk', 'wbk', ' = ActiveWorkbook', 'Workbook', ' = ActiveWorkbook', 'Set '],
+    'ColumnName': ['ColumnName', 'col', 'col', ' = "Header"', 'String', ' = "Header"', ''],
+    'ColumnNumber': ['ColumnNumber', 'col', 'col', ' = 1', 'Long', ' = 1', ''],
+    'Outlook': ['Outlook', 'oul', 'ou', ' = Nothing', 'Outlook', ' = Nothing', 'Set ']
+};
+
+//prefix,declaration,constdeclaration
+var scopeTypes = {
+    'Procedure': ['', 'Dim', ''],
+    'Module': ["m", 'Private', 'Private'],
+    'Global': ['g', 'Global', 'Global']
+}
+var prefIndex = 1;
 $(document).ready(function () {
     var i = 1;
     var typeOptions = new Array(
@@ -20,53 +46,39 @@ $(document).ready(function () {
     }
     for (i = 1; i < elemNum + 1; i++) {
         $('#TypePar' + i)
-            .append($('<option value="' + typeOptions[0] + '">' +
-                typeOptions[0] + '</option>'))
-            .append($('<option value="' + typeOptions[1] + '">' +
-                typeOptions[1] + '</option>'))
-            .append($('<option value="' + typeOptions[2] + '">' +
-                typeOptions[2] + '</option>'))
-            .append($('<option value="' + typeOptions[3] + '">' +
-                typeOptions[3] + '</option>'))
-            .append($('<option value="' + typeOptions[4] + '">' +
-                typeOptions[4] + '</option>'))
-            .append($('<option value="' + typeOptions[5] + '">' +
-                typeOptions[5] + '</option>'))
-            .append($('<option value="' + typeOptions[6] + '">' +
-                typeOptions[6] + '</option>'))
-            .append($('<option value="' + typeOptions[7] + '">' +
-                typeOptions[7] + '</option>'))
-            .append($('<option value="' + typeOptions[8] + '">' +
-                typeOptions[8] + '</option>'))
-            .append($('<option value="' + typeOptions[9] + '">' +
-                typeOptions[9] + '</option>'))
-            .append($('<option value="' + typeOptions[10] + '">' +
-                typeOptions[10] + '</option>'));
+            .append($('<option value="String">String</option>'))
+            .append($('<option value="Long">Long</option>'))
+            .append($('<option value="Integer">Integer</option>'))
+            .append($('<option value="Boolean">Boolean</option>'))
+            .append($('<option value="Double">Double</option>'))
+            .append($('<option value="Date">Date</option>'))
+            .append($('<option value="Variant">Variant</option>'))
+            .append($('<option value="Object">Object</option>'))
+            .append($('<option value="SheetName">SheetName</option>'))
+            .append($('<option value="Worksheet">Worksheet</option>'))
+            .append($('<option value="WorkbookName">WorkbookName</option>'))
+            .append($('<option value="Workbook">Workbook</option>'))
+            .append($('<option value="ColumnName">ColumnName</option>'))
+            .append($('<option value="ColumnNumber">ColumnNumber</option>'))
+            .append($('<option value="Outlook">Outlook</option>'));
     }
 
     $('#TypeFunc')
-        .append($('<option value="' + typeOptions[0] + '">' +
-            typeOptions[0] + '</option>'))
-        .append($('<option value="' + typeOptions[1] + '">' +
-            typeOptions[1] + '</option>'))
-        .append($('<option value="' + typeOptions[2] + '">' +
-            typeOptions[2] + '</option>'))
-        .append($('<option value="' + typeOptions[3] + '">' +
-            typeOptions[3] + '</option>'))
-        .append($('<option value="' + typeOptions[4] + '">' +
-            typeOptions[4] + '</option>'))
-        .append($('<option value="' + typeOptions[5] + '">' +
-            typeOptions[5] + '</option>'))
-        .append($('<option value="' + typeOptions[6] + '">' +
-            typeOptions[6] + '</option>'))
-        .append($('<option value="' + typeOptions[7] + '">' +
-            typeOptions[7] + '</option>'))
-        .append($('<option value="' + typeOptions[8] + '">' +
-            typeOptions[8] + '</option>'))
-        .append($('<option value="' + typeOptions[9] + '">' +
-            typeOptions[9] + '</option>'))
-        .append($('<option value="' + typeOptions[10] + '">' +
-            typeOptions[10] + '</option>'));
+        .append($('<option value="String">String</option>'))
+        .append($('<option value="Long">Long</option>'))
+        .append($('<option value="Integer">Integer</option>'))
+        .append($('<option value="Boolean">Boolean</option>'))
+        .append($('<option value="Double">Double</option>'))
+        .append($('<option value="Date">Date</option>'))
+        .append($('<option value="Variant">Variant</option>'))
+        .append($('<option value="Object">Object</option>'))
+        .append($('<option value="SheetName">SheetName</option>'))
+        .append($('<option value="Worksheet">Worksheet</option>'))
+        .append($('<option value="WorkbookName">WorkbookName</option>'))
+        .append($('<option value="Workbook">Workbook</option>'))
+        .append($('<option value="ColumnName">ColumnName</option>'))
+        .append($('<option value="ColumnNumber">ColumnNumber</option>'))
+        .append($('<option value="Outlook">Outlook</option>'));
 
 
     $('#generate').click(function () {
@@ -85,66 +97,72 @@ function capitalizeFirstLetter(string) {
 
 function resetNames() {
     for (var i = 1; i < elemNum + 1; i++) {
-        $('#Name' + i).val("");
+        $('#Name' + i).val('');
     }
 }
 
 function createFunction() {
     var i = 1;
-    var inputPars = "";
+    var inputPars = '';
+    if ($('#ShortPrefix').is(':checked')) {
+        prefIndex = 2;
+    } else {
+        prefIndex = 1;
+    };
     for (i = 1; i < elemNum + 1; i++) {
-        if ($('#Name' + i).val() != "") {
+        if ($('#Name' + i).val() != '') {
             inputPars = inputPars +
                 capitalizeFirstLetter($('#Name' + i).val()) +
-                " As " + getDeclareType($('#TypePar' + i).val()) + ", ";
+                ' As ' + dictTypes[$('#TypePar' + i).val()][4] + ', ';
         }
     }
-    var funcText = "";
-    if (inputPars != "") {
+    var funcText = '';
+    if (inputPars != '') {
         inputPars = inputPars.slice(0, inputPars.length - 2);
     }
     if ($('#classFunction').prop('checked')) {
-        funcText = "Function ";
+        funcText = 'Function ';
     } else {
-        funcText = "Private Function ";
+        funcText = 'Private Function ';
     }
-    funcText = funcText + capitalizeFirstLetter($('#NameFunc').val()) + "(" +
+    funcText = funcText + capitalizeFirstLetter($('#NameFunc').val()) + '(' +
         inputPars +
-        ") As " + getDeclareType($('#TypeFunc').val());
+        ') As ' + dictTypes[$('#TypeFunc').val()][4];
     if ($('#arrayFunction').prop('checked')) {
-        funcText = funcText + "()";
+        funcText = funcText + '()';
     }
-    funcText = funcText + "\n";
-    funcText = funcText + "    '" + $('#remarkText').val() + "\n";
+    funcText = funcText + '\n';
+    funcText = funcText + "    '" + $('#remarkText').val() + '\n';
     funcText = funcText + "    'Parameters:\n";
 
     for (i = 1; i < elemNum + 1; i++) {
         if ($('#Name' + i).val() != "") {
             funcText = funcText + "    '           " +
+                '{' + dictTypes[$('#TypePar' + i).val()][4] + '} ' +
                 capitalizeFirstLetter($('#Name' + i).val()) + "\n";
         }
     }
-    funcText = funcText + "    'Returns:\n";
-
+    funcText = funcText + "    'Returns:" +
+        '{' + dictTypes[$('#TypeFunc').val()][4] + '}\n';
     funcText = funcText + "    'Created by: Laszlo Tamas\n\n";
 
-    funcText = funcText + "    Dim " + getPrefix($('#TypeFunc').val()) + "Res";
+    funcText = funcText + "    Dim " + dictTypes[$('#TypeFunc').val()][prefIndex] + "Res";
     if ($('#arrayFunction').prop('checked')) {
         funcText = funcText + "()";
     }
-    funcText = funcText + " As " + getDeclareType($('#TypeFunc').val()) + "\n";
+    funcText = funcText + " As " + dictTypes[$('#TypeFunc').val()][4] + "\n";
     funcText = funcText + "\n    On Error GoTo FUNC_ERR\n\n";
-    funcText = funcText + "    " + getPrefix($('#TypeFunc').val()) + "Res"
+    funcText = funcText + "    " + dictTypes[$('#TypeFunc').val()][prefIndex] + "Res"
     if ($('#arrayFunction').prop('checked')) {
         funcText = funcText + " = Split(" +
             capitalizeFirstLetter(document.getElementById("Name1").value) +
             '," ")\n';
     } else {
-        funcText = funcText + getConstInitValue($('#TypeFunc').val()) + "\n";
+        funcText = funcText + dictTypes[$('#TypeFunc').val()][5] + "\n";
     }
     funcText = funcText + "    'Code here\n\n";
     funcText = funcText + '    ' + capitalizeFirstLetter($('#NameFunc').val()) +
-        ' = ' + getPrefix($('#TypeFunc').val()) + "Res" + '\n';
+        ' = ' + dictTypes[$('#TypeFunc').val()][prefIndex] + "Res" + '\n';
     funcText = funcText + "    '---------------\n";
     funcText = funcText + "FUNC_EXIT:\n";
     funcText = funcText + "    On Error GoTo 0\n";
@@ -165,18 +183,18 @@ function createFunction() {
     for (i = 1; i < elemNum + 1; i++) {
         if ($('#Name' + i).val() != "") {
             dimPars = dimPars + "    Dim " +
-                getPrefix($('#TypePar' + i).val()) +
+                dictTypes[$('#TypePar' + i).val()][prefIndex] +
                 capitalizeFirstLetter($('#Name' + i).val()) +
-                " As " + getDeclareType($('#TypePar' + i).val()) + "\n";
+                " As " + dictTypes[$('#TypePar' + i).val()][4] + "\n";
         }
     }
 
     dimPars = dimPars + "\n";
     for (i = 1; i < elemNum + 1; i++) {
         if ($('#Name' + i).val() != "") {
-            dimPars = dimPars + "    " + getPrefix($('#TypePar' + i).val()) +
+            dimPars = dimPars + "    " + dictTypes[$('#TypePar' + i).val()][prefIndex] +
                 capitalizeFirstLetter($('#Name' + i).val()) +
-                getConstInitValue($('#TypePar' + i).val()) + "\n";
+                dictTypes[$('#TypePar' + i).val()][5] + "\n";
         }
     }
 
@@ -184,7 +202,7 @@ function createFunction() {
     var testPars = "";
     for (i = 1; i < elemNum + 1; i++) {
         if ($('#Name' + i).val() != "") {
-            testPars = testPars + getPrefix($('#TypePar' + i).val()) +
+            testPars = testPars + dictTypes[$('#TypePar' + i).val()][prefIndex] +
                 capitalizeFirstLetter($('#Name' + i).val()) + ", ";
         }
     }
@@ -215,7 +233,7 @@ function createFunction() {
     funcText = funcText + dimPars + "\n\n";
     if ($('#arrayFunction').prop('checked')) {
         funcText = funcText + "    Dim Arr() As " +
-            getDeclareType($('#TypeFunc').val()) + "\n";
+            dictTypes[$('#TypeFunc').val()][4] + "\n";
     }
     funcText = funcText + "    dtmStartTime = Now()\n";
 
@@ -260,114 +278,114 @@ function createFunction() {
 
 }
 
-function getDeclareType(varType) {
-    if (varType == "String") {
-        return "String";
-    }
-    if (varType == "Long") {
-        return "Long";
-    }
-    if (varType == "Integer") {
-        return "Integer";
-    }
-    if (varType == "Boolean") {
-        return "Boolean";
-    }
-    if (varType == "Double") {
-        return "Double";
-    }
-    if (varType == "Date") {
-        return "Date";
-    }
-    if (varType == "Variant") {
-        return "Variant";
-    }
-    if (varType == "Object") {
-        return "Object";
-    }
-    if (varType == "SheetName") {
-        return "String";
-    }
-    if (varType == "Worksheet") {
-        return "Worksheet";
-    }
-    if (varType == "Outlook") {
-        return "Outlook";
-    }
+// function getDeclareType(varType) {
+//     if (varType == "String") {
+//         return "String";
+//     }
+//     if (varType == "Long") {
+//         return "Long";
+//     }
+//     if (varType == "Integer") {
+//         return "Integer";
+//     }
+//     if (varType == "Boolean") {
+//         return "Boolean";
+//     }
+//     if (varType == "Double") {
+//         return "Double";
+//     }
+//     if (varType == "Date") {
+//         return "Date";
+//     }
+//     if (varType == "Variant") {
+//         return "Variant";
+//     }
+//     if (varType == "Object") {
+//         return "Object";
+//     }
+//     if (varType == "SheetName") {
+//         return "String";
+//     }
+//     if (varType == "Worksheet") {
+//         return "Worksheet";
+//     }
+//     if (varType == "Outlook") {
+//         return "Outlook";
+//     }
 
-}
+// }
 
-function getPrefix(varType) {
+// function getPrefix(varType) {
 
-    if (varType == "String") {
-        return "str";
-    }
-    if (varType == "Long") {
-        return "lng";
-    }
-    if (varType == "Integer") {
-        return "int";
-    }
-    if (varType == "Boolean") {
-        return "bln";
-    }
-    if (varType == "Double") {
-        return "dbl";
-    }
-    if (varType == "Date") {
-        return "dat";
-    }
-    if (varType == "Variant") {
-        return "vnt";
-    }
-    if (varType == "Object") {
-        return "obj";
-    }
-    if (varType == "SheetName") {
-        return "sh";
-    }
-    if (varType == "Worksheet") {
-        return "wst";
-    }
-    if (varType == "Outlook") {
-        return "ol";
-    }
+//     if (varType == "String") {
+//         return "str";
+//     }
+//     if (varType == "Long") {
+//         return "lng";
+//     }
+//     if (varType == "Integer") {
+//         return "int";
+//     }
+//     if (varType == "Boolean") {
+//         return "bln";
+//     }
+//     if (varType == "Double") {
+//         return "dbl";
+//     }
+//     if (varType == "Date") {
+//         return "dat";
+//     }
+//     if (varType == "Variant") {
+//         return "vnt";
+//     }
+//     if (varType == "Object") {
+//         return "obj";
+//     }
+//     if (varType == "SheetName") {
+//         return "sh";
+//     }
+//     if (varType == "Worksheet") {
+//         return "wst";
+//     }
+//     if (varType == "Outlook") {
+//         return "ol";
+//     }
 
-}
+// }
 
-function getConstInitValue(varType) {
-    if (varType == "String") {
-        return ' = "text"';
-    }
-    if (varType == "Long") {
-        return " = 0";
-    }
-    if (varType == "Integer") {
-        return " = 0";
-    }
-    if (varType == "Boolean") {
-        return " = True";
-    }
-    if (varType == "Double") {
-        return " = 0.5";
-    }
-    if (varType == "Date") {
-        return ' = CDate("04/22/2016 12:00 AM")';
-    }
-    if (varType == "Variant") {
-        return " = True";
-    }
-    if (varType == "Object") {
-        return " = ";
-    }
-    if (varType == "SheetName") {
-        return ' = "Munka1"';
-    }
-    if (varType == "Worksheet") {
-        return " = ActiveSheet";
-    }
-    if (varType == "Outlook") {
-        return " = ";
-    }
+// function getConstInitValue(varType) {
+//     if (varType == "String") {
+//         return ' = "text"';
+//     }
+//     if (varType == "Long") {
+//         return " = 0";
+//     }
+//     if (varType == "Integer") {
+//         return " = 0";
+//     }
+//     if (varType == "Boolean") {
+//         return " = True";
+//     }
+//     if (varType == "Double") {
+//         return " = 0.5";
+//     }
+//     if (varType == "Date") {
+//         return ' = CDate("04/22/2016 12:00 AM")';
+//     }
+//     if (varType == "Variant") {
+//         return " = True";
+//     }
+//     if (varType == "Object") {
+//         return " = ";
+//     }
+//     if (varType == "SheetName") {
+//         return ' = "Munka1"';
+//     }
+//     if (varType == "Worksheet") {
+//         return " = ActiveSheet";
+//     }
+//     if (varType == "Outlook") {
+//         return " = ";
+//     }
 
-}
+// }

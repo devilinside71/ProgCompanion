@@ -12,9 +12,9 @@ var dictTypes = {
     'Variant': ['Variant', 'vnt', 'v', ' = 0', 'Variant', ' = 0', ''],
     'Object': ['Object', 'obj', 'o', ' = Nothing', 'Object', ' = Nothing', 'Set '],
     'SheetName': ['SheetName', 'sh', 'sh', ' = "Munka1"', 'String', ' = "Munka1"', ''],
-    'Worksheet': ['Worksheet', 'wsh', 'wsh', ' = ActiveSheet', 'Worksheet', ' = ActiveSheet', 'Set '],
+    'Worksheet': ['Worksheet', 'wsh', 'wsh', ' =  ThisComponent.CurrentController.ActiveSheet', 'Object', ' =  ThisComponent.CurrentController.ActiveSheet', 'Set '],
     'WorkbookName': ['WorkbookName', 'wb', 'wb', ' = "ThisBook"', 'String', ' = "ThisBook"', ''],
-    'Workbook': ['Workbook', 'wbk', 'wbk', ' = ActiveWorkbook', 'Workbook', ' = ActiveWorkbook', 'Set '],
+    'Workbook': ['Workbook', 'wbk', 'wbk', ' = ThisComponent', 'Object', ' = ThisComponent', 'Set '],
     'ColumnName': ['ColumnName', 'col', 'col', ' = "Header"', 'String', ' = "Header"', ''],
     'ColumnNumber': ['ColumnNumber', 'col', 'col', ' = 1', 'Long', ' = 1', ''],
     'Outlook': ['Outlook', 'oul', 'ou', ' = Nothing', 'Outlook', ' = Nothing', 'Set ']
