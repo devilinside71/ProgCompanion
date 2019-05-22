@@ -134,8 +134,11 @@ function createFunction() {
     for (i = 1; i < elemNum + 1; i++) {
         if ($('#Name' + i).val() != "") {
             funcText = funcText + "    '           " +
-                '{' + dictTypes[$('#TypePar' + i).val()][4] + '} ' +
-                capitalizeFirstLetter($('#Name' + i).val()) + "\n";
+                '{' + dictTypes[$('#TypePar' + i).val()][4];
+            if (dictTypes[$('#TypePar' + i).val()][4] != dictTypes[$('#TypePar' + i).val()][0]) {
+                funcText = funcText + ', ' + dictTypes[$('#TypePar' + i).val()][0];
+            }
+            funcText = funcText + '} ' + capitalizeFirstLetter($('#Name' + i).val()) + "\n";
         }
     }
     funcText = funcText + "    'Returns:" +
