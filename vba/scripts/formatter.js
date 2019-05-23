@@ -182,8 +182,23 @@ function removeSpaces(lineText) {
 }
 
 function addSpaceToOperators(lineText) {
-    var newString = lineText.replace(/=(?=[^\s])/g, "= ");
+    var newString = '';
+    //=
+    newString = lineText.replace(/=(?=[^\s])/g, "= ");
     newString = newString.replace(/(?=[^\s])=/g, " =");
+    //<
+    newString = lineText.replace(/<(?=[^\s])/g, "< ");
+    newString = newString.replace(/(?=[^\s])</g, " <");
+    //>
+    newString = lineText.replace(/>(?=[^\s])/g, "> ");
+    newString = newString.replace(/(?=[^\s])>/g, " >");
+    //<>,<=,>=
+    newString = newString.replace('< >','<>');
+    newString = newString.replace('< =','<=');
+    newString = newString.replace('= >','=>');
+    newString = newString.replace('> =','>=');
+    newString = newString.replace('= <','=<');
+
     return newString;
 }
 
