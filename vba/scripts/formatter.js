@@ -189,15 +189,13 @@ function addSpaceToOperators(lineText) {
     //<
     newString = lineText.replace(/<(?=[^\s])/g, "< ");
     newString = newString.replace(/(?=[^\s])</g, " <");
-    //>
+    // >
     newString = lineText.replace(/>(?=[^\s])/g, "> ");
     newString = newString.replace(/(?=[^\s])>/g, " >");
-    //<>,<=,>=
-    newString = newString.replace('< >','<>');
-    newString = newString.replace('< =','<=');
-    newString = newString.replace('= >','=>');
-    newString = newString.replace('> =','>=');
-    newString = newString.replace('= <','=<');
+    // &
+    newString = lineText.replace(/\&(?=[^\s])/g, "& ");
+    newString = newString.replace(/(?=[^\s])\&/g, " &");
+
 
     return newString;
 }
