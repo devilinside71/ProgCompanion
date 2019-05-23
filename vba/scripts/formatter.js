@@ -109,7 +109,8 @@ function formatVBA() {
     var k = 0;
     for (i = 0; i < lines.length; i++) {
         line = lines[i].trim();
-        //remove extra spaces
+        //remove extra spaces, add needed spaces
+        line = addSpaceToOperators(line);
         line = removeSpaces(line);
 
         for (k = 0; k < commands.length; k++) {
@@ -165,20 +166,26 @@ function formatVBA() {
     }
     $('#CodeFormat').val(outText);
 }
+
 /** Remove extra spaces except within quotation marks
  * @param  {string} lineText
  */
 function removeSpaces(lineText) {
-    var newString=lineText.replace(/([^"]+)|("[^"]+")/g, function($0, $1, $2) {
+    var newString = lineText.replace(/([^"]+)|("[^"]+")/g, function ($0, $1, $2) {
         if ($1) {
             return $1.replace(/\s{2,}/g, ' ');
         } else {
-            return $2; 
-        } 
+            return $2;
+        }
     });
     return newString;
 }
 
+function addSpaceToOperators(lineText) {
+    var newString = lineText.replace(/=(?=[^\s])/g, "= ");
+    newString = newString.replace(/(?=[^\s])=/g, " =");
+    return newString;
+}
 
 function getIndent(num) {
     var res = "";
