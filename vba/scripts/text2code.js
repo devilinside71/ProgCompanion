@@ -18,8 +18,14 @@ function convertText() {
     var inText = $('#Code').val();
     var lines = inText.split("\n");
     var i = 0;
+    var strPrefix='str';
+    if ($('#ShortPrefix').is(':checked')) {
+        strPrefix = 's';
+    } else {
+        strPrefix = 'str';
+    };
     if ($('#langChoice').val() == "VBA") {
-        varName = "str" + capitalizeFirstLetter($('#textVar').val());
+        varName = strPrefix + capitalizeFirstLetter($('#textVar').val());
         outText = "Dim " + varName + " As String\n";
         outText = outText + varName + " = vbNullString\n";
         for (i = 0; i < lines.length; i++) {
@@ -29,6 +35,17 @@ function convertText() {
                 varName + " & " + '"' + line + '" & vbCrLf\n';
         }
     }
+    if ($('#langChoice').val() == "SB") {
+        varName = strPrefix + capitalizeFirstLetter($('#textVar').val());
+        outText = "Dim " + varName + " As String\n";
+        outText = outText + varName + ' = ""\n';
+        for (i = 0; i < lines.length; i++) {
+            line = lines[i];
+            line = replaceAll(line, '"', '" & Chr(34) & "');
+            outText = outText + varName + " = " +
+                varName + " & " + '"' + line + '\\n"\n';
+        }
+    }    
     if ($('#langChoice').val() == "XML") {
         varName = decapitalizeFirstLetter($('#textVar').val());
         outText = "<" + varName.toLowerCase() + ">\n";
