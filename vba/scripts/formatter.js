@@ -34,7 +34,8 @@ function formatVBA() {
         "Type", "Unload", "While", "Wend",
         "Width #", "With", "Write #",
         "End Sub", "End Function",
-        "Debug.Print", "MsgBox", "Wait"
+        "Debug.Print", "MsgBox", "Wait",
+        "Private Sub"
     );
     var funcsUp = new Array(
         "Abs", "Array", "Asc", "Atn", "CBool", "CByte",
