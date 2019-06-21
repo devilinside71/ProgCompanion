@@ -1,5 +1,7 @@
 /// <reference path="../../typings/globals/jquery/index.d.ts" />
 var elemNum = 6;
+var placeHolder = "QWQWQWQW";
+
 //virtualtype,long,short,init,declaration,constantinit,precommand
 var dictTypes = {
     'String': ['String', 'str', 's', ' = vbNullString', 'String', ' = "text"', ''],
@@ -16,6 +18,8 @@ var dictTypes = {
     'Workbook': ['Workbook', 'wbk', 'wbk', ' = ActiveWorkbook', 'Workbook', ' = ActiveWorkbook', 'Set '],
     'ColumnName': ['ColumnName', 'col', 'col', ' = "Header"', 'String', ' = "Header"', ''],
     'ColumnNumber': ['ColumnNumber', 'col', 'col', ' = 1', 'Long', ' = 1', ''],
+    'RowNumber': ['RowNumber', 'row', 'row', ' = 1', 'Long', ' = 1', ''],
+    'MsgConfirmation': ['MsgConfirmation', 'msg', 'mg', ' = MsgBox("Are you sure?", vbYesNo + vbQuestion)\nSelect Case ' + placeHolder + '\n    Case vbYes\n        \'code\n    Case vbNo\n        \'code\nEnd Select', 'Integer', ' = 1', ''],
     'Outlook': ['Outlook', 'oul', 'ou', ' = Nothing', 'Outlook', ' = Nothing', 'Set ']
 };
 
@@ -56,6 +60,8 @@ $(document).ready(function () {
             .append($('<option value="Workbook">Workbook</option>'))
             .append($('<option value="ColumnName">ColumnName</option>'))
             .append($('<option value="ColumnNumber">ColumnNumber</option>'))
+            .append($('<option value="RowNumber">RowNumber</option>'))
+            .append($('<option value="MsgConfirmation">MsgConfirmation</option>'))
             .append($('<option value="Outlook">Outlook</option>'));
     }
 
