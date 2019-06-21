@@ -86,19 +86,19 @@ function formatVBA() {
         "enum", "private enum", "public enum", "property",
         "private property", "public property",
         "end enum", "end property",
-        "for", "next", "with", "end with", "do", "loop");
+        "for", "next", "with", "end with", "do", "loop", "select case", "case", "end select");
     var commandsBefore = new Array("", "-", "-", "-",
         "0", "0", "0", "0", "0", "0",
         "0", "0",
         "0", "0", "0", "0", "0", "0",
         "0", "0",
-        "", "-", "", "-", "", "-");
+        "", "-", "", "-", "", "-", "", "-", "--");
     var commandsAfter = new Array("+", "+", "+", "",
         "+", "+", "+", "+", "+", "+",
         "0", "0",
         "+", "+", "+", "+", "+", "+",
         "0", "0",
-        "+", "", "+", "", "+", "");
+        "+", "", "+", "", "+", "", "++", "+", "");
     //sorokra bontás
     var lines = $('#Code').val().split("\n");
     var outText = "";
@@ -122,10 +122,18 @@ function formatVBA() {
                     //beforeIndent++;
                     afterIndent = 1;
                 }
+                if (commandsAfter[k] == "++") {
+                    //beforeIndent++;
+                    afterIndent=2;
+                }                
                 if (commandsAfter[k] == "0") {
                     beforeIndent = 0;
                 }
                 if (commandsBefore[k] == "-") {
+                    beforeIndent--;
+                }
+                if (commandsBefore[k] == "--") {
+                    beforeIndent--;
                     beforeIndent--;
                 }
                 if (commandsBefore[k] == "0") {
@@ -163,6 +171,11 @@ function formatVBA() {
             afterIndent = 0;
             beforeIndent++;
         }
+        if (afterIndent == 2) {
+            // afterIndent = 1;
+            beforeIndent++;
+            beforeIndent++;
+        }        
     }
     $('#CodeFormat').val(outText);
 }
