@@ -17,6 +17,8 @@ var dictTypes = {
     'Workbook': ['Workbook', 'wbk', 'wbk', ' = ActiveWorkbook', 'Workbook', ' = ActiveWorkbook', 'Set '],
     'ColumnName': ['ColumnName', 'col', 'col', ' = "Header"', 'String', ' = "Header"', ''],
     'ColumnNumber': ['ColumnNumber', 'col', 'col', ' = 1', 'Long', ' = 1', ''],
+    'RowNumber': ['RowNumber', 'row', 'row', ' = 1', 'Long', ' = 1', ''],
+    'MsgConfirmation': ['MsgConfirmation', 'msg', 'mg', ' = MsgBox("Are you sure?", vbYesNo)\nSelect Case QWQWQWQW\n    Case vbYes\n        \'code\n    Case vbNo\n        \'code\nEnd Select', 'Integer', ' = 1', ''],
     'Outlook': ['Outlook', 'oul', 'ou', ' = Nothing', 'Outlook', ' = Nothing', 'Set ']
 };
 
@@ -78,6 +80,8 @@ $(document).ready(function () {
             .append($('<option value="Workbook">Workbook</option>'))
             .append($('<option value="ColumnName">ColumnName</option>'))
             .append($('<option value="ColumnNumber">ColumnNumber</option>'))
+            .append($('<option value="RowNumber">RowNumber</option>'))
+            .append($('<option value="MsgConfirmation">MsgConfirmation</option>'))
             .append($('<option value="Outlook">Outlook</option>'));
     }
 
@@ -152,6 +156,7 @@ function getInitValues(name, dimension, scope, type) {
         declaration = declaration + dictTypes[type][6] + scopeTypes[scope][0] +
             dictTypes[type][prefIndex] + capitalizeFirstLetter(name) + dictTypes[type][3] + '\n';
     }
+    declaration = declaration.replace('QWQWQWQW', scopeTypes[scope][0] + dictTypes[type][prefIndex] + capitalizeFirstLetter(name));
     return declaration;
 }
 
