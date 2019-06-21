@@ -18,7 +18,7 @@ var dictTypes = {
     'ColumnName': ['ColumnName', 'col', 'col', ' = "Header"', 'String', ' = "Header"', ''],
     'ColumnNumber': ['ColumnNumber', 'col', 'col', ' = 1', 'Long', ' = 1', ''],
     'RowNumber': ['RowNumber', 'row', 'row', ' = 1', 'Long', ' = 1', ''],
-    'MsgConfirmation': ['MsgConfirmation', 'msg', 'mg', ' = MsgBox("Are you sure?", vbYesNo)\nSelect Case QWQWQWQW\n    Case vbYes\n        \'code\n    Case vbNo\n        \'code\nEnd Select', 'Integer', ' = 1', ''],
+    'MsgConfirmation': ['MsgConfirmation', 'msg', 'mg', ' = MsgBox("Are you sure?", vbYesNo + vbQuestion)\nSelect Case QWQWQWQW\n    Case vbYes\n        \'code\n    Case vbNo\n        \'code\nEnd Select', 'Integer', ' = 1', ''],
     'Outlook': ['Outlook', 'oul', 'ou', ' = Nothing', 'Outlook', ' = Nothing', 'Set ']
 };
 
