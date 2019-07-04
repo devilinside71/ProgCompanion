@@ -7,12 +7,12 @@ var pref = '';
 
 
 var dictCases = {
-    0: ['    Case vbOK\n        \'code', '', '', '', '', '', ''],
-    1: ['    Case vbOK\n        \'code', '    Case vbCancel\n        \'code', '', '', '', '', ''],
-    2: ['', '', '    Case vbAbort\n        \'code', '    Case vbRetry\n        \'code', '    Case vbIgnore\n        \'code', '', ''],
-    3: ['', '    Case vbCancel\n        \'code', '', '', '', '    Case vbYes\n        \'code', '    Case vbNo\n        \'code'],
-    4: ['', '', '', '', '', '    Case vbYes\n        \'code', '    Case vbNo\n        \'code'],
-    5: ['', '    Case vbCancel\n        \'code', '', '    Case vbRetry\n        \'code', '', '', ''],
+    0: ['    Case vbOK\n        \'code'],
+    1: ['    Case vbOK\n        \'code\n    Case vbCancel\n        \'code'],
+    2: ['    Case vbAbort\n        \'code\n    Case vbRetry\n        \'code\n    Case vbIgnore\n        \'code'],
+    3: ['    Case vbYes\n        \'code\n    Case vbNo\n        \'code\n    Case vbCancel\n        \'code'],
+    4: ['    Case vbYes\n        \'code\n    Case vbNo\n        \'code'],
+    5: ['    Case vbRetry\n        \'code\n    Case vbCancel\n        \'code'],
 }
 
 
@@ -60,25 +60,7 @@ function generateCode() {
         //     var type = $('#Type' + i).val()
 
         declarations = declarations + 'Select Case ' + pref + capitalizeFirstLetter(name) + '\n';
-        if (dictCases[bVal][0] != '') {
-            declarations = declarations + dictCases[bVal][0] + '\n';
-        }
-        if (dictCases[bVal][1] != '') {
-            declarations = declarations + dictCases[bVal][1] + '\n';
-        }
-        if (dictCases[bVal][2] != '') {
-            declarations = declarations + dictCases[bVal][2] + '\n';
-        }
-        if (dictCases[bVal][3] != '') {
-            declarations = declarations + dictCases[bVal][3] + '\n';
-        }
-        if (dictCases[bVal][4] != '') {
-            declarations = declarations + dictCases[bVal][4] + '\n';
-        }
-        if (dictCases[bVal][5] != '') {
-            declarations = declarations + dictCases[bVal][5] + '\n';
-        }
-
+        declarations = declarations + dictCases[bVal][0] + '\n';
         declarations = declarations + 'End Select'
     }
 
@@ -87,7 +69,7 @@ function generateCode() {
 
 /** Change field values
  */
-function predefChange(){
+function predefChange() {
     $('#MsgVar').val(dictPredef[$('#VBPredefMsg').val()][0]);
     $('#MsgPromt').val(dictPredef[$('#VBPredefMsg').val()][1]);
     $('#MsgTitle').val(dictPredef[$('#VBPredefMsg').val()][2]);
