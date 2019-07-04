@@ -42,8 +42,6 @@ function generateCode() {
     } else {
         pref = 'msg';
     };
-    // for (i = 1; i < elemNum + 1; i++) {
-    //     // var name = document.getElementById('Name' + i.toString()).value;
     var name = $('#MsgVar').val();
     if (name != '') {
         var declarations = 'Dim ' + pref + capitalizeFirstLetter(name) + ' As Integer\n\n';
@@ -56,9 +54,6 @@ function generateCode() {
             declarations = declarations + ', "' + msgTitle + '"';
         }
         declarations = declarations + ')\n';
-        //     var scope = $('#Scope' + i).val()
-        //     var type = $('#Type' + i).val()
-
         declarations = declarations + 'Select Case ' + pref + capitalizeFirstLetter(name) + '\n';
         declarations = declarations + dictCases[bVal][0] + '\n';
         declarations = declarations + 'End Select'
