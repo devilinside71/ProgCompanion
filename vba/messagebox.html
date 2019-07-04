@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="../scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="scripts/messagebox.js"></script>
+    <link href="styles/vba.css" rel="stylesheet" type="text/css" />
+    <title>VBA Messagebox</title>
+</head>
+
+<body class="bodyStyle ">
+    <div>
+        <table id="tabla" class="half">
+
+            <tr>
+                <td colspan="5">
+                    <h3>VBA Messagebox</h3>
+                </td>
+            </tr>
+            <tr>
+                <td class="nameColumn">
+                    <input id="ShortPrefix" name="ShortPrefix" type="checkbox" />Short prefix</td>
+            </tr>
+            <tr>
+                    <td class="nameColumn">Predefined:</td>
+                    <td class="nameColumn">
+                        <select id="VBPredefMsg">
+                            <option value="-">-</option>
+                            <option value="msgConfirmation">Confirmation</option>
+                            <option value="msgMessage">Message</option>
+                        </select>
+                </tr>            
+            <tr>
+                <td class="nameColumn">Variable:</td>
+                <td class="textArea">
+                    <input name="Text2" type="text" id="MsgVar" value="confirm" />
+                </td>
+            </tr>
+            <tr>
+                <td class="nameColumn">Prompt:</td>
+                <td class="textArea">
+                    <input name="Text2" type="text" id="MsgPromt" value="Message" />
+                </td>
+            </tr>
+            <tr>
+                <td class="nameColumn">Title:</td>
+                <td class="textArea">
+                    <input name="Text3" type="text" id="MsgTitle" />
+                </td>
+            </tr>
+            <tr>
+                <td class="nameColumn">Buttons:</td>
+                <td class="nameColumn">
+                    <select id="VBButton">
+                        <option value=0>vbOKOnly</option>
+                        <option value=1>vbOKCancel</option>
+                        <option value=2>vbAbortRetryIgnore</option>
+                        <option value=3>vbYesNoCancel</option>
+                        <option value=4>vbYesNo</option>
+                        <option value=5>vbRetryCancel</option>
+                    </select>
+            </tr>
+            <tr>
+                <td class="nameColumn">Icon:</td>
+                <td class="nameColumn">
+                    <select id="VBIcon">
+                        <option value=0>-</option>
+                        <option value=16>vbCritical</option>
+                        <option value=32>vbQuestion</option>
+                        <option value=48>vbExclamation</option>
+                        <option value=64>vbInformation</option>
+                    </select>
+            </tr>
+            <!-- jquery -->
+        </table>
+    </div>
+    <div class="textAreaDiv">
+        <textarea id="Code" name="TextArea1" rows="20" class="textArea"></textarea>
+    </div>
+    <input id="generate" name="Button1" type="button" value="Generate" />
+    <input name="Button2" type="button" value="Clear" id="clear" />
+</body>
+
+</html>
