@@ -79,7 +79,7 @@ function formatVBA() {
         "ScreenUpdating", "LockControllers", "Open", "Name", "Value", "String",
         "Address", "Select"
     );
-    var commands = new Array("if", "else", "else if", "end if",
+    var commands = new Array("if", "else", "else if", "end if", "while", "wend",
         "sub", "private sub", "public sub", "function",
         "private function", "public function",
         "end sub", "end function",
@@ -87,13 +87,13 @@ function formatVBA() {
         "private property", "public property",
         "end enum", "end property",
         "for", "next", "with", "end with", "do", "loop", "select case", "case", "end select");
-    var commandsBefore = new Array("", "-", "-", "-",
+    var commandsBefore = new Array("", "-", "-", "-", "", "-",
         "0", "0", "0", "0", "0", "0",
         "0", "0",
         "0", "0", "0", "0", "0", "0",
         "0", "0",
         "", "-", "", "-", "", "-", "", "-", "--");
-    var commandsAfter = new Array("+", "+", "+", "",
+    var commandsAfter = new Array("+", "+", "+", "", "+", "",
         "+", "+", "+", "+", "+", "+",
         "0", "0",
         "+", "+", "+", "+", "+", "+",
@@ -124,8 +124,8 @@ function formatVBA() {
                 }
                 if (commandsAfter[k] == "++") {
                     //beforeIndent++;
-                    afterIndent=2;
-                }                
+                    afterIndent = 2;
+                }
                 if (commandsAfter[k] == "0") {
                     beforeIndent = 0;
                 }
@@ -175,7 +175,7 @@ function formatVBA() {
             // afterIndent = 1;
             beforeIndent++;
             beforeIndent++;
-        }        
+        }
     }
     $('#CodeFormat').val(outText);
 }
