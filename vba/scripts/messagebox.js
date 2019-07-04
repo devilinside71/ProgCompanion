@@ -17,6 +17,7 @@ var dictCases = {
 
 
 var dictPredef = {
+    '-': ['', '', '', 0, 0],
     'msgConfirmation': ['confirm', 'Are you sure?', 'Confirm action', 4, 32],
     'msgMessage': ['message', 'This is the message', 'Message', 0, 64]
 }
@@ -36,13 +37,13 @@ $(document).ready(function () {
 function generateCode() {
     var initvals = '';
     var i = 1;
-    if ($('#VBPredefMsg').val() != '-') {
-        $('#MsgVar').val(dictPredef[$('#VBPredefMsg').val()][0]);
-        $('#MsgPromt').val(dictPredef[$('#VBPredefMsg').val()][1]);
-        $('#MsgTitle').val(dictPredef[$('#VBPredefMsg').val()][2]);
-        $('#VBButton').val(dictPredef[$('#VBPredefMsg').val()][3]);
-        $('#VBIcon').val(dictPredef[$('#VBPredefMsg').val()][4]);
-    }
+    // if ($('#VBPredefMsg').val() != '-') {
+    //     $('#MsgVar').val(dictPredef[$('#VBPredefMsg').val()][0]);
+    //     $('#MsgPromt').val(dictPredef[$('#VBPredefMsg').val()][1]);
+    //     $('#MsgTitle').val(dictPredef[$('#VBPredefMsg').val()][2]);
+    //     $('#VBButton').val(dictPredef[$('#VBPredefMsg').val()][3]);
+    //     $('#VBIcon').val(dictPredef[$('#VBPredefMsg').val()][4]);
+    // }
     if ($('#ShortPrefix').is(':checked')) {
         pref = 'mg';
     } else {
@@ -91,7 +92,13 @@ function generateCode() {
     $('#Code').val(declarations);
 }
 
-
+function predefChange(){
+    $('#MsgVar').val(dictPredef[$('#VBPredefMsg').val()][0]);
+    $('#MsgPromt').val(dictPredef[$('#VBPredefMsg').val()][1]);
+    $('#MsgTitle').val(dictPredef[$('#VBPredefMsg').val()][2]);
+    $('#VBButton').val(dictPredef[$('#VBPredefMsg').val()][3]);
+    $('#VBIcon').val(dictPredef[$('#VBPredefMsg').val()][4]);
+}
 
 /** Capitalize the first letter of the text
  * @param  {string} text
