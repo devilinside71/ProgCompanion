@@ -37,13 +37,6 @@ $(document).ready(function () {
 function generateCode() {
     var initvals = '';
     var i = 1;
-    // if ($('#VBPredefMsg').val() != '-') {
-    //     $('#MsgVar').val(dictPredef[$('#VBPredefMsg').val()][0]);
-    //     $('#MsgPromt').val(dictPredef[$('#VBPredefMsg').val()][1]);
-    //     $('#MsgTitle').val(dictPredef[$('#VBPredefMsg').val()][2]);
-    //     $('#VBButton').val(dictPredef[$('#VBPredefMsg').val()][3]);
-    //     $('#VBIcon').val(dictPredef[$('#VBPredefMsg').val()][4]);
-    // }
     if ($('#ShortPrefix').is(':checked')) {
         pref = 'mg';
     } else {
@@ -92,6 +85,8 @@ function generateCode() {
     $('#Code').val(declarations);
 }
 
+/** Change field values
+ */
 function predefChange(){
     $('#MsgVar').val(dictPredef[$('#VBPredefMsg').val()][0]);
     $('#MsgPromt').val(dictPredef[$('#VBPredefMsg').val()][1]);
