@@ -12,7 +12,7 @@ $(document).ready(function () {
  */
 function generateCode() {
     var textString = "";
-    if ($('#VBPredefDlg').val() == 'dlgOpenFile') {
+    if ($('#SBPredefDlg').val() == 'dlgOpenFile') {
         textString = textString + '' + "'" + 'https://www.debugpoint.com/2015/01/use-open-file-dialog-using-macro-in-libreofficeopenoffice/\n';
         textString = textString + 'Sub pick_a_file()\n';
         textString = textString + '    Dim fName As String\n';
