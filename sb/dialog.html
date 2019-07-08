@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="../scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="scripts/dialog.js"></script>
+    <link href="styles/sb.css" rel="stylesheet" type="text/css" />
+    <title>SB Dialog</title>
+</head>
+
+<body class="bodyStyle ">
+    <div>
+        <table id="tabla" class="half">
+
+            <tr>
+                <td colspan="5">
+                    <h3>SB Dialog</h3>
+                </td>
+            </tr>
+            <tr>
+                <td class="nameColumn">
+                    <select id="VBPredefDlg">
+                        <option value="-">-</option>
+                        <option value="dlgOpenFile">Open file</option>
+                        <option value="dlgSaveAs">Save as</option>
+                        <option value="dlgInput">Input value</option>
+                    </select>
+                </td>
+            </tr>
+            <!-- jquery -->
+        </table>
+    </div>
+    <div class="textAreaDiv">
+        <textarea id="Code" name="TextArea1" rows="40" class="textArea"></textarea>
+    </div>
+    <input id="generate" name="Button1" type="button" value="Generate" />
+    <input name="Button2" type="button" value="Clear" id="clear" />
+</body>
+
+</html>
