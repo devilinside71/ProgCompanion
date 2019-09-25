@@ -183,6 +183,7 @@ function formatVBA() {
  * @param  {string} lineText
  */
 function removeSpaces(lineText) {
+  // eslint-disable-next-line id-length
   var newString = lineText.replace(/([^"]+)|("[^"]+")/g, function($0, $1, $2) {
     if ($1) {
       return $1.replace(/\s{2,}/g, ' ');
@@ -204,7 +205,9 @@ function addSpaceToOperators(lineText) {
   newString = lineText.replace(/>(?=[^\s])/g, '> ');
   newString = newString.replace(/(?=[^\s])>/g, ' >');
   // &
+  // eslint-disable-next-line no-useless-escape
   newString = lineText.replace(/\&(?=[^\s])/g, '& ');
+  // eslint-disable-next-line no-useless-escape
   newString = newString.replace(/(?=[^\s])\&/g, ' &');
 
   return newString;
