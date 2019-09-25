@@ -133,12 +133,18 @@ function formatVBA() {
           .trim() +
           ' '
       ) {
-        line = line.replace(new RegExp(line.slice(0, commandsUp[k].length), 'i'), commandsUp[k]);
+        line = line.replace(
+          new RegExp(line.slice(0, commandsUp[k].length), 'i'),
+          commandsUp[k]
+        );
       }
     }
     // Make uppercase functions
     for (k = 0; k < funcsUp.length; k++) {
-      line = line.replace(new RegExp(funcsUp[k] + '\\(', 'gi'), funcsUp[k] + '(');
+      line = line.replace(
+        new RegExp(funcsUp[k] + '\\(', 'gi'),
+        funcsUp[k] + '('
+      );
     }
     // Make uppercase types
     for (k = 0; k < typesUp.length; k++) {
@@ -146,11 +152,17 @@ function formatVBA() {
     }
     // Make uppercase objects
     for (k = 0; k < objectsUp.length; k++) {
-      line = line.replace(new RegExp(objectsUp[k] + '\\.', 'gi'), objectsUp[k] + '.');
+      line = line.replace(
+        new RegExp(objectsUp[k] + '\\.', 'gi'),
+        objectsUp[k] + '.'
+      );
     }
     // Make uppercase activity
     for (k = 0; k < activityUp.length; k++) {
-      line = line.replace(new RegExp('\\.' + activityUp[k], 'gi'), '.' + activityUp[k]);
+      line = line.replace(
+        new RegExp('\\.' + activityUp[k], 'gi'),
+        '.' + activityUp[k]
+      );
     }
     outText = outText + getIndent(beforeIndent) + line + '\n';
     if (afterIndent === 1) {
