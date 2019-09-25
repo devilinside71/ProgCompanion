@@ -1,66 +1,67 @@
 ﻿.bodyStyle {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .textAreaDiv {
-    width: 50%;
+  width: 50%;
 }
 
 .textArea {
-    width: 100%;
+  width: 100%;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .nameColumn {
-    width: 20%;
+  width: 20%;
 }
 
 .otherColumns {
-    width: 10%;
+  width: 10%;
 }
 
 .full {
-    width: 100%;
+  width: 100%;
 }
 
 .half {
-    width: 50%;
+  width: 50%;
 }
 
 .tableDivider {
-    height: 2px;
+  height: 2px;
 }
 
 .teaxtareaLabel {
-    vertical-align: top;
-    width: 20%;
-    text-align: right;
+  vertical-align: top;
+  width: 20%;
+  text-align: right;
 }
 
 .checkBoxCol {
-    width: 3%;
+  width: 3%;
 }
 
 .Col1 {
-    width: 20%;
+  width: 20%;
 }
 
 .Col2 {
-    width: 8%;
+  width: 8%;
 }
 
 .Col3 {
-    width: 8%;
+  width: 8%;
 }
 
 .Col4 {
-    width: 8%;
+  width: 8%;
 }
 
 .Col5 {
-    width: 8%;
+  width: 8%;
 }
 
 .faceIdImage {
-    width: 700px;
-    height: 402px;
+  width: 700px;
+  height: 402px;
 }
