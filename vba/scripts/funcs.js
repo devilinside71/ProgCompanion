@@ -24,12 +24,7 @@ var dictTypes = {
   Outlook: ['Outlook', 'oul', 'ou', ' = Nothing', 'Outlook', ' = Nothing', 'Set '],
 };
 
-// Prefix,declaration,constdeclaration
-var scopeTypes = {
-  Procedure: ['', 'Dim', ''],
-  Module: ['m', 'Private', 'Private'],
-  Global: ['g', 'Global', 'Global'],
-};
+
 var prefIndex = 1;
 $(document).ready(function() {
   var i = 1;
@@ -114,10 +109,9 @@ function createFunction() {
   var funcText = '';
   var dimPars = '';
   var testPars = '';
+  prefIndex = 1;
   if ($('#ShortPrefix').is(':checked')) {
     prefIndex = 2;
-  } else {
-    prefIndex = 1;
   }
   for (i = 1; i < elemNum + 1; i++) {
     if ($('#Name' + i).val() !== '') {
@@ -133,10 +127,9 @@ function createFunction() {
   if (inputPars !== '') {
     inputPars = inputPars.slice(0, inputPars.length - 2);
   }
+  funcText = 'Private Function ';
   if ($('#classFunction').prop('checked')) {
     funcText = 'Function ';
-  } else {
-    funcText = 'Private Function ';
   }
   funcText =
     funcText +

@@ -50,13 +50,6 @@ function generateCode() {
   $('#Code').val(textString);
 }
 
-/**
- * Capitalize the first letter of the text
- * @param  {string} text
- */
-function capitalizeFirstLetter(text) {
-  return text.charAt(0).toUpperCase() + text.slice(1);
-}
 
 /**
  * Reset #Name objects' names
