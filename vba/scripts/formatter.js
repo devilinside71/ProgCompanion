@@ -22,7 +22,8 @@ function formatVBA() {
     'ReDim', 'REM', 'Reset', 'Resume', 'RmDir', 'SaveSetting', 'Seek',
     'Select Case', 'SendKeys', 'Set', 'SetAttr', 'Static', 'Stop', 'Sub',
     'Time', 'Type', 'Unload', 'While', 'Wend', 'Width #', 'With', 'Write #',
-    'End Sub', 'End Function', 'Debug.Print', 'MsgBox', 'Wait', 'Private Sub');
+    'End Sub', 'End Function', 'Debug.Print', 'MsgBox', 'Wait', 'Private Sub',
+    '#If', '#Else', '#End If');
   // prettier-ignore
   var funcsUp = new Array('Abs', 'Array', 'Asc', 'Atn', 'CBool', 'CByte',
     'CCur', 'CDate', 'CDbl', 'CDec', 'Choose', 'Chr', 'CInt', 'CLng', 'Cos',
@@ -65,15 +66,15 @@ function formatVBA() {
     'public function', 'end sub', 'end function', 'enum', 'private enum',
     'public enum', 'property', 'private property', 'public property',
     'end enum', 'end property', 'for', 'next', 'with', 'end with', 'do', 'loop',
-    'select case', 'case', 'end select');
+    'select case', 'case', 'end select', '#if', '#else', '#end if');
   // prettier-ignore
   var commandsBefore = new Array('', '-', '-', '-', '', '-', '0', '0', '0', '0',
     '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', '-', '',
-    '-', '', '-', '', '-', '--');
+    '-', '', '-', '', '-', '--', '', '-', '-');
   // prettier-ignore
   var commandsAfter = new Array('+', '+', '+', '', '+', '', '+', '+', '+', '+',
     '+', '+', '0', '0', '+', '+', '+', '+', '+', '+', '0', '0', '+', '', '+',
-    '', '+', '', '++', '+', '');
+    '', '+', '', '++', '+', '', '+', '+', '');
   // Sorokra bontás
   var lines = $('#Code')
     .val()
