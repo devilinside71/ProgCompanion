@@ -147,13 +147,13 @@ function addSpaceToOperators(lineText) {
   for (res of result) {
     indOfArr++;
     console.log(res.length, indOfArr, resultIndex[indOfArr], res);
-    newString = newString.replace(
-      newString.substring(
-        resultIndex[indOfArr],
-        resultIndex[indOfArr] + res.length
-      ),
-      res + ' '
-    );
+    // newString = newString.replace(
+    //   newString.substring(
+    //     resultIndex[indOfArr],
+    //     resultIndex[indOfArr] + res.length
+    //   ),
+    //   res + ' '
+    // );
     str1 = newString.substring(0, resultIndex[indOfArr] - 1);
     str2 = newString.substring(
       resultIndex[indOfArr],
