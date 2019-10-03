@@ -1,5 +1,21 @@
 /* eslint-disable capitalized-comments */
 // / <reference path="../../typings/globals/jquery/index.d.ts" />
+
+// prettier-ignore
+var commandsUp = new Array('AppActivate', 'Beep', 'Call', 'ChDir', 'ChDrive',
+  'Close', 'Const', 'Date', 'Declare', 'DeleteSetting', 'Dim', 'Do', 'Do While',
+  'Loop', 'End', 'Erase', 'Error', 'Exit Do', 'Exit For', 'Exit Function',
+  'Exit Property', 'Exit Sub', 'FileCopy', 'For', 'Each', 'Next', 'For Each',
+  'Function', 'Get', 'GoSub', 'Return', 'GoTo', 'If', 'Then', 'Else', 'ElseIf',
+  'Input #', 'Kill', 'Let', 'Line Input #', 'Load', 'Lock', 'Unlock', 'Mid',
+  'MkDir', 'Name', 'On Error', 'On', 'Open', 'Option Base', 'Option Compare',
+  'Option Explicit', 'Option Private', 'Print #', 'Private', 'Property Get',
+  'Property Let', 'Property Set', 'Public', 'Put', 'RaiseEvent', 'Randomize',
+  'ReDim', 'REM', 'Reset', 'Resume', 'RmDir', 'SaveSetting', 'Seek',
+  'Select Case', 'SendKeys', 'Set', 'SetAttr', 'Static', 'Stop', 'Sub',
+  'Time', 'Type', 'Unload', 'While', 'Wend', 'Width #', 'With', 'Write #',
+  'End Sub', 'End Function', 'Debug.Print', 'MsgBox', 'Wait', 'Private Sub',
+  '#If', '#Else', '#End If');
 $(document).ready(function() {
   $('#format').click(function() {
     formatVBA();
@@ -28,10 +44,24 @@ function formatVBA() {
       line = formatConstDeclarationLine(line);
       line = formatSubLine(line);
       line = formatFuncLine(line);
+      // line = formatIfLine(line);
+      line = formatCommand(line);
     }
     outText += line + '\n';
   }
   $('#CodeFormat').val(outText);
+}
+
+function formatCommand(line) {
+  var k;
+  var ret = line;
+  var regex;
+  for (k = 0; k < commandsUp.length; k++) {
+    regex = new RegExp('\\b' + commandsUp[k].toLocaleLowerCase() + '\\b', 'gi');
+    ret = ret.replace(regex, commandsUp[k]);
+    // console.log('\b' + commandsUp[k].toLocaleLowerCase() + '\b');
+  }
+  return ret;
 }
 
 function formatFuncLine(line) {
@@ -219,5 +249,11 @@ function clearCode() {
 }
 
 function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  var ret;
+  if (string.charAt(0) === '#') {
+    ret = '#' + string.charAt(1).toUpperCase() + string.slice(2).toLowerCase();
+  } else {
+    ret = string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  }
+  return ret;
 }
