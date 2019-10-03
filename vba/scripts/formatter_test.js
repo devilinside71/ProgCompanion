@@ -21,6 +21,8 @@ function formatVBA() {
       if (line.substring(0, 4).toLowerCase() === 'rem ') {
         line = 'REM ' + line.substring(4);
       }
+    } else {
+      line = removeSpaces(line);
     }
     outText += line + '\n';
   }
@@ -36,6 +38,21 @@ function isRemLine(line) {
     ret = true;
   }
   return ret;
+}
+
+/**
+ * Remove extra spaces except within quotation marks
+ * @param  {string} lineText
+ */
+function removeSpaces(lineText) {
+  // eslint-disable-next-line id-length
+  var newString = lineText.replace(/([^"]+)|("[^"]+")/g, function($0, $1, $2) {
+    if ($1) {
+      return $1.replace(/\s{2,}/g, ' ');
+    }
+    return $2;
+  });
+  return newString;
 }
 
 function clearCode() {
