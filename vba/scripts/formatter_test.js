@@ -1,3 +1,4 @@
+/* eslint-disable capitalized-comments */
 // / <reference path="../../typings/globals/jquery/index.d.ts" />
 $(document).ready(function() {
   $('#format').click(function() {
@@ -14,30 +15,187 @@ function formatVBA() {
   var outText = '';
   var line = '';
   var i = 0;
+  var remVals;
   for (i = 0; i < lines.length; i++) {
     line = lines[i].trim();
-    if (isRemLine(line)) {
-      console.log('Remline: ' + line);
-      if (line.substring(0, 4).toLowerCase() === 'rem ') {
-        line = 'REM ' + line.substring(4);
-      }
-    } else {
+    remVals = formatREMlIne(line);
+    line = remVals[0];
+    // console.log(remVals[1]);
+    if (remVals[1] === false) {
+      // console.log(line);
       line = removeSpaces(line);
+      line = formatDeclarationLine(line);
+      line = formatConstDeclarationLine(line);
+      line = formatSubLine(line);
+      line = formatFuncLine(line);
     }
     outText += line + '\n';
   }
   $('#CodeFormat').val(outText);
 }
 
-function isRemLine(line) {
-  var ret = false;
-  if (
-    line.substring(0, 1) === '\'' ||
-    line.substring(0, 4).toLowerCase() === 'rem '
-  ) {
-    ret = true;
+function formatFuncLine(line) {
+  var ret = line;
+  var subret = '';
+  var mainRegexp;
+  var subRegexp;
+  var mainMatch;
+  var subMatch;
+  var subElems;
+  var index;
+  var elem;
+  mainRegexp = /(private\s*function |global\s*function |function )\s*(.*)\((.*)\)\s*as\s*(\b[a-zA-Z0-9_]+\b)$/gi;
+  mainMatch = mainRegexp.exec(line);
+  try {
+    subElems = mainMatch[3].split(',');
+    for (index = 0; index < subElems.length; index++) {
+      subRegexp = /(\b[a-zA-Z0-9_]+\b)\s*as\s*(\b[a-zA-Z0-9_]+\b)/gi;
+      elem = subElems[index].trim();
+      // console.log('E:' + elem);
+      subMatch = subRegexp.exec(elem);
+      // console.log(elem + ' SM:' + subMatch.length);
+      try {
+        subret += subMatch[1] + ' As ' + capitalize(subMatch[2]);
+        if (index + 1 !== subElems.length) {
+          subret += ', ';
+        }
+      } catch (error) {
+        subret += formatOptionalPart(elem);
+      }
+    }
+    ret =
+      capitalize(mainMatch[1]) +
+      mainMatch[2].trim() +
+      '(' +
+      subret +
+      ') As ' +
+      capitalize(mainMatch[4]);
+    ret = ret.replace('function', 'Function');
+  } catch (error) {}
+  return ret;
+}
+
+function formatOptionalPart(line) {
+  var ret = line;
+  var mainRegexp;
+  var mainMatch;
+  console.log('Try OPTIONAL ' + line);
+  mainRegexp = /(\boptional\b)\s*(.*)\s*=\s*(.*)\s*/gi;
+  mainMatch = mainRegexp.exec(line);
+  try {
+    console.log('MOPT:' + mainMatch.length);
+    ret = 'Optional ' + mainMatch[2] + ' = ' + mainMatch[3];
+  } catch (error) {
+    console.log('Not OPTIONAL');
   }
   return ret;
+}
+function formatSubLine(line) {
+  var ret = line;
+  var subret = '';
+  var mainRegexp;
+  var subRegexp;
+  var mainMatch;
+  var subMatch;
+  var subElems;
+  var index;
+  var elem;
+  mainRegexp = /(private\s*sub |global\s*sub |sub )\s*(.*)\((.*)\)\s*$/gi;
+  mainMatch = mainRegexp.exec(line);
+  try {
+    subElems = mainMatch[3].split(',');
+    for (index = 0; index < subElems.length; index++) {
+      subRegexp = /(\b[a-zA-Z0-9_]+\b)\s*as\s*(\b[a-zA-Z0-9_]+\b)/gi;
+      elem = subElems[index].trim();
+      // console.log('E:' + elem);
+      subMatch = subRegexp.exec(elem);
+      // console.log(elem + ' SM:' + subMatch.length);
+      try {
+        subret += subMatch[1] + ' As ' + capitalize(subMatch[2]);
+        if (index + 1 !== subElems.length) {
+          subret += ', ';
+        }
+      } catch (error) {
+        subret += formatOptionalPart(elem);
+      }
+    }
+    ret = capitalize(mainMatch[1]) + mainMatch[2].trim() + '(' + subret + ')';
+    ret = ret.replace('sub', 'Sub');
+  } catch (error) {}
+  return ret;
+}
+
+function formatConstDeclarationLine(line) {
+  var ret = line;
+  myRegexp = /(private |public )\s*const\s*(.*)\s*as\s*(\b[a-zA-Z0-9_]+\b)\s*=\s*(.*$)/gi;
+  match = myRegexp.exec(line);
+  try {
+    // console.log(capitalize(match[1]));
+    ret =
+      capitalize(match[1]) +
+      'Const ' +
+      match[2].trim() +
+      ' As ' +
+      capitalize(match[3]) +
+      ' = ' +
+      match[4];
+  } catch (error) {
+    // console.log(error);
+  }
+  return ret;
+}
+function formatDeclarationLine(line) {
+  var ret = line;
+  var subret = '';
+  var mainRegexp;
+  var subRegexp;
+  var mainMatch;
+  var subMatch;
+  var subElems;
+  var index;
+  var elem;
+  mainRegexp = /(dim |private |global )(?!.*\s*const\s*)(?!.*\s*sub\s*)(?!.*\s*function\s*)(.*)/gi;
+  mainMatch = mainRegexp.exec(line);
+  try {
+    subElems = mainMatch[2].split(',');
+    for (index = 0; index < subElems.length; index++) {
+      subRegexp = /(\b[a-zA-Z0-9_]+\b)\s*as\s*(\b[a-zA-Z0-9_]+\b)/gi;
+      elem = subElems[index].trim();
+      // console.log('E:' + elem);
+      subMatch = subRegexp.exec(elem);
+      // console.log(elem + ' SM:' + subMatch.length);
+      try {
+        subret += subMatch[1] + ' As ' + capitalize(subMatch[2]);
+        if (index + 1 !== subElems.length) {
+          subret += ', ';
+        }
+      } catch (error) {
+        // console.log('hiba ' + subMatch[1]);
+      }
+      // subret += elem;
+    }
+    // console.log(mainMatch.length);
+    ret = capitalize(mainMatch[1]) + subret;
+    // console.log(ret);
+  } catch (error) {
+    // console.log('nem DECLAR ' + line);
+  }
+  return ret;
+}
+function formatREMlIne(line) {
+  var ret = line;
+  var retVal = false;
+  if (line.substring(0, 1) === '\'') {
+    ret = line;
+    retVal = true;
+    // console.log('REM line:' + line);
+  }
+  if (line.substring(0, 4).toLowerCase() === 'rem ') {
+    ret = 'REM ' + line.substring(4);
+    retVal = true;
+    // console.log('REM line:' + line);
+  }
+  return [ret, retVal];
 }
 
 /**
@@ -58,4 +216,8 @@ function removeSpaces(lineText) {
 function clearCode() {
   $('#Code').val('');
   $('#CodeFormat').val('');
+}
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
