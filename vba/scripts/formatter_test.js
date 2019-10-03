@@ -57,7 +57,7 @@ function formatCommand(line) {
   var ret = line;
   var regex;
   for (k = 0; k < commandsUp.length; k++) {
-    regex = new RegExp('\\b' + commandsUp[k].toLocaleLowerCase() + '\\b', 'gi');
+    regex = new RegExp('\\b' + commandsUp[k] + '\\b', 'gi');
     ret = ret.replace(regex, commandsUp[k]);
     // console.log('\b' + commandsUp[k].toLocaleLowerCase() + '\b');
   }
