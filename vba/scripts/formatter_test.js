@@ -16,7 +16,7 @@ var commandsUp = new Array('AppActivate', 'Beep', 'Call', 'ChDir', 'ChDrive',
   'Time', 'Type', 'Unload', 'While', 'Wend', 'Width #', 'With', 'Write #',
   'End Sub', 'End Function', 'Debug.Print', 'MsgBox', 'Wait', 'Private Sub',
   '#If', '#Else', '#End If', 'Case', 'End Select', 'End Property', 'Mac',
-  'Win32', 'Win64', 'Vba6', 'Vba7', 'Append', 'Output');
+  'Win32', 'Win64', 'Vba6', 'Vba7', 'Append', 'Output', 'ByRef', 'ByVal');
 
 // prettier-ignore
 var funcsUp = new Array('Abs', 'Array', 'Asc', 'Atn', 'CBool', 'CByte',
