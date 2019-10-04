@@ -15,7 +15,8 @@ var commandsUp = new Array('AppActivate', 'Beep', 'Call', 'ChDir', 'ChDrive',
   'Select Case', 'SendKeys', 'Set', 'SetAttr', 'Static', 'Stop', 'Sub',
   'Time', 'Type', 'Unload', 'While', 'Wend', 'Width #', 'With', 'Write #',
   'End Sub', 'End Function', 'Debug.Print', 'MsgBox', 'Wait', 'Private Sub',
-  '#If', '#Else', '#End If', 'Case', 'End Select', 'End Property');
+  '#If', '#Else', '#End If', 'Case', 'End Select', 'End Property', 'Mac',
+  'Win32', 'Win64', 'Vba6', 'Vba7', 'Append', 'Output');
 
 // prettier-ignore
 var funcsUp = new Array('Abs', 'Array', 'Asc', 'Atn', 'CBool', 'CByte',
@@ -40,7 +41,7 @@ var funcsUp = new Array('Abs', 'Array', 'Asc', 'Atn', 'CBool', 'CByte',
   'callFunction', 'hasLocation', 'Wait', 'FileNameOutOfPath',
   'GetDocumentType', 'HasUnoInterfaces', 'getComponents', 'createEnumeration',
   'hasMoreElements', 'nextElement', 'loadComponentFromURL', 'Open',
-  'getCount');
+  'getCount', 'MacScript');
 // prettier-ignore
 var typesUp = new Array(' As String', ' As Integer', ' As Double',
   ' As WorkSheet', ' As WorkBook', ' As Long', ' As Variant', ' As Boolean',
