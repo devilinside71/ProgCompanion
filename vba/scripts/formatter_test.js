@@ -77,6 +77,7 @@ function formatVBA() {
   var i = 0;
   for (i = 0; i < lines.length; i++) {
     line = lines[i].trim();
+    line = addSpaceToOperators(line);
     line = removeSpaces(line);
     line = formatConstDeclarationLine(line);
     line = formatSubLine(line);
@@ -342,6 +343,19 @@ function formatConstDeclarationLine(line) {
   return ret;
 }
 
+function addSpaceToOperators(line) {
+  var ret = line;
+  ret = ret.replace(/\s*(>|<|=|\+|-|&|\/)\s*/gi, myReplace);
+  ret = ret.replace(/\s*(>|<|=)\s*(>|<|=)\s*/gi, myReplace2);
+
+  return ret;
+}
+function myReplace(str, group1) {
+  return ' ' + group1 + ' ';
+}
+function myReplace2(str, group1, group2) {
+  return ' ' + group1 + group2 + ' ';
+}
 /**
  * Remove extra spaces except within quotation marks
  * @param  {string} lineText
