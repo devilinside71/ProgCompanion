@@ -80,6 +80,8 @@ function formatVBA() {
   for (i = 0; i < lines.length; i++) {
     line = lines[i].trim();
     line = addSpaceToOperators(line);
+    line = formatSpecialLine(line);
+	
     line = removeSpaces(line);
     line = formatConstDeclarationLine(line);
     line = formatSubLine(line);
@@ -101,12 +103,13 @@ function getIndentedLine(line) {
   var regex;
   var match;
 
-  regex = /^\s*(private|public|global|option explicit|end sub|end function|end property)\b/gi;
+  regex = /^\s*(private|public|global|option explicit|end sub|end function|end property|\'#region|\'#endregion)\b/gi;
   match = regex.exec(line);
   if (match !== null) {
     ret = line.trim();
-    // console.log('MainDeclare Indent:' + currentIndent + ' ' + line);
+    console.log('MainDeclare Indent:' + currentIndent + ' ' + +match[1]+' '+line);
   }
+
   // Main line
   regex = /^\s*(private sub|private function|public sub|public function|global sub|global function|sub|function|private property|public property|global property)\b/gi;
   match = regex.exec(line);
@@ -190,6 +193,17 @@ function getIndentedLine(line) {
   }
   return ret;
 }
+
+      function formatSpecialLine(line) {
+        var ret = line;
+        var mainRegexp;
+        mainRegexp = /^\s*\'\s*#\s*(endregion|region)\b(.*)$/gi;
+        match = mainRegexp.exec(line);
+        try {
+          ret = "'#" + match[1] + ' ' + match[2];
+        } catch (error) {}
+        return ret;
+      }
 function formatVBACommand(line) {
   var k;
   var ret = line;
