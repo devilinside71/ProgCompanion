@@ -345,15 +345,14 @@ function formatConstDeclarationLine(line) {
 
 function addSpaceToOperators(line) {
   var ret = line;
-  ret = ret.replace(/\s*(>|<|=|\+|-|&|\/)\s*/gi, myReplace);
-  ret = ret.replace(/\s*(>|<|=)\s*(>|<|=)\s*/gi, myReplace2);
-
+  ret = ret.replace(/\s*(>|<|=|\+|-|&|\/)\s*/gi, replaceSingleOperator);
+  ret = ret.replace(/\s*(>|<|=)\s*(>|<|=)\s*/gi, replaceDoubleOperator);
   return ret;
 }
-function myReplace(str, group1) {
+function replaceSingleOperator(str, group1) {
   return ' ' + group1 + ' ';
 }
-function myReplace2(str, group1, group2) {
+function replaceDoubleOperator(str, group1, group2) {
   return ' ' + group1 + group2 + ' ';
 }
 /**
