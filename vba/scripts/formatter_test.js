@@ -1,3 +1,4 @@
+/* eslint-disable no-negated-condition */
 /* eslint-disable capitalized-comments */
 // / <reference path="../../typings/globals/jquery/index.d.ts" />
 
@@ -59,7 +60,8 @@ var subobjectsUp = new Array('Cells', 'Sheets', 'Range');
 
 var currentIndent = 0;
 var firstCase = false;
-
+var underscored = true;
+var underscoreCount = 0;
 $(document).ready(function() {
   $('#format').click(function() {
     formatVBA();
@@ -98,6 +100,7 @@ function getIndentedLine(line) {
   var ret = getIndent(currentIndent) + line.trim();
   var regex;
   var match;
+
   regex = /^\s*(private|public|global|option explicit|end sub|end function|end property)\b/gi;
   match = regex.exec(line);
   if (match !== null) {
@@ -112,7 +115,7 @@ function getIndentedLine(line) {
     ret = line.trim();
     // console.log('Main Indent:' + currentIndent + ' ' + line);
   }
-  regex = /^\s*(for|while|with)\b/gi;
+  regex = /^\s*(for|while|with|do while)\b/gi;
   match = regex.exec(line);
   if (match !== null) {
     ret = getIndent(currentIndent) + line.trim();
@@ -147,15 +150,29 @@ function getIndentedLine(line) {
     ret = getIndent(currentIndent) + line.trim();
     // console.log('End Select Indent:' + currentIndent + ' ' + line);
   }
-  regex = /\s*(then| _|#then)\b\s*$/gi;
+  regex = /\s*(then|#then)\b\s*$/gi;
   match = regex.exec(line);
   if (match !== null) {
     ret = getIndent(currentIndent) + line.trim();
     currentIndent++;
     // console.log('Then Indent:' + currentIndent + ' ' + line);
   }
+  regex = /\s*( _)\b\s*$/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    ret = getIndent(currentIndent) + line.trim();
+    currentIndent++;
+    underscoreCount++;
+    underscored = true;
+    console.log(underscoreCount);
+  } else if (underscored) {
+    console.log('Not undersored ' + line);
+    underscored = false;
+    currentIndent -= underscoreCount;
+    console.log('New indent:' + currentIndent);
+  }
 
-  regex = /^\s*(next|end if|#end if|wend|end with)\b/gi;
+  regex = /^\s*(next|end if|#end if|wend|end with|loop)\b/gi;
   match = regex.exec(line);
   if (match !== null) {
     currentIndent--;
