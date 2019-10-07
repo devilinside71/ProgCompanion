@@ -169,6 +169,7 @@ function getIndentedLine(line) {
     console.log('Not undersored ' + line);
     underscored = false;
     currentIndent -= underscoreCount;
+    underscoreCount = 0;
     console.log('New indent:' + currentIndent);
   }
 
