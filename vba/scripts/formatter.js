@@ -65,6 +65,13 @@ var constUp = new Array('vbTrue', 'vbFalse', 'vbCr', 'vbCrLf', 'vbFormFeed',
   'vbInteger', 'vbLong', 'vSingle', 'vbDouble', 'vbCurrency', 'vbDate', 'vbString',
   'vbObject', 'vbError', 'vbBoolean', 'vbVariant', 'vbDataObject', 'vbDecimal',
   'vbByte', 'vbArray', 'Mac', 'Win64', 'Win32', 'Vba6', 'Vba7');
+// prettier-ignore
+var msgConstUp = new Array('vbOKOnly', 'vbOKCancel', 'vbAbortRetryIgnore',
+  'vbYesNoCancel', 'vbYesNo', 'vbRetryCancel', 'vbCritical', 'vbQuestion',
+  'vbExclamation', 'vbInformation', 'vbDefaultButton1', 'vbDefaultButton2',
+  'vbDefaultButton3', 'vbDefaultButton4', 'vbApplicationModal', 'vbSystemModal',
+  'vbMsgBoxHelpButton', 'VbMsgBoxSetForeground', 'vbMsgBoxRight', 'vbMsgBoxRtlReading',
+  'vbOK', 'vbCancel', 'vbAbort', 'vbRetry', 'vbIgnore', 'vbYes', 'vbNo');
 // #endregion
 
 var currentIndent = 0;
@@ -112,6 +119,7 @@ function formatVBA() {
     line = formatVBAActivity(line);
     line = formatVBASubobject(line);
     line = formatVBAConstant(line);
+    line = formatVBAMsgConstant(line);
     line = getIndentedLine(line);
     outText += line + '\n';
   }
@@ -278,6 +286,21 @@ function formatVBAConstant(line) {
   for (k = 0; k < constUp.length; k++) {
     regex = new RegExp('\\b' + constUp[k] + '\\b', 'gi');
     ret = ret.replace(regex, constUp[k]);
+  }
+  return ret;
+}
+
+/**
+ * Format built-in messagebox constants
+ * @param  {} line
+ */
+function formatVBAMsgConstant(line) {
+  var k;
+  var ret = line;
+  var regex;
+  for (k = 0; k < msgConstUp.length; k++) {
+    regex = new RegExp('\\b' + msgConstUp[k] + '\\b', 'gi');
+    ret = ret.replace(regex, msgConstUp[k]);
   }
   return ret;
 }
