@@ -1,4 +1,73 @@
+/* eslint-disable no-negated-condition */
+/* eslint-disable capitalized-comments */
 // / <reference path="../../typings/globals/jquery/index.d.ts" />
+
+// #region Keywords
+
+// prettier-ignore
+var commandsUp = new Array('#Else', '#End If', '#If', 'AppActivate', 'Append',
+  'Beep', 'ByRef', 'ByVal', 'Call', 'Case', 'ChDir', 'ChDrive', 'Close',
+  'Const', 'Date', 'Debug.Print', 'Declare', 'DeleteSetting', 'Dim', 'Do',
+  'Do While', 'Each', 'Else', 'ElseIf', 'End', 'End Function', 'End Property',
+  'End Select', 'End Sub', 'Erase', 'Error', 'Exit Do', 'Exit For',
+  'Exit Function', 'Exit Property', 'Exit Sub', 'FileCopy', 'For', 'For Each',
+  'Function', 'Get', 'GoSub', 'GoTo', 'If', 'Iif', 'Input #', 'Kill', 'Let',
+  'Line Input #', 'Load', 'Lock', 'Loop', 'Mac', 'Mid', 'MkDir', 'MsgBox',
+  'Name', 'Next', 'On', 'On Error', 'Open', 'Option Base', 'Option Compare',
+  'Option Explicit', 'Option Private', 'Output', 'Print #', 'Private',
+  'Private Sub', 'Property Get', 'Property Let', 'Property Set', 'Public',
+  'Put', 'REM', 'RaiseEvent', 'Randomize', 'ReDim', 'Reset', 'Resume', 'Return',
+  'RmDir', 'SaveSetting', 'Seek', 'Select Case', 'SendKeys', 'Set', 'SetAttr',
+  'Static', 'Stop', 'Sub', 'Then', 'Time', 'Type', 'Unload', 'Unlock', 'Vba6',
+  'Vba7', 'Wait', 'Wend', 'While', 'Width #', 'Win32', 'Win64', 'With', 'Write #');
+
+// prettier-ignore
+var funcsUp = new Array('Abs', 'Array', 'Asc', 'Atn', 'CBool', 'CByte', 'CCur',
+  'CDate', 'CDbl', 'CDec', 'CInt', 'CLng', 'CSng', 'CStr', 'CVErr', 'CVar',
+  'Choose', 'Chr', 'Cos', 'CurDir', 'DDB', 'Date', 'DateAdd', 'DateDiff',
+  'DatePart', 'DateSerial', 'DateValue', 'Day', 'Dir', 'DirectoryNameoutofPath',
+  'Error', 'Exp', 'FV', 'FileAttr', 'FileDateTime', 'FileLen',
+  'FileNameOutOfPath', 'Filter', 'Fix', 'Format', 'FormatCurrency',
+  'FormatDateTime', 'FormatNumber', 'FormatPercent', 'GetAttr',
+  'GetDocumentType', 'HasUnoInterfaces', 'Hex', 'Hour', 'IIf', 'IPmt', 'IRR',
+  'InStr', 'InStrRev', 'InputBox', 'InsertNewByName', 'Int', 'IsArray',
+  'IsDate', 'IsEmpty', 'IsError', 'IsMissing', 'IsNull', 'IsNumeric',
+  'IsObject', 'Join', 'LBound', 'LCase', 'LTrim', 'Left', 'Len', 'LoadLibrary',
+  'Log', 'MIRR', 'MacScript', 'Mid', 'Minute', 'Month', 'MonthName', 'MsgBox',
+  'NPV', 'NPer', 'Now', 'Oct', 'Open', 'PPmt', 'PV', 'Pmt', 'RTrim', 'Rate',
+  'Replace', 'Right', 'Rnd', 'Round', 'SLN', 'SYD', 'Second', 'Sgn', 'Sheets',
+  'Sin', 'Space', 'Split', 'Sqr', 'Str', 'StrComp', 'StrConv', 'StrReverse',
+  'String', 'Switch', 'Tan', 'Time', 'TimeSerial', 'TimeValue', 'Timer', 'Trim',
+  'UBound', 'UCase', 'Val', 'Wait', 'Weekday', 'WeekdayName', 'Worksheets',
+  'Year', 'addItem', 'callFunction', 'createEnumeration', 'findSheetIndex',
+  'getByName', 'getCellByPosition', 'getCellRangeByName', 'getComponents',
+  'getCount', 'getURL', 'hasLocation', 'hasMoreElements', 'loadComponentFromURL',
+  'nextElement', 'setActiveSheet');
+// prettier-ignore
+var typesUp = new Array(' As Boolean', ' As Date', ' As Double', ' As Integer',
+  ' As Long', ' As Object', ' As String', ' As Variant', ' As WorkBook',
+  ' As WorkSheet');
+// prettier-ignore
+var objectsUp = new Array('ActiveSheet', 'ActiveWorkbook', 'BasicLibraries',
+  'CurrentController', 'GlobalScope', 'RunAutoMacros', 'StarDesktop', 'ThisComponent');
+// prettier-ignore
+var activityUp = new Array('Activate', 'ActiveSheet', 'Address', 'LockControllers',
+  'Name', 'Open', 'ScreenUpdating', 'Select', 'String', 'Value', 'getCurrentSelection');
+// prettier-ignore
+var subobjectsUp = new Array('Cells', 'Range', 'Sheets');
+
+// #endregion
+
+var currentIndent = 0;
+var firstCase = false;
+var underscored = true;
+var underscoreCount = 0;
+
+/**
+ * Main function
+ * @param  {} document
+ * @param  {} .ready(function(
+ */
 $(document).ready(function() {
   $('#format').click(function() {
     formatVBA();
@@ -8,176 +77,415 @@ $(document).ready(function() {
   });
 });
 
+/**
+ * Format VBA code
+ */
 function formatVBA() {
-  // prettier-ignore
-  var commandsUp = new Array('AppActivate', 'Beep', 'Call', 'ChDir', 'ChDrive',
-    'Close', 'Const', 'Date', 'Declare', 'DeleteSetting', 'Dim', 'Do', 'Do While',
-    'Loop', 'End', 'Erase', 'Error', 'Exit Do', 'Exit For', 'Exit Function',
-    'Exit Property', 'Exit Sub', 'FileCopy', 'For', 'Each', 'Next', 'For Each',
-    'Function', 'Get', 'GoSub', 'Return', 'GoTo', 'If', 'Then', 'Else',
-    'Input #', 'Kill', 'Let', 'Line Input #', 'Load', 'Lock', 'Unlock', 'Mid',
-    'MkDir', 'Name', 'On Error', 'On', 'Open', 'Option Base', 'Option Compare',
-    'Option Explicit', 'Option Private', 'Print #', 'Private', 'Property Get',
-    'Property Let', 'Property Set', 'Public', 'Put', 'RaiseEvent', 'Randomize',
-    'ReDim', 'REM', 'Reset', 'Resume', 'RmDir', 'SaveSetting', 'Seek',
-    'Select Case', 'SendKeys', 'Set', 'SetAttr', 'Static', 'Stop', 'Sub',
-    'Time', 'Type', 'Unload', 'While', 'Wend', 'Width #', 'With', 'Write #',
-    'End Sub', 'End Function', 'Debug.Print', 'MsgBox', 'Wait', 'Private Sub',
-    '#If', '#Else', '#End If');
-  // prettier-ignore
-  var funcsUp = new Array('Abs', 'Array', 'Asc', 'Atn', 'CBool', 'CByte',
-    'CCur', 'CDate', 'CDbl', 'CDec', 'Choose', 'Chr', 'CInt', 'CLng', 'Cos',
-    'CurDir', 'CVar', 'CVErr', 'CSng', 'CStr', 'Date', 'DateAdd', 'DateDiff',
-    'DatePart', 'DateSerial', 'DateValue', 'Day', 'DDB', 'Dir', 'Error', 'Exp',
-    'FileAttr', 'FileDateTime', 'FileLen', 'Filter', 'Fix', 'Format',
-    'FormatCurrency', 'FormatDateTime', 'FormatNumber', 'FormatPercent',
-    'FV', 'GetAttr', 'Hex', 'Hour', 'IIf', 'InputBox', 'InStr', 'InStrRev',
-    'Int', 'IPmt', 'IRR', 'IsArray', 'IsDate', 'IsEmpty', 'IsError',
-    'IsMissing', 'IsNull', 'IsNumeric', 'IsObject', 'Join', 'LBound',
-    'LCase', 'Left', 'Len', 'Log', 'LTrim', 'Mid', 'Minute', 'MIRR',
-    'Month', 'MonthName', 'MsgBox', 'Now', 'NPer', 'NPV', 'Oct', 'Pmt',
-    'PPmt', 'PV', 'Rate', 'Replace', 'Right', 'Rnd', 'Round', 'RTrim',
-    'Second', 'Sgn', 'Sin', 'SLN', 'Space', 'Split', 'Sqr', 'Str',
-    'StrComp', 'StrConv', 'String', 'StrReverse', 'Switch', 'SYD',
-    'Tan', 'Time', 'Timer', 'TimeSerial', 'TimeValue', 'Trim',
-    'UBound', 'UCase', 'Val', 'Weekday', 'WeekdayName', 'Year',
-    'addItem', 'getCellRangeByName', 'getCellByPosition', 'getByName',
-    'setActiveSheet', 'Worksheets', 'Sheets', 'findSheetIndex',
-    'InsertNewByName', 'LoadLibrary', 'getURL', 'DirectoryNameoutofPath',
-    'callFunction', 'hasLocation', 'Wait', 'FileNameOutOfPath',
-    'GetDocumentType', 'HasUnoInterfaces', 'getComponents', 'createEnumeration',
-    'hasMoreElements', 'nextElement', 'loadComponentFromURL', 'Open',
-    'getCount');
-  // prettier-ignore
-  var typesUp = new Array(' As String', ' As Integer', ' As Double',
-    ' As WorkSheet', ' As WorkBook', ' As Long', ' As Variant', ' As Boolean',
-    ' As Object', ' As Date', ' Then');
-  // prettier-ignore
-  var objectsUp = new Array('ThisComponent', 'CurrentController', 'ActiveSheet',
-    'ActiveWorkbook', 'GlobalScope', 'BasicLibraries', 'StarDesktop',
-    'RunAutoMacros');
-  // prettier-ignore
-  var activityUp = new Array('Activate', 'ActiveSheet', 'getCurrentSelection',
-    'ScreenUpdating', 'LockControllers', 'Open', 'Name', 'Value', 'String',
-    'Address', 'Select');
-  // prettier-ignore
-  var commands = new Array('if', 'else', 'else if', 'end if', 'while', 'wend',
-    'sub', 'private sub', 'public sub', 'function', 'private function',
-    'public function', 'end sub', 'end function', 'enum', 'private enum',
-    'public enum', 'property', 'private property', 'public property',
-    'end enum', 'end property', 'for', 'next', 'with', 'end with', 'do', 'loop',
-    'select case', 'case', 'end select', '#if', '#else', '#end if');
-  // prettier-ignore
-  var commandsBefore = new Array('', '-', '-', '-', '', '-', '0', '0', '0', '0',
-    '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', '-', '',
-    '-', '', '-', '', '-', '--', '', '-', '-');
-  // prettier-ignore
-  var commandsAfter = new Array('+', '+', '+', '', '+', '', '+', '+', '+', '+',
-    '+', '+', '0', '0', '+', '+', '+', '+', '+', '+', '0', '0', '+', '', '+',
-    '', '+', '', '++', '+', '', '+', '+', '');
-  // Sorokra bontás
   var lines = $('#Code')
     .val()
     .split('\n');
   var outText = '';
   var line = '';
-  var beforeIndent = 0;
-  var afterIndent = 0;
   var i = 0;
-  var k = 0;
   for (i = 0; i < lines.length; i++) {
     line = lines[i].trim();
-    // Remove extra spaces, add needed spaces
     line = addSpaceToOperators(line);
-    line = removeSpaces(line);
+    line = formatSpecialLine(line);
 
-    for (k = 0; k < commands.length; k++) {
-      if (
-        (commands[k] + ' ').toLowerCase() ===
-        line
-          .slice(0, commands[k].length + 1)
-          .toLowerCase()
-          .trim() +
-          ' '
-      ) {
-        // OutText = outText + getIndent(beforeIndent) + line + "QQQ\n";
-        if (commandsAfter[k] === '+') {
-          // BeforeIndent++;
-          afterIndent = 1;
-        }
-        if (commandsAfter[k] === '++') {
-          // BeforeIndent++;
-          afterIndent = 2;
-        }
-        if (commandsAfter[k] === '0') {
-          beforeIndent = 0;
-        }
-        if (commandsBefore[k] === '-') {
-          beforeIndent--;
-        }
-        if (commandsBefore[k] === '--') {
-          beforeIndent--;
-          beforeIndent--;
-        }
-        if (commandsBefore[k] === '0') {
-          beforeIndent = 0;
-        }
-      }
-    }
-    // Make uppercase statement
-    for (k = 0; k < commandsUp.length; k++) {
-      if (
-        (commandsUp[k] + ' ').toLowerCase() ===
-        line
-          .slice(0, commandsUp[k].length + 1)
-          .toLowerCase()
-          .trim() +
-          ' '
-      ) {
-        line = line.replace(
-          new RegExp(line.slice(0, commandsUp[k].length), 'i'),
-          commandsUp[k]
-        );
-      }
-    }
-    // Make uppercase functions
-    for (k = 0; k < funcsUp.length; k++) {
-      line = line.replace(
-        new RegExp(funcsUp[k] + '\\(', 'gi'),
-        funcsUp[k] + '('
-      );
-    }
-    // Make uppercase types
-    for (k = 0; k < typesUp.length; k++) {
-      line = line.replace(new RegExp(typesUp[k], 'gi'), typesUp[k]);
-    }
-    // Make uppercase objects
-    for (k = 0; k < objectsUp.length; k++) {
-      line = line.replace(
-        new RegExp(objectsUp[k] + '\\.', 'gi'),
-        objectsUp[k] + '.'
-      );
-    }
-    // Make uppercase activity
-    for (k = 0; k < activityUp.length; k++) {
-      line = line.replace(
-        new RegExp('\\.' + activityUp[k], 'gi'),
-        '.' + activityUp[k]
-      );
-    }
-    outText = outText + getIndent(beforeIndent) + line + '\n';
-    if (afterIndent === 1) {
-      afterIndent = 0;
-      beforeIndent++;
-    }
-    if (afterIndent === 2) {
-      // AfterIndent = 1;
-      beforeIndent++;
-      beforeIndent++;
-    }
+    line = removeSpaces(line);
+    line = formatConstDeclarationLine(line);
+    line = formatSubLine(line);
+    line = formatFuncLine(line);
+    line = formatVBACommand(line);
+    line = formatVBAFunction(line);
+    line = formatVBAType(line);
+    line = formatVBAObject(line);
+    line = formatVBAActivity(line);
+    line = formatVBASubobject(line);
+    line = getIndentedLine(line);
+    outText += line + '\n';
   }
   $('#CodeFormat').val(outText);
 }
+
+/**
+ * Create indented line
+ * @param  {} line
+ */
+function getIndentedLine(line) {
+  var ret = getIndent(currentIndent) + line.trim();
+  var regex;
+  var match;
+
+  // Lines with no indent
+  regex = /^\s*(private|public|global|option explicit|end sub|end function|end property|'#region|'#endregion)\b/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    ret = line.trim();
+    // console.log('MainDeclare Indent:' + currentIndent + ' ' + +match[1] + ' ' + line);
+  }
+
+  // Lines with no indent but indent after
+  regex = /^\s*(private sub|private function|public sub|public function|global sub|global function|sub|function|private property|public property|global property)\b/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    currentIndent = 1;
+    ret = line.trim();
+    // console.log('Main Indent:' + currentIndent + ' ' + line);
+  }
+
+  // Loop start, indent after
+  regex = /^\s*(for|while|with|do while)\b/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    ret = getIndent(currentIndent) + line.trim();
+    currentIndent++;
+    // console.log('ForWhile Indent:' + currentIndent + ' ' + line);
+  }
+
+  // Select Case, indent after
+  regex = /^\s*(select case)\b/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    ret = getIndent(currentIndent) + line.trim();
+    currentIndent++;
+    firstCase = true;
+    // console.log('Select Case Indent:' + currentIndent + ' ' + firstCase + ' ' + line);
+  }
+
+  // Case, indent after, outdent after last Case
+  regex = /^\s*(case)\b/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    currentIndent--;
+    // console.log('Case Indent firstCase: ' + firstCase + ' ' + line);
+    if (firstCase) {
+      currentIndent++;
+      firstCase = false;
+    }
+    // console.log('Case Indent:' + currentIndent + ' ' + line);
+    ret = getIndent(currentIndent) + line.trim();
+    currentIndent++;
+  }
+
+  // End Select, outdent after
+  regex = /^\s*(end select)\b/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    currentIndent -= 2;
+    ret = getIndent(currentIndent) + line.trim();
+    // console.log('End Select Indent:' + currentIndent + ' ' + line);
+  }
+
+  // Then at end of line, indent after
+  regex = /\s*(then|#then)\b\s*$/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    ret = getIndent(currentIndent) + line.trim();
+    currentIndent++;
+    // console.log('Then Indent:' + currentIndent + ' ' + line);
+  }
+
+  // _ continue line, indent after, outdent after last _
+  regex = /\s*( _)\b\s*$/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    ret = getIndent(currentIndent) + line.trim();
+    currentIndent++;
+    underscoreCount++;
+    underscored = true;
+    // console.log(underscoreCount);
+  } else if (underscored) {
+    // console.log('Not undersored ' + line);
+    underscored = false;
+    currentIndent -= underscoreCount;
+    underscoreCount = 0;
+    // console.log('New indent:' + currentIndent);
+  }
+
+  // End of loop, outdent line
+  regex = /^\s*(next|end if|#end if|wend|end with|loop)\b/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    currentIndent--;
+    ret = getIndent(currentIndent) + line.trim();
+    // console.log('NextEndif Indent:' + currentIndent + ' ' + line);
+  }
+
+  // Else, outdent line and indent after
+  regex = /^\s*(else|elseif|#else|#elseif)\b/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    currentIndent--;
+    ret = getIndent(currentIndent) + line.trim();
+    currentIndent++;
+    // console.log('Else Indent:' + currentIndent + ' ' + line);
+  }
+  return ret;
+}
+
+// #region Format keywords
+
+/**
+ * Format special, officially not supported line,
+ * i.e. #region
+ * @param  {} line
+ */
+function formatSpecialLine(line) {
+  var ret = line;
+  var mainRegexp;
+  mainRegexp = /^\s*'\s*#\s*(endregion|region)\b(.*)$/gi;
+  match = mainRegexp.exec(line);
+  try {
+    ret = '\'#' + match[1] + ' ' + match[2];
+  } catch (error) {}
+  return ret;
+}
+
+/**
+ * Format commands
+ * @param  {} line
+ */
+function formatVBACommand(line) {
+  var k;
+  var ret = line;
+  var regex;
+  for (k = 0; k < commandsUp.length; k++) {
+    regex = new RegExp('\\b' + commandsUp[k] + '\\b', 'gi');
+    ret = ret.replace(regex, commandsUp[k]);
+  }
+  return ret;
+}
+
+/**
+ * Format functions
+ * @param  {} line
+ */
+function formatVBAFunction(line) {
+  var k;
+  var ret = line;
+  var regex;
+  for (k = 0; k < funcsUp.length; k++) {
+    regex = new RegExp('\\b' + funcsUp[k] + '\\s*\\(', 'gi');
+    ret = ret.replace(regex, funcsUp[k] + '(');
+  }
+  return ret;
+}
+
+/**
+ * Format variable and function types
+ * @param  {} line
+ */
+function formatVBAType(line) {
+  var k;
+  var ret = line;
+  var regex;
+  for (k = 0; k < typesUp.length; k++) {
+    regex = new RegExp('\\b' + typesUp[k] + '\\b', 'gi');
+    ret = ret.replace(regex, typesUp[k]);
+  }
+  return ret;
+}
+
+/**
+ * Format objects
+ * @param  {} line
+ */
+function formatVBAObject(line) {
+  var k;
+  var ret = line;
+  var regex;
+  for (k = 0; k < objectsUp.length; k++) {
+    regex = new RegExp('\\b' + objectsUp[k] + '\\s*\\.', 'gi');
+    ret = ret.replace(regex, objectsUp[k] + '.');
+  }
+  return ret;
+}
+
+/**
+ * Format activities
+ * @param  {} line
+ */
+function formatVBAActivity(line) {
+  var k;
+  var ret = line;
+  var regex;
+  for (k = 0; k < activityUp.length; k++) {
+    regex = new RegExp('\\.\\s*' + activityUp[k], 'gi');
+    ret = ret.replace(regex, '.' + activityUp[k]);
+  }
+  return ret;
+}
+
+/**
+ * Format subobjects
+ * @param  {} line
+ */
+function formatVBASubobject(line) {
+  var k;
+  var ret = line;
+  var regex;
+  for (k = 0; k < subobjectsUp.length; k++) {
+    regex = new RegExp('\\.\\s*' + subobjectsUp[k] + '\\s*\\(', 'gi');
+    ret = ret.replace(regex, '.' + subobjectsUp[k] + '(');
+  }
+  return ret;
+}
+
+// #endregion
+
+// #region Functions and Subs
+
+/**
+ * Format function first line
+ * @param  {} line
+ */
+function formatFuncLine(line) {
+  var ret = line;
+  var subret = '';
+  var mainRegexp;
+  var subRegexp;
+  var mainMatch;
+  var subMatch;
+  var subElems;
+  var index;
+  var elem;
+  mainRegexp = /(private\s*function |global\s*function |function )\s*(.*)\((.*)\)\s*as\s*(\b[a-zA-Z0-9_]+\b)$/gi;
+  mainMatch = mainRegexp.exec(line);
+  try {
+    subElems = mainMatch[3].split(',');
+    for (index = 0; index < subElems.length; index++) {
+      subRegexp = /(\b[a-zA-Z0-9_]+\b)\s*as\s*(\b[a-zA-Z0-9_]+\b)/gi;
+      elem = subElems[index].trim();
+      // console.log('E:' + elem);
+      subMatch = subRegexp.exec(elem);
+      // console.log(elem + ' SM:' + subMatch.length);
+      try {
+        subret += subMatch[1] + ' As ' + capitalize(subMatch[2]);
+        if (index + 1 !== subElems.length) {
+          subret += ', ';
+        }
+      } catch (error) {
+        subret += formatOptionalPart(elem);
+      }
+    }
+    ret =
+      capitalize(mainMatch[1]) +
+      mainMatch[2].trim() +
+      '(' +
+      subret +
+      ') As ' +
+      capitalize(mainMatch[4]);
+    ret = ret.replace('function', 'Function');
+  } catch (error) {}
+  return ret;
+}
+
+/**
+ * Format Sub first line
+ * @param  {} line
+ */
+function formatSubLine(line) {
+  var ret = line;
+  var subret = '';
+  var mainRegexp;
+  var subRegexp;
+  var mainMatch;
+  var subMatch;
+  var subElems;
+  var index;
+  var elem;
+  mainRegexp = /(private\s*sub |global\s*sub |sub )\s*(.*)\((.*)\)\s*$/gi;
+  mainMatch = mainRegexp.exec(line);
+  try {
+    subElems = mainMatch[3].split(',');
+    for (index = 0; index < subElems.length; index++) {
+      subRegexp = /(\b[a-zA-Z0-9_]+\b)\s*as\s*(\b[a-zA-Z0-9_]+\b)/gi;
+      elem = subElems[index].trim();
+      // console.log('E:' + elem);
+      subMatch = subRegexp.exec(elem);
+      // console.log(elem + ' SM:' + subMatch.length);
+      try {
+        subret += subMatch[1] + ' As ' + capitalize(subMatch[2]);
+        if (index + 1 !== subElems.length) {
+          subret += ', ';
+        }
+      } catch (error) {
+        subret += formatOptionalPart(elem);
+      }
+    }
+    ret = capitalize(mainMatch[1]) + mainMatch[2].trim() + '(' + subret + ')';
+    ret = ret.replace('sub', 'Sub');
+  } catch (error) {}
+  return ret;
+}
+
+/**
+ * Format Function and Sub Optional parameters
+ * @param  {} line
+ */
+function formatOptionalPart(line) {
+  var ret = line;
+  var mainRegexp;
+  var mainMatch;
+  // console.log('Try OPTIONAL ' + line);
+  mainRegexp = /(\boptional\b)\s*(.*)\s*=\s*(.*)\s*/gi;
+  mainMatch = mainRegexp.exec(line);
+  try {
+    // console.log('MOPT:' + mainMatch.length);
+    ret = 'Optional ' + mainMatch[2] + ' = ' + mainMatch[3];
+  } catch (error) {
+    // console.log('Not OPTIONAL');
+  }
+  return ret;
+}
+
+// #endregion
+
+/**
+ * Format Const declaration line
+ * @param  {} line
+ */
+function formatConstDeclarationLine(line) {
+  var ret = line;
+  myRegexp = /(private |public )\s*const\s*(.*)\s*as\s*(\b[a-zA-Z0-9_]+\b)\s*=\s*(.*$)/gi;
+  match = myRegexp.exec(line);
+  try {
+    // console.log(capitalize(match[1]));
+    ret =
+      capitalize(match[1]) +
+      'Const ' +
+      match[2].trim() +
+      ' As ' +
+      capitalize(match[3]) +
+      ' = ' +
+      match[4];
+  } catch (error) {
+    // console.log(error);
+  }
+  return ret;
+}
+
+// #region Format operators
+
+/**
+ * Add space around operators
+ * @param  {} line
+ */
+function addSpaceToOperators(line) {
+  var ret = line;
+  ret = ret.replace(/\s*(>|<|=|\+|-|&|\/)\s*/gi, replaceSingleOperator);
+  ret = ret.replace(/\s*(>|<|=)\s*(>|<|=)\s*/gi, replaceDoubleOperator);
+  return ret;
+}
+function replaceSingleOperator(str, group1) {
+  return ' ' + group1 + ' ';
+}
+function replaceDoubleOperator(str, group1, group2) {
+  return ' ' + group1 + group2 + ' ';
+}
+
+// #endregion
 
 /**
  * Remove extra spaces except within quotation marks
@@ -194,39 +502,45 @@ function removeSpaces(lineText) {
   return newString;
 }
 
-function addSpaceToOperators(lineText) {
-  var newString = '';
-  // =
-  newString = lineText.replace(/=(?=[^\s])/g, '= ');
-  newString = newString.replace(/(?=[^\s])=/g, ' =');
-  // <
-  newString = lineText.replace(/<(?=[^\s])/g, '< ');
-  newString = newString.replace(/(?=[^\s])</g, ' <');
-  // >
-  newString = lineText.replace(/>(?=[^\s])/g, '> ');
-  newString = newString.replace(/(?=[^\s])>/g, ' >');
-  // &
-  // eslint-disable-next-line no-useless-escape
-  newString = lineText.replace(/\&(?=[^\s])/g, '& ');
-  // eslint-disable-next-line no-useless-escape
-  newString = newString.replace(/(?=[^\s])\&/g, ' &');
-
-  return newString;
-}
-
-function getIndent(num) {
-  var res = '';
-  var indent = '';
-  for (index = 0; index < $('#indentSize').val(); index++) {
-    indent += ' ';
-  }
-  for (i = 0; i < num; i++) {
-    res += indent;
-  }
-  return res;
-}
-
+/**
+ * Clear textfields
+ */
 function clearCode() {
   $('#Code').val('');
   $('#CodeFormat').val('');
+}
+
+/**
+ * Capitalize string, considering #
+ * @param  {} string
+ */
+function capitalize(string) {
+  var ret;
+  if (string.charAt(0) === '#') {
+    ret = '#' + string.charAt(1).toUpperCase() + string.slice(2).toLowerCase();
+  } else {
+    ret = string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  }
+  return ret;
+}
+
+/**
+ * Create indent with spaces
+ * @param  {} num Number of indent
+ */
+function getIndent(num) {
+  var res = '';
+  var indent = '';
+  if (currentIndent < 0) {
+    currentIndent = 0;
+  }
+  if (num > 0) {
+    for (index = 0; index < $('#indentSize').val(); index++) {
+      indent += ' ';
+    }
+    for (i = 0; i < num; i++) {
+      res += indent;
+    }
+  }
+  return res;
 }
