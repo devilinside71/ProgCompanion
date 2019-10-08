@@ -2,6 +2,8 @@
 /* eslint-disable capitalized-comments */
 // / <reference path="../../typings/globals/jquery/index.d.ts" />
 
+// #region Keywords
+
 // prettier-ignore
 var commandsUp = new Array('#Else', '#End If', '#If', 'AppActivate', 'Append',
   'Beep', 'ByRef', 'ByVal', 'Call', 'Case', 'ChDir', 'ChDrive', 'Close',
@@ -53,6 +55,8 @@ var activityUp = new Array('Activate', 'ActiveSheet', 'Address', 'LockController
   'Name', 'Open', 'ScreenUpdating', 'Select', 'String', 'Value', 'getCurrentSelection');
 // prettier-ignore
 var subobjectsUp = new Array('Cells', 'Range', 'Sheets');
+
+// #endregion
 
 var currentIndent = 0;
 var firstCase = false;
