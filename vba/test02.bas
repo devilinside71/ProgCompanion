@@ -14,7 +14,7 @@ sRes = Trim(CStr(Replace(sCell, "INVENTORY", "")))
 Exit For
 End If
 Next i
-
+   rem Alma     salsksak
 Private Function Add2Inventory( asa As String) As alma
 global Function Add2Inventory(asa As String) As String
 Function Add2Inventory (asa As String, klk As ghgjg) As Integer
@@ -38,7 +38,7 @@ mnbsmbmmmn Asc(kfdhkj )
 ActiveWorkbook.Cells( hjhfd )
 Select Case ( jdksah)
 Case 3:
-sdadsa
+sdadsa ="/Library/User"
 Case 4:
 fjdsfjhds
 End Select
@@ -47,16 +47,16 @@ a = Sheets("alma").Cells(i,3)
 b = Cells(z,5)
 
 pos < InStr(ws.Name, "Inventory")
-pos & InStr(ws.Name, "Inventory") _
-pos + InStr(ws.Name, "Inventory") _
+pos &InStr(ws.Name, "Inventory") _
+pos+ InStr(ws.Name, "Inventory") _
 pos - InStr(ws.Name, "Inventory")
 pos / InStr(ws.Name, "Inventory")
-pos => InStr(ws.Name, "Inventory") _
+pos =>InStr(ws.Name, "Inventory") _
 pos =< InStr(ws.Name, "Inventory")
 pos <> InStr(ws.Name, "Inventory")
 pos >= InStr(ws.Name, "Inventory")
 pos <= InStr(ws.Name, "Inventory")
-pos <> InStr(ws.Name, "Inventory")
+pos < > InStr(ws.Name, "Inventory")
 pos = InStr(ws.Name, "Inventory")
 
 
