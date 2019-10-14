@@ -4,6 +4,6 @@ Dim xxx As String|Double
 
 
 Formatter:
-No add space around operator within ""
-
-([^"]+)\s*(>|<|=|\+|-|&|\/)\s*([^"]+)
+jsajsah ( lkdsjakl )
+jsajsah(lkdsjakl)
+\s*(\()
