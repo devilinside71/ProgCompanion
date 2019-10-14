@@ -4,6 +4,4 @@ Dim xxx As String|Double
 
 
 Formatter:
-jsajsah ( lkdsjakl )
-jsajsah(lkdsjakl)
-\s*(\()
+line break 80 char
