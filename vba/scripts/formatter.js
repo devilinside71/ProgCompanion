@@ -539,8 +539,9 @@ function replaceSingleOperator(str, group1) {
 function replaceDoubleOperator(str, group1, group2) {
   return ' ' + group1 + group2 + ' ';
 }
+
 /**
- * Remove space around Brackets
+ * Remove space around brackets
  * @param  {} line
  */
 function removeSpaceAroundBrackets(line) {
