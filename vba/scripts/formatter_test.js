@@ -97,7 +97,19 @@ $(document).ready(function() {
 });
 
 function test() {
-  return null;
+  var lines = $('#Code')
+    .val()
+    .split('\n');
+  var outText = '';
+  var line = '';
+  var i = 0;
+  for (i = 0; i < lines.length; i++) {
+    line = lines[i].trim();
+
+
+    outText += line + '\n';
+  }
+  $('#CodeFormat').val(outText);
 }
 
 /**
