@@ -106,6 +106,7 @@ function formatVBA() {
   for (i = 0; i < lines.length; i++) {
     line = lines[i].trim();
     line = addSpaceToOperators(line);
+    line = removeSpaceAroundBrackets(line);
     line = formatSpecialLine(line);
 
     line = removeSpaces(line);
@@ -537,6 +538,16 @@ function replaceSingleOperator(str, group1) {
 }
 function replaceDoubleOperator(str, group1, group2) {
   return ' ' + group1 + group2 + ' ';
+}
+/**
+ * Remove space around Brackets
+ * @param  {} line
+ */
+function removeSpaceAroundBrackets(line) {
+  var ret = line;
+  ret = ret.replace(/\s*\(\s*(?=(?:[^"]*"[^"]*")*[^"]*$)/gi, '(');
+  ret = ret.replace(/\s*\)(?=(?:[^"]*"[^"]*")*[^"]*$)/gi, ')');
+  return ret;
 }
 
 // #endregion
