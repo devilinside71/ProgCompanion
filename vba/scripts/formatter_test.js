@@ -91,7 +91,14 @@ $(document).ready(function() {
   $('#clear').click(function() {
     clearCode();
   });
+  $('#test').click(function() {
+    test();
+  });
 });
+
+function test() {
+  return null;
+}
 
 /**
  * Format VBA code
