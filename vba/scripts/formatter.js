@@ -517,7 +517,7 @@ function formatConstDeclarationLine(line) {
 // #region Format operators
 
 /**
- * Add space around operators
+ * Add space around operators, except between ""
  * @param  {} line
  */
 function addSpaceToOperators(line) {
