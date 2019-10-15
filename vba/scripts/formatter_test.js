@@ -290,8 +290,8 @@ function getIndentedLine(line) {
   match = regex.exec(line);
   if (match !== null) {
     ret = getIndent(currentIndent) + line.trim();
-    currentIndent++;
-    underscoreCount++;
+    currentIndent += 3;
+    underscoreCount += 3;
     underscored = true;
     // console.log(underscoreCount);
   } else if (underscored) {
