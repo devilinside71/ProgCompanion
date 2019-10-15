@@ -78,6 +78,7 @@ var currentIndent = 0;
 var firstCase = false;
 var underscored = true;
 var underscoreCount = 0;
+var breakPoint = 80;
 
 /**
  * Main function
@@ -97,47 +98,43 @@ $(document).ready(function() {
 });
 
 function test() {
+  var newLines = [];
   var lines = $('#Code')
     .val()
     .split('\n');
   var outText = '';
   var line = '';
   var i = 0;
-  /*
-   * loadJSON(function(response) {
-   *   // Parse JSON string into object
-   *   var actual_JSON = JSON.parse(response);
-   *   console.log(actual_JSON);
-   * });
-   */
-  jQuery.get('scripts/vba.json', function(data) {
-    outText= data;
-  });
+  for (i = 0; i < lines.length; i++) {
+    line = lines[i].trim();
+    newLines.push(splitLine(line));
+  }
+  for (i = 0; i < newLines.length; i++) {
+    line = newLines[i].trim();
+
+    outText += line + '\n';
+  }
+
   $('#CodeFormat').val(outText);
-}
-function loadJSON(callback) {
-  var xobj = new XMLHttpRequest();
-  xobj.overrideMimeType('application/json');
-  xobj.open('GET', 'scripts/vba.json', true); // Replace 'my_data' with the path to your file
-  xobj.onreadystatechange = function() {
-    if (xobj.readyState === 4 && xobj.status === '200') {
-      // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-      callback(xobj.responseText);
-    }
-  };
-  xobj.send(null);
 }
 
 /**
  * Format VBA code
  */
 function formatVBA() {
-  var lines = $('#Code')
+  var lines = [];
+  var fullLines = '';
+  var newLines = $('#Code')
     .val()
     .split('\n');
   var outText = '';
   var line = '';
   var i = 0;
+  for (i = 0; i < newLines.length; i++) {
+    line = newLines[i].trim();
+    fullLines += splitLine(line) + '\n';
+  }
+  lines = fullLines.split('\n');
   for (i = 0; i < lines.length; i++) {
     line = lines[i].trim();
     line = addSpaceToOperators(line);
@@ -160,6 +157,54 @@ function formatVBA() {
     outText += line + '\n';
   }
   $('#CodeFormat').val(outText);
+}
+
+function splitLine(line) {
+  var retVal;
+  var lineLengthCounter = 0;
+  var regex;
+  var parts;
+  var partsIndex;
+  var remainingPartsIndex;
+
+  if (line.length <= breakPoint) {
+    // console.log('Line is smaller than ' + breakPoint + ': ' + line);
+    retVal = line;
+  } else {
+    // regex = new RegExp('(>|<|=|\\+|-|&|\\/)(?=(?:[^"]*"[^"]*")*[^"]*$)', 'gi');
+    regex = new RegExp(
+      '(>|<|=|\\+|-|&|\\/|,)(?=(?=(?:[^"]*"[^"]*")*[^"]*$)(?![^\\(]*\\)))',
+      'gi'
+    );
+    // eslint-disable-next-line id-length
+    retVal = line.replace(regex, function($0, $1, $2) {
+      if ($1) {
+        return $1.replace($1, $1 + ' _');
+      }
+      return $2;
+    });
+    parts = retVal.split(' _');
+    if (parts.length > 1) {
+      retVal = '';
+      for (partsIndex = 0; partsIndex < parts.length; partsIndex++) {
+        lineLengthCounter += parts[partsIndex].trim().length;
+        if (lineLengthCounter < breakPoint) {
+          retVal += parts[partsIndex];
+        } else {
+          retVal += ' _\n';
+          for (
+            remainingPartsIndex = partsIndex;
+            remainingPartsIndex < parts.length;
+            remainingPartsIndex++
+          ) {
+            retVal += parts[remainingPartsIndex];
+          }
+          break;
+        }
+      }
+    }
+  }
+  return retVal;
 }
 
 /**
