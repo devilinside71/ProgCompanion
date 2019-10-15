@@ -5,12 +5,8 @@ Dim xxx As String|Double
 
 Formatter:
 line break 80 char
-1., REM line
-(\S+)
+1., REM line ??? rem character
 
-breakpoints:
-.,;+-*/&
-substr
 
 
 operator except "" and ():
