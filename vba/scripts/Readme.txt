@@ -14,3 +14,5 @@ operator except "" and ():
 new RegExp('(>|<|=|\\+|-|&|\\/)(?=(?=(?:[^"]*"[^"]*")*[^"]*$)(?![^\\(]*\\)))', 'gi');
 
 
+function (
+NOT after "
