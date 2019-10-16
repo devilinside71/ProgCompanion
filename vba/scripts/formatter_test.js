@@ -160,6 +160,26 @@ function formatVBA() {
   $('#CodeFormat').val(outText);
 }
 
+/**
+ * Determine if line is a remark one
+ * @param  {} line
+ */
+function remLine(line) {
+  var ret = false;
+  regex = /^\s*(rem|')\s*/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    ret = true;
+    console.log('rem LINE: ' + match[1] + ' ' + line);
+  }
+
+  return ret;
+}
+
+/**
+ * Split line to specific length
+ * @param  {} line
+ */
 function splitLine(line) {
   var retVal;
   var lineLengthCounter = 0;
@@ -168,7 +188,7 @@ function splitLine(line) {
   var partsIndex;
   var remainingPartsIndex;
 
-  if (line.length <= breakPoint) {
+  if (line.length <= breakPoint || remLine(line)) {
     // console.log('Line is smaller than ' + breakPoint + ': ' + line);
     retVal = line;
   } else {
