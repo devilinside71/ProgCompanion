@@ -163,9 +163,7 @@ function getSplitLines(tempText) {
   for (i = 0; i < newLines.length; i++) {
     line = newLines[i];
     tempLine = splitLine(line) + '\n';
-    if (tempLine.trim() !== '_') {
-      ret += tempLine;
-    }
+    ret += tempLine;
   }
   return ret;
 }
@@ -211,19 +209,19 @@ function splitLine(line) {
   var retVal3 = '';
   // Determine initial indent
   lineIndent = '';
-  regex = /^(\s*)/;
+  regex = /^(\s*).*$/;
   match = regex.exec(line);
   if (match !== null) {
     lineIndent = match[1];
   }
-  // console.log('initial indent: ' + lineIndent.length);
+  console.log('Initial indent: ' + lineIndent.length + ' ' + line);
   if (line.length < breakPoint || remLine(line) || brokenLine(line)) {
     // console.log('Line is smaller than ' + breakPoint + ': ' + line);
     retVal = line;
   } else {
     // Operators except between quotation
     // prettier-ignore
-    regex = new RegExp('(>|<|=|\\+|-|&|\\/|\\,)(?=(?:[^"]*"[^"]*")*[^"]*$)', 'gi');
+    regex = new RegExp('(>|<|=|\\+|-|&|\\/|,)(?=(?:[^"]*"[^"]*")*[^"]*$)', 'gi');
     // Operators except between quotation an brackets
     // prettier-ignore
     // regex = new RegExp('(>|<|=|\\+|-|&|\\/|,)(?=(?=(?:[^"]*"[^"]*")*[^"]*$)(?![^\\(]*\\)))', 'gi');
@@ -233,15 +231,19 @@ function splitLine(line) {
       return $1+' _';
     });
     parts = retVal.split(' _');
-    retVal2 = lineIndent;
-    retVal3 = ' _\n' + lineIndent + '   ';
+    retVal2 = '';
+    retVal3 = '_\n' + lineIndent + '   ';
     // console.log('Parts: ' + parts.length + ' ' + line);
     lineLengthCounter = 0;
     for (partsIndex = 0; partsIndex < parts.length; partsIndex++) {
-      tempPart = parts[partsIndex].replace(/ _$/gi, '').trim();
+      tempPart = parts[partsIndex].replace(/ _$/gi, '').trim()+' ';
       lineLengthCounter += tempPart.length;
       if (lineLengthCounter < breakPoint || partsIndex === 0) {
-        retVal2 += tempPart;
+        if (partsIndex === 0) {
+          retVal2 += lineIndent + tempPart;
+        } else {
+          retVal2 += tempPart;
+        }
       } else {
         retVal3 += tempPart;
       }
