@@ -214,7 +214,7 @@ function splitLine(line) {
   if (match !== null) {
     lineIndent = match[1];
   }
-  console.log('Initial indent: ' + lineIndent.length + ' ' + line);
+  // console.log('Initial indent: ' + lineIndent.length + ' ' + line);
   if (line.length < breakPoint || remLine(line) || brokenLine(line)) {
     // console.log('Line is smaller than ' + breakPoint + ': ' + line);
     retVal = line;
@@ -236,7 +236,7 @@ function splitLine(line) {
     // console.log('Parts: ' + parts.length + ' ' + line);
     lineLengthCounter = 0;
     for (partsIndex = 0; partsIndex < parts.length; partsIndex++) {
-      tempPart = parts[partsIndex].replace(/ _$/gi, '').trim()+' ';
+      tempPart = parts[partsIndex].replace(/ _$/gi, '').trim() + ' ';
       lineLengthCounter += tempPart.length;
       if (lineLengthCounter < breakPoint || partsIndex === 0) {
         if (partsIndex === 0) {
