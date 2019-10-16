@@ -130,6 +130,7 @@ function formatVBA() {
   var outText = '';
   var line = '';
   var i = 0;
+  breakPoint = $('#lineLength').val();
   for (i = 0; i < newLines.length; i++) {
     line = newLines[i].trim();
     fullLines += splitLine(line) + '\n';
