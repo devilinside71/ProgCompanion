@@ -566,7 +566,11 @@ function replaceDoubleOperator(str, group1, group2) {
  */
 function removeSpaceAroundBrackets(line) {
   var ret = line;
-  ret = ret.replace(/\s*\(\s*(?=(?:[^"]*"[^"]*")*[^"]*$)/gi, '(');
+  regex=/"\s*\(/;
+  match=regex.exec(line);
+  if (match === null){
+    ret = ret.replace(/\s*\(\s*(?=(?:[^"]*"[^"]*")*[^"]*$)/gi, '(');
+  }
   ret = ret.replace(/\s*\)(?=(?:[^"]*"[^"]*")*[^"]*$)/gi, ')');
   return ret;
 }
