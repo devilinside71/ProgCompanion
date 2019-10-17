@@ -19,7 +19,7 @@ var commandsUp = new Array('#Else', '#End If', '#If', 'AppActivate', 'Append',
   'Put', 'REM', 'RaiseEvent', 'Randomize', 'ReDim', 'Reset', 'Resume', 'Return',
   'RmDir', 'SaveSetting', 'Seek', 'Select Case', 'SendKeys', 'Set', 'SetAttr',
   'Static', 'Stop', 'Sub', 'Then', 'Time', 'Type', 'Unload', 'Unlock', 'Vba6',
-  'Vba7', 'Wait', 'Wend', 'While', 'Width #', 'With', 'Write #');
+  'Vba7', 'Wait', 'Wend', 'While', 'Width #', 'With', 'Write #', '#ElseIf');
 
 // prettier-ignore
 var funcsUp = new Array('Abs', 'Array', 'Asc', 'Atn', 'CBool', 'CByte', 'CCur',
@@ -368,7 +368,8 @@ function getIndentedLine(line) {
   }
 
   // Else, outdent line and indent after
-  regex = /^\s*(else|elseif|#else|#elseif)\b/gi;
+  // regex = /^\s*(else|elseif|#else|#elseif)\b/gi;
+  regex = /^\s*(else|#else)\b/gi;
   match = regex.exec(line);
   if (match !== null) {
     currentIndent--;
@@ -376,6 +377,18 @@ function getIndentedLine(line) {
     currentIndent++;
     // console.log('Else Indent:' + currentIndent + ' ' + line);
   }
+
+  // Else, outdent line and indent after
+  regex = /^\s*(elseif|#elseif)\b/gi;
+  match = regex.exec(line);
+  if (match !== null) {
+    currentIndent--;
+    currentIndent--;
+    ret = getIndent(currentIndent) + line.trim();
+    currentIndent++;
+    // console.log('ElseIf Indent:' + currentIndent + ' ' + line);
+  }
+
   return ret;
 }
 
