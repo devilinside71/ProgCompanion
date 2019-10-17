@@ -583,6 +583,7 @@ function removeSpaceAroundBrackets(line) {
     ret = ret.replace(/\s*\(\s*(?=(?:[^"]*"[^"]*")*[^"]*$)/gi, '(');
   }
   ret = ret.replace(/\s*\)(?=(?:[^"]*"[^"]*")*[^"]*$)/gi, ')');
+  ret = ret.replace('"(', '" (');
   return ret;
 }
 
