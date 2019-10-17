@@ -580,7 +580,7 @@ function addSpaceToOperators(line) {
       }
     );
     // Hexa value &HC00000
-    regex = /\s*&\s*([A-Z0-9]{1,8})/g;
+    regex = /\s*&\s*(H[A-F0-9]{1,8}\b)/g;
     ret = ret.replace(regex, function($capture0, $capture1) {
       return ' &' + $capture1;
     });
