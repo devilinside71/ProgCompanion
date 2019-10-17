@@ -137,8 +137,6 @@ function formatVBA() {
 
     line = removeSpaces(line);
     line = formatConstDeclarationLine(line);
-    // line = formatSubLine(line);
-    // line = formatFuncLine(line);
     line = formatVBACommand(line);
     line = formatVBAFunction(line);
     line = formatVBAType(line);
@@ -150,10 +148,16 @@ function formatVBA() {
     line = getIndentedLine(line);
     outText += line + '\n';
   }
-  outText = getSplitLines(outText);
+  if ($('#lineBreak').is(':checked')) {
+    outText = getSplitLines(outText);
+  }
   $('#CodeFormat').val(outText);
 }
 
+/**
+ * Format long lines
+ * @param  {} tempText
+ */
 function getSplitLines(tempText) {
   var ret = '';
   var newLines = [];
@@ -178,21 +182,26 @@ function remLine(line) {
   match = regex.exec(line);
   if (match !== null) {
     ret = true;
-    console.log('REM LINE: ' + match[1] + ' ' + line);
+    // console.log('REM LINE: ' + match[1] + ' ' + line);
   }
   return ret;
 }
 
+/**
+ * Determine if line ends with _
+ * @param  {} line
+ */
 function brokenLine(line) {
   var ret = false;
   regex = /( _)$/gi;
   match = regex.exec(line);
   if (match !== null) {
     ret = true;
-    console.log('BrokenLine LINE: ' + match[1] + ' ' + line);
+    // console.log('BrokenLine LINE: ' + match[1] + ' ' + line);
   }
   return ret;
 }
+
 /**
  * Split line to specific length
  * @param  {} line
@@ -221,7 +230,7 @@ function splitLine(line) {
   } else {
     // Operators except between quotation
     // prettier-ignore
-    regex = new RegExp('(>|<|=|\\+|-|&|\\/|,)(?=(?:[^"]*"[^"]*")*[^"]*$)', 'gi');
+    regex = new RegExp('(>|<|=|\\+|-|&|\\/|,| )(?=(?:[^"]*"[^"]*")*[^"]*$)', 'gi');
     // Operators except between quotation an brackets
     // prettier-ignore
     // regex = new RegExp('(>|<|=|\\+|-|&|\\/|,)(?=(?=(?:[^"]*"[^"]*")*[^"]*$)(?![^\\(]*\\)))', 'gi');
@@ -566,9 +575,9 @@ function replaceDoubleOperator(str, group1, group2) {
  */
 function removeSpaceAroundBrackets(line) {
   var ret = line;
-  regex=/"\s*\(/;
-  match=regex.exec(line);
-  if (match === null){
+  regex = /"\s*\(/;
+  match = regex.exec(line);
+  if (match === null) {
     ret = ret.replace(/\s*\(\s*(?=(?:[^"]*"[^"]*")*[^"]*$)/gi, '(');
   }
   ret = ret.replace(/\s*\)(?=(?:[^"]*"[^"]*")*[^"]*$)/gi, ')');
