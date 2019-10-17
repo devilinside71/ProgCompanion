@@ -128,7 +128,7 @@ function formatVBA() {
   var outText = '';
   var line = '';
   var i = 0;
-
+  var j = 0;
   for (i = 0; i < lines.length; i++) {
     line = lines[i].trim();
     line = addSpaceToOperators(line);
@@ -149,7 +149,16 @@ function formatVBA() {
     outText += line + '\n';
   }
   if ($('#lineBreak').is(':checked')) {
-    outText = getSplitLines(outText);
+    for (j = 0; j < 3; j++) {
+      outText = getSplitLines(outText);
+      lines = outText.split('\n');
+      outText = '';
+      for (i = 0; i < lines.length; i++) {
+        line = lines[i].trim();
+        line = getIndentedLine(line);
+        outText += line + '\n';
+      }
+    }
   }
   $('#CodeFormat').val(outText);
 }
@@ -212,17 +221,9 @@ function splitLine(line) {
   var regex;
   var parts;
   var partsIndex;
-  var lineIndent;
   var tempPart = '';
   var retVal2 = '';
   var retVal3 = '';
-  // Determine initial indent
-  lineIndent = '';
-  regex = /^(\s*).*$/;
-  match = regex.exec(line);
-  if (match !== null) {
-    lineIndent = match[1];
-  }
   // console.log('Initial indent: ' + lineIndent.length + ' ' + line);
   if (line.length < breakPoint || remLine(line) || brokenLine(line)) {
     // console.log('Line is smaller than ' + breakPoint + ': ' + line);
@@ -230,35 +231,25 @@ function splitLine(line) {
   } else {
     // Operators except between quotation
     // prettier-ignore
-    regex = new RegExp('(>|<|=|\\+|-|&|\\/|,| )(?=(?:[^"]*"[^"]*")*[^"]*$)', 'gi');
-    // Operators except between quotation an brackets
-    // prettier-ignore
-    // regex = new RegExp('(>|<|=|\\+|-|&|\\/|,)(?=(?=(?:[^"]*"[^"]*")*[^"]*$)(?![^\\(]*\\)))', 'gi');
-    // eslint-disable-next-line id-length
-    retVal = line.replace(regex, function($0, $1) {
+    regex = new RegExp('(>|<|=|\\+|-|&|\\/|,)(?=(?:[^"]*"[^"]*")*[^"]*$)', 'gi');
+    retVal = line.replace(regex, function($capture0, $capture1) {
       // console.log($1+' '+line);
-      return $1+' _';
+      return $capture1 + ' _';
     });
     parts = retVal.split(' _');
     retVal2 = '';
-    retVal3 = '_\n' + lineIndent + '   ';
+    retVal3 = '_\n';
     // console.log('Parts: ' + parts.length + ' ' + line);
     lineLengthCounter = 0;
     for (partsIndex = 0; partsIndex < parts.length; partsIndex++) {
       tempPart = parts[partsIndex].replace(/ _$/gi, '').trim() + ' ';
       lineLengthCounter += tempPart.length;
       if (lineLengthCounter < breakPoint || partsIndex === 0) {
-        if (partsIndex === 0) {
-          retVal2 += lineIndent + tempPart;
-        } else {
-          retVal2 += tempPart;
-        }
+        retVal2 += tempPart;
       } else {
         retVal3 += tempPart;
       }
     }
-  }
-  if (retVal2 !== '') {
     retVal = retVal2 + retVal3;
   }
   return retVal;
