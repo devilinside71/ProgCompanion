@@ -552,14 +552,16 @@ function formatConstDeclarationLine(line) {
  */
 function addSpaceToOperators(line) {
   var ret = line;
-  ret = ret.replace(
-    /(>|<|=|\+|-|&|\/)(?=(?:[^"]*"[^"]*")*[^"]*$)/gi,
-    replaceSingleOperator
-  );
-  ret = ret.replace(
-    /(>|<|=)\s*(>|<|=)(?=(?:[^"]*"[^"]*")*[^"]*$)/gi,
-    replaceDoubleOperator
-  );
+  if (!remLine(line)) {
+    ret = ret.replace(
+      /(>|<|=|\+|-|&|\/)(?=(?:[^"]*"[^"]*")*[^"]*$)/gi,
+      replaceSingleOperator
+    );
+    ret = ret.replace(
+      /(>|<|=)\s*(>|<|=)(?=(?:[^"]*"[^"]*")*[^"]*$)/gi,
+      replaceDoubleOperator
+    );
+  }
   return ret;
 }
 function replaceSingleOperator(str, group1) {
