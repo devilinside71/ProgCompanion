@@ -1,11 +1,8 @@
 FORMATTER
 
+Linebreak indent
 
 
-
-
-function (
-NOT after "
 
 
 
