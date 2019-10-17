@@ -127,6 +127,7 @@ function formatVBA() {
     .split('\n');
   var outText = '';
   var line = '';
+  var lineNext = '';
   var i = 0;
   var j = 0;
   for (i = 0; i < lines.length; i++) {
@@ -155,6 +156,13 @@ function formatVBA() {
       outText = '';
       for (i = 0; i < lines.length; i++) {
         line = lines[i].trim();
+        if (i < lines.length - 2) {
+          lineNext = lines[i + 1].trim();
+          if (line.endsWith(' _') && lineNext === '') {
+            line = line.replace(/ _$/, '');
+            i += 1;
+          }
+        }
         line = getIndentedLine(line);
         outText += line + '\n';
       }
