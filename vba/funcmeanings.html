@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explanation of Functions</title>
+</head>
+<body>
+    <table><thead>
+        <th>Function</th><th>HUN Meaning</th><th>Function</th><th>ENG Meaning</th>
+        </thead><tbody>
+        <tr><td>ABS</td><td>Egy szám abszolút értékét adja eredményül.</td><td>ABS</td><td>Returns the absolute value of a number</td></tr>
+        <tr><td>ACOS</td><td>Egy szám arkusz koszinuszát számítja ki.</td><td>ACOS</td><td>Returns the arccosine of a number</td></tr>
+        <tr><td>ACOSH</td><td>Egy szám inverz koszinusz hiperbolikuszát számítja ki.</td><td>ACOSH</td><td>Returns the inverse hyperbolic cosine of a number</td></tr>
+        <tr><td>ADDRESS</td><td>A munkalap egy cellájára való hivatkozást adja szövegként eredményül.</td><td>ADDRESS</td><td>Returns a reference as text to a single cell in a worksheet</td></tr>
+        <tr><td>AGGREGATE</td><td>Lista vagy adatbázis összesítését adja eredményül.</td><td>AGGREGATE</td><td>Returns an aggregate in a list or database</td></tr>
+        <tr><td>AND</td><td>Eredménye IGAZ, ha minden argumentuma IGAZ.</td><td>AND</td><td>Returns TRUE if all of its arguments are TRUE</td></tr>
+        <tr><td>AREAS</td><td>Hivatkozásban a területek számát adja eredményül.</td><td>AREAS</td><td>Returns the number of areas in a reference</td></tr>
+        <tr><td>ASC</td><td>Szöveg teljes szélességű (kétbájtos) latin és katakana karaktereit félszélességű (egybájtos) karakterekké alakítja.</td><td>ASC</td><td>Changes full-width (double-byte) English letters or katakana within a character string to half-width (single-byte) characters</td></tr>
+        <tr><td>ASIN</td><td>Egy szám arkusz szinuszát számítja ki.</td><td>ASIN</td><td>Returns the arcsine of a number</td></tr>
+        <tr><td>ASINH</td><td>Egy szám inverz szinusz hiperbolikuszát számítja ki.</td><td>ASINH</td><td>Returns the inverse hyperbolic sine of a number</td></tr>
+        <tr><td>ATAN</td><td>Egy szám arkusz tangensét számítja ki.</td><td>ATAN</td><td>Returns the arctangent of a number</td></tr>
+        <tr><td>ATAN2</td><td>X és y koordináták alapján számítja ki az arkusz tangens értéket.</td><td>ATAN2</td><td>Returns the arctangent from x- and y-coordinates</td></tr>
+        <tr><td>ATANH</td><td>A szám inverz tangens hiperbolikuszát számítja ki.</td><td>ATANH</td><td>Returns the inverse hyperbolic tangent of a number</td></tr>
+        <tr><td>AVEDEV</td><td>Az adatpontoknak átlaguktól való átlagos abszolút eltérését számítja ki.</td><td>AVEDEV</td><td>Returns the average of the absolute deviations of data points from their mean</td></tr>
+        <tr><td>AVERAGEIF</td><td>A megadott feltételnek eleget tevő tartomány celláinak átlagát (számtani közepét) adja eredményül.</td><td>AVERAGEIF</td><td>Returns the average (arithmetic mean) of all the cells in a range that meet a given criteria</td></tr>
+        <tr><td>AVERAGEIFS</td><td>A megadott feltételeknek eleget tevő cellák átlagát (számtani közepét) adja eredményül.</td><td>AVERAGEIFS</td><td>Returns the average (arithmetic mean) of all cells that meet multiple criteria.</td></tr>
+        <tr><td>BAHTSZVEG</td><td>Számot szöveggé alakít a ß (baht) pénznemformátum használatával.</td><td>BAHTTEXT</td><td>Converts a number to text, using the ß (baht) currency format</td></tr>
+        <tr><td>BAL</td><td>Szövegrész bal szélső karaktereit adja eredményül.</td><td>LEFT</td><td>Returns the leftmost characters from a text value</td></tr>
+        <tr><td>BAL2</td><td>Szövegrész bal szélső karaktereit adja eredményül.</td><td>LEFTB</td><td>Returns the leftmost characters from a text value</td></tr>
+        <tr><td>BESSELI</td><td>Az In(x) módosított Bessel-függvény értékét adja eredményül.</td><td>BESSELI</td><td>Returns the modified Bessel function In(x)</td></tr>
+        <tr><td>BESSELJ</td><td>A Jn(x) Bessel-függvény értékét adja eredményül.</td><td>BESSELJ</td><td>Returns the Bessel function Jn(x)</td></tr>
+        <tr><td>BESSELK</td><td>A Kn(x) módosított Bessel-függvény értékét adja eredményül.</td><td>BESSELK</td><td>Returns the modified Bessel function Kn(x)</td></tr>
+        <tr><td>BESSELY</td><td>Az Yn(x) módosított Bessel-függvény értékét adja eredményül.</td><td>BESSELY</td><td>Returns the Bessel function Yn(x)</td></tr>
+        <tr><td>BETA.DIST</td><td>A béta-eloszlás függvényt számítja ki.</td><td>BETA.DIST</td><td>Returns the beta cumulative distribution function</td></tr>
+        <tr><td>BETA.INV</td><td>Adott béta-eloszláshoz kiszámítja a béta eloszlásfüggvény inverzét.</td><td>BETA.INV</td><td>Returns the inverse of the cumulative distribution function for a specified beta distribution</td></tr>
+        <tr><td>BETADIST</td><td>A béta-eloszlás függvényt számítja ki.</td><td>BETADIST</td><td>Returns the beta cumulative distribution function</td></tr>
+        <tr><td>BETAINV</td><td>Adott béta-eloszláshoz kiszámítja a béta eloszlásfüggvény inverzét.</td><td>BETAINV</td><td>Returns the inverse of the cumulative distribution function for a specified beta distribution</td></tr>
+        <tr><td>BIN2DEC</td><td>Bináris számot decimálissá alakít át.</td><td>BIN2DEC</td><td>Converts a binary number to decimal</td></tr>
+        <tr><td>BIN2HEX</td><td>Bináris számot hexadecimálissá alakít át.</td><td>BIN2HEX</td><td>Converts a binary number to hexadecimal</td></tr>
+        <tr><td>BIN2OCT</td><td>Bináris számot oktálissá alakít át.</td><td>BIN2OCT</td><td>Converts a binary number to octal</td></tr>
+        <tr><td>BINOM.DIST</td><td>A diszkrét binomiális eloszlás valószínűségértékét számítja ki.</td><td>BINOM.DIST</td><td>Returns the individual term binomial distribution probability</td></tr>
+        <tr><td>BINOM.INV</td><td>Azt a legkisebb számot adja eredményül, amelyre a binomiális eloszlásfüggvény értéke nem kisebb egy adott határértéknél.</td><td>BINOM.INV</td><td>Returns the smallest value for which the cumulative binomial distribution is less than or equal to a criterion value</td></tr>
+        <tr><td>BINOMDIST</td><td>A diszkrét binomiális eloszlás valószínűségértékét számítja ki.</td><td>BINOMDIST</td><td>Returns the individual term binomial distribution probability</td></tr>
+        <tr><td>BMR</td><td>A befektetés belső megtérülési rátáját számítja ki pénzáramláshoz.</td><td>IRR</td><td>Returns the internal rate of return for a series of cash flows</td></tr>
+        <tr><td>CEILING</td><td>Egy számot a legközelebbi egészre vagy a pontosságként megadott érték legközelebb eső többszörösére kerekít.</td><td>CEILING</td><td>Rounds a number to the nearest integer or to the nearest multiple of significance</td></tr>
+        <tr><td>CEILING.PRECISE</td><td>Egy számot a legközelebbi egészre vagy a pontosságként megadott érték legközelebb eső többszörösére kerekít. A szám előjelétől függetlenül a számot felfelé kerekíti.</td><td>CEILING.PRECISE</td><td>Rounds a number the nearest integer or to the nearest multiple of significance. Regardless of the sign of the number, the number is rounded up.</td></tr>
+        <tr><td>CELLA</td><td>Egy cella formátumára, elhelyezkedésére vagy tartalmára vonatkozó adatokat ad eredményül.</td><td>CELL</td><td>Returns information about the formatting, location, or contents of a cell</td></tr>
+        <tr><td>CHAR</td><td>A kódszámmal meghatározott karaktert adja eredményül.</td><td>CHAR</td><td>Returns the character specified by the code number</td></tr>
+        <tr><td>CHIDIST</td><td>A khi-négyzet-eloszlás egyszélű valószínűségértékét számítja ki.</td><td>CHIDIST</td><td>Returns the one-tailed probability of the chi-squared distribution</td></tr>
+        <tr><td>CHIINV</td><td>A khi-négyzet-eloszlás egyszélű valószínűségértékének inverzét számítja ki.</td><td>CHIINV</td><td>Returns the inverse of the one-tailed probability of the chi-squared distribution</td></tr>
+        <tr><td>CHISQ.DIST</td><td>A bétaeloszlás sűrűségfüggvényének értékét számítja ki.</td><td>CHISQ.DIST</td><td>Returns the cumulative beta probability density function</td></tr>
+        <tr><td>CHISQ.DIST.RT</td><td>A khi-négyzet-eloszlás egyszélű valószínűségértékét számítja ki.</td><td>CHISQ.DIST.RT</td><td>Returns the one-tailed probability of the chi-squared distribution</td></tr>
+        <tr><td>CHISQ.INV</td><td>A bétaeloszlás sűrűségfüggvényének értékét számítja ki.</td><td>CHISQ.INV</td><td>Returns the cumulative beta probability density function</td></tr>
+        <tr><td>CHISQ.INV.RT</td><td>A khi-négyzet-eloszlás egyszélű valószínűségértékének inverzét számítja ki.</td><td>CHISQ.INV.RT</td><td>Returns the inverse of the one-tailed probability of the chi-squared distribution</td></tr>
+        <tr><td>CHISQ.TEST</td><td>Függetlenségvizsgálatot hajt végre.</td><td>CHISQ.TEST</td><td>Returns the test for independence</td></tr>
+        <tr><td>CHITEST</td><td>Függetlenségvizsgálatot hajt végre.</td><td>CHITEST</td><td>Returns the test for independence</td></tr>
+        <tr><td>CHOOSE</td><td>Értékek listájából választ ki egy elemet.</td><td>CHOOSE</td><td>Chooses a value from a list of values</td></tr>
+        <tr><td>CODE</td><td>Karakterlánc első karakterének numerikus kódját adja eredményül.</td><td>CODE</td><td>Returns a numeric code for the first character in a text string</td></tr>
+        <tr><td>COLUMNS</td><td>A hivatkozásban található oszlopok számát adja eredményül.</td><td>COLUMNS</td><td>Returns the number of columns in a reference</td></tr>
+        <tr><td>COMBIN</td><td>Adott számú objektum összes lehetséges kombinációinak számát számítja ki.</td><td>COMBIN</td><td>Returns the number of combinations for a given number of objects</td></tr>
+        <tr><td>COMPLEX</td><td>Valós és képzetes részből komplex számot képez.</td><td>COMPLEX</td><td>Converts real and imaginary coefficients into a complex number</td></tr>
+        <tr><td>CONCATENATE</td><td>Több szövegelemet egyetlen szövegelemmé fűz össze.</td><td>CONCATENATE</td><td>Joins several text items into one text item</td></tr>
+        <tr><td>CONFIDENCE</td><td>Egy statisztikai sokaság várható értékének megbízhatósági intervallumát adja eredményül.</td><td>CONFIDENCE</td><td>Returns the confidence interval for a population mean</td></tr>
+        <tr><td>CONFIDENCE.NORM</td><td>Egy statisztikai sokaság várható értékének megbízhatósági intervallumát adja eredményül.</td><td>CONFIDENCE.NORM</td><td>Returns the confidence interval for a population mean</td></tr>
+        <tr><td>CONFIDENCE.T</td><td>Egy statisztikai sokaság várható értékének Student-féle t-eloszlás használatával számított megbízhatósági intervallumát adja vissza.</td><td>CONFIDENCE.T</td><td>Returns the confidence interval for a population mean, using a Student's t distribution</td></tr>
+        <tr><td>CONVERT</td><td>Mértékegységeket vált át.</td><td>CONVERT</td><td>Converts a number from one measurement system to another</td></tr>
+        <tr><td>CORREL</td><td>Két adathalmaz korrelációs együtthatóját számítja ki.</td><td>CORREL</td><td>Returns the correlation coefficient between two data sets</td></tr>
+        <tr><td>COS</td><td>Egy szám koszinuszát számítja ki.</td><td>COS</td><td>Returns the cosine of a number</td></tr>
+        <tr><td>COSH</td><td>Egy szám koszinusz hiperbolikuszát számítja ki.</td><td>COSH</td><td>Returns the hyperbolic cosine of a number</td></tr>
+        <tr><td>COUNT</td><td>Megszámolja, hogy argumentumlistájában hány szám található.</td><td>COUNT</td><td>Counts how many numbers are in the list of arguments</td></tr>
+        <tr><td>COUNTA</td><td>Megszámolja, hogy argumentumlistájában hány érték található.</td><td>COUNTA</td><td>Counts how many values are in the list of arguments</td></tr>
+        <tr><td>COUNTBLANK</td><td>Egy tartományban összeszámolja az üres cellákat.</td><td>COUNTBLANK</td><td>Counts the number of blank cells within a range</td></tr>
+        <tr><td>COUNTIFS</td><td>Egy tartományban összeszámolja azokat a cellákat, amelyek eleget tesznek a megadott feltételeknek.</td><td>COUNTIFS</td><td>Counts the number of cells within a range that meet multiple criteria</td></tr>
+        <tr><td>COVAR</td><td>A kovarianciát, azaz a páronkénti eltérések szorzatának átlagát számítja ki.</td><td>COVAR</td><td>Returns covariance, the average of the products of paired deviations</td></tr>
+        <tr><td>COVARIANCE.P</td><td>A kovarianciát, azaz a páronkénti eltérések szorzatának átlagát számítja ki.</td><td>COVARIANCE.P</td><td>Returns covariance, the average of the products of paired deviations</td></tr>
+        <tr><td>COVARIANCE.S</td><td>A statisztikai minta kovarianciáját adja eredményül, amely az egyes adatpontpárok átlagtól való eltérése szorzatának várható értéke.</td><td>COVARIANCE.S</td><td>Returns the sample covariance, the average of the products deviations for each data point pair in two data sets</td></tr>
+        <tr><td>CRITBINOM</td><td>Azt a legkisebb számot adja eredményül, amelyre a binomiális eloszlásfüggvény értéke nem kisebb egy adott határértéknél.</td><td>CRITBINOM</td><td>Returns the smallest value for which the cumulative binomial distribution is less than or equal to a criterion value</td></tr>
+        <tr><td>CUBEKPIMEMBER</td><td>Egy fő teljesítménymutató (KPI) nevét, tulajdonságát és mértékegységét adja eredményül, a nevet és a tulajdonságot megjeleníti a cellában. A KPI-k számszerűsíthető mérési lehetőséget jelentenek – ilyen mutató például a havi bruttó nyereség vagy az egy alkalmazottra jutó negyedéves forgalom –, egy szervezet teljesítményének nyomon követésére használhatók.</td><td>CUBEKPIMEMBER</td><td>Returns a key performance indicator (KPI) name, property, and measure, and displays the name and property in the cell. A KPI is a quantifiable measurement, such as monthly gross profit or quarterly employee turnover, used to monitor an organization's performance.</td></tr>
+        <tr><td>CUBEMEMBER</td><td>Kockahierachia tagját vagy rekordját adja eredményül. Ellenőrizhető vele, hogy szerepel-e a kockában az adott tag vagy rekord.</td><td>CUBEMEMBER</td><td>Returns a member or tuple in a cube hierarchy. Use to validate that the member or tuple exists in the cube.</td></tr>
+        <tr><td>CUBEMEMBERPROPERTY</td><td>A kocka egyik tagtulajdonságának értékét adja eredményül. Használatával ellenőrizhető, hogy szerepel-e egy tagnév a kockában, eredménye pedig az erre a tagra vonatkozó, megadott tulajdonság.</td><td>CUBEMEMBERPROPERTY</td><td>Returns the value of a member property in the cube. Use to validate that a member name exists within the cube and to return the specified property for this member.</td></tr>
+        <tr><td>CUBERANKEDMEMBER</td><td>Egy halmaz rangsor szerinti n-edik tagját adja eredményül. Használatával egy halmaz egy vagy több elemét kaphatja meg, például a legnagyobb teljesítményű üzletkötőt vagy a 10 legjobb tanulót.</td><td>CUBERANKEDMEMBER</td><td>Returns the nth, or ranked, member in a set. Use to return one or more elements in a set, such as the top sales performer or top 10 students.</td></tr>
+        <tr><td>CUBESET</td><td>Számított tagok vagy rekordok halmazát adja eredményül, ehhez egy beállított kifejezést elküld a kiszolgálón található kockának, majd ezt a halmazt adja vissza a Microsoft Office Excel alkalmazásnak.</td><td>CUBESET</td><td>Defines a calculated set of members or tuples by sending a set expression to the cube on the server, which creates the set, and then returns that set to Microsoft Office Excel.</td></tr>
+        <tr><td>CUBESETCOUNT</td><td>Egy halmaz elemszámát adja eredményül.</td><td>CUBESETCOUNT</td><td>Returns the number of items in a set.</td></tr>
+        <tr><td>CUBEVALUE</td><td>Kockából összesített értéket ad eredményül.</td><td>CUBEVALUE</td><td>Returns an aggregated value from a cube.</td></tr>
+        <tr><td>DARABTELI</td><td>Egy tartományban összeszámolja azokat a cellákat, amelyek eleget tesznek a megadott feltételnek.</td><td>COUNTIF</td><td>Counts the number of cells within a range that meet the given criteria</td></tr>
+        <tr><td>DATEVALUE</td><td>Szövegként megadott dátumot dátumértékké alakít át.</td><td>DATEVALUE</td><td>Converts a date in the form of text to a serial number</td></tr>
+        <tr><td>DAVERAGE</td><td>A kijelölt adatbáziselemek átlagát számítja ki.</td><td>DAVERAGE</td><td>Returns the average of selected database entries</td></tr>
+        <tr><td>DAY</td><td>Dátumértéket a hónap egy napjává (0–31) alakít át.</td><td>DAY</td><td>Converts a serial number to a day of the month</td></tr>
+        <tr><td>DAYS360</td><td>Két dátum közé eső napok számát számítja ki a 360 napos év alapján.</td><td>DAYS360</td><td>Calculates the number of days between two dates based on a 360-day year</td></tr>
+        <tr><td>DB</td><td>Eszköz adott időszak alatti értékcsökkenését számítja ki a lineáris leírási modell alkalmazásával.</td><td>DB</td><td>Returns the depreciation of an asset for a specified period by using the fixed-declining balance method</td></tr>
+        <tr><td>DCOUNT</td><td>Megszámolja, hogy az adatbázisban hány cella tartalmaz számokat.</td><td>DCOUNT</td><td>Counts the cells that contain numbers in a database</td></tr>
+        <tr><td>DCOUNTA</td><td>Megszámolja az adatbázisban lévő nem üres cellákat.</td><td>DCOUNTA</td><td>Counts nonblank cells in a database</td></tr>
+        <tr><td>DDB</td><td>Eszköz értékcsökkenését számítja ki adott időszakra vonatkozóan a progresszív vagy egyéb megadott leírási modell alkalmazásával.</td><td>DDB</td><td>Returns the depreciation of an asset for a specified period by using the double-declining balance method or some other method that you specify</td></tr>
+        <tr><td>DEC2BIN</td><td>Decimális számot binárissá alakít át.</td><td>DEC2BIN</td><td>Converts a decimal number to binary</td></tr>
+        <tr><td>DEC2HEX</td><td>Decimális számot hexadecimálissá alakít át.</td><td>DEC2HEX</td><td>Converts a decimal number to hexadecimal</td></tr>
+        <tr><td>DEC2OCT</td><td>Decimális számot oktálissá alakít át.</td><td>DEC2OCT</td><td>Converts a decimal number to octal</td></tr>
+        <tr><td>DEGREES</td><td>Radiánt fokká alakít át.</td><td>DEGREES</td><td>Converts radians to degrees</td></tr>
+        <tr><td>DELTA</td><td>Azt vizsgálja, hogy két érték egyenlő-e.</td><td>DELTA</td><td>Tests whether two values are equal</td></tr>
+        <tr><td>DEVSQ</td><td>Az átlagtól való eltérések négyzetének összegét számítja ki.</td><td>DEVSQ</td><td>Returns the sum of squares of deviations</td></tr>
+        <tr><td>DGET</td><td>Egy adatbázisból egyetlen olyan rekordot ad vissza, amely megfelel a megadott feltételeknek.</td><td>DGET</td><td>Extracts from a database a single record that matches the specified criteria</td></tr>
+        <tr><td>DMAX</td><td>A kiválasztott adatbáziselemek közül a legnagyobb értéket adja eredményül.</td><td>DMAX</td><td>Returns the maximum value from selected database entries</td></tr>
+        <tr><td>DMIN</td><td>A kijelölt adatbáziselemek közül a legkisebb értéket adja eredményül.</td><td>DMIN</td><td>Returns the minimum value from selected database entries</td></tr>
+        <tr><td>DOLLARDE</td><td>Egy közönséges törtként megadott számot tizedes törtté alakít át.</td><td>DOLLARDE</td><td>Converts a dollar price, expressed as a fraction, into a dollar price, expressed as a decimal number</td></tr>
+        <tr><td>DOLLARFR</td><td>Tizedes törtként megadott számot közönséges törtté alakít át.</td><td>DOLLARFR</td><td>Converts a dollar price, expressed as a decimal number, into a dollar price, expressed as a fraction</td></tr>
+        <tr><td>DPRODUCT</td><td>Az adatbázis megadott feltételeknek eleget tevő rekordjaira összeszorozza a megadott mezőben található számértékeket, és eredményül ezt a szorzatot adja.</td><td>DPRODUCT</td><td>Multiplies the values in a particular field of records that match the criteria in a database</td></tr>
+        <tr><td>DSTDEV</td><td>A kijelölt adatbáziselemek egy mintája alapján megbecsüli a szórást.</td><td>DSTDEV</td><td>Estimates the standard deviation based on a sample of selected database entries</td></tr>
+        <tr><td>DSTDEVP</td><td>A kijelölt adatbáziselemek teljes sokasága alapján kiszámítja a szórást.</td><td>DSTDEVP</td><td>Calculates the standard deviation based on the entire population of selected database entries</td></tr>
+        <tr><td>DSUM</td><td>Összeadja a feltételnek megfelelő adatbázisrekordok mezőoszlopában a számokat.</td><td>DSUM</td><td>Adds the numbers in the field column of records in the database that match the criteria</td></tr>
+        <tr><td>DTUM</td><td>Adott dátum dátumértékét adja eredményül.</td><td>DATE</td><td>Returns the serial number of a particular date</td></tr>
+        <tr><td>DVARP</td><td>A kijelölt adatbáziselemek teljes sokasága alapján kiszámítja a varianciát.</td><td>DVARP</td><td>Calculates variance based on the entire population of selected database entries</td></tr>
+        <tr><td>EFFECT</td><td>Az éves tényleges kamatláb értékét adja eredményül.</td><td>EFFECT</td><td>Returns the effective annual interest rate</td></tr>
+        <tr><td>ELS.SZELVNYDTUM</td><td>A kifizetést követő legelső szelvénydátumot adja eredményül.</td><td>COUPNCD</td><td>Returns the next coupon date after the settlement date</td></tr>
+        <tr><td>ELTR.EHOZAM</td><td>A futamidő elején töredék-időszakos értékpapír hozamát adja eredményül.</td><td>ODDFYIELD</td><td>Returns the yield of a security with an odd first period</td></tr>
+        <tr><td>ELTR.ER</td><td>Egy 100 Ft névértékű, a futamidő elején töredék-időszakos értékpapír árát adja eredményül.</td><td>ODDFPRICE</td><td>Returns the price per $100 face value of a security with an odd first period</td></tr>
+        <tr><td>ELTR.UHOZAM</td><td>A futamidő végén töredék-időszakos értékpapír hozamát adja eredményül.</td><td>ODDLYIELD</td><td>Returns the yield of a security with an odd last period</td></tr>
+        <tr><td>ELTR.UR</td><td>Egy 100 Ft névértékű, a futamidő végén töredék-időszakos értékpapír árát adja eredményül.</td><td>ODDLPRICE</td><td>Returns the price per $100 face value of a security with an odd last period</td></tr>
+        <tr><td>ERF</td><td>A hibafüggvény értékét adja eredményül.</td><td>ERF</td><td>Returns the error function</td></tr>
+        <tr><td>ERFC</td><td>A kiegészített hibafüggvény értékét adja eredményül.</td><td>ERFC</td><td>Returns the complementary error function</td></tr>
+        <tr><td>ERFC.PRECISE</td><td>Az x-től a végtelenig integrált kiegészítő hibafüggvény értékét adja eredményül.</td><td>ERFC.PRECISE</td><td>Returns the complementary ERF function integrated between x and infinity</td></tr>
+        <tr><td>ERROR.TYPE</td><td>Egy hibatípushoz tartozó számot ad eredményül.</td><td>ERROR.TYPE</td><td>Returns a number corresponding to an error type</td></tr>
+        <tr><td>EUROCONVERT</td><td>A függvény a következő konverziókat hajtja végre: számot euró pénznemre, euró pénznemről euróövezeti ország pénznemére, euróövezeti ország pénzneméről másik euróövezeti ország pénznemére az eurót használva közbenső pénznemként.</td><td>EUROCONVERT</td><td>Converts a number to euros, converts a number from euros to a euro member currency, or converts a number from one euro member currency to another by using the euro as an intermediary (triangulation).</td></tr>
+        <tr><td>EVEN</td><td>Egy számot a legközelebbi páros egész számra kerekít.</td><td>EVEN</td><td>Rounds a number up to the nearest even integer</td></tr>
+        <tr><td>EXACT</td><td>Megvizsgálja, hogy két érték azonos-e.</td><td>EXACT</td><td>Checks to see if two text values are identical</td></tr>
+        <tr><td>EXP</td><td>Az e adott kitevőjű hatványát adja eredményül.</td><td>EXP</td><td>Returns e raised to the power of a given number</td></tr>
+        <tr><td>EXPON.DIST</td><td>Az exponenciális eloszlás értékét számítja ki.</td><td>EXPON.DIST</td><td>Returns the exponential distribution</td></tr>
+        <tr><td>EXPONDIST</td><td>Az exponenciális eloszlás értékét számítja ki.</td><td>EXPONDIST</td><td>Returns the exponential distribution</td></tr>
+        <tr><td>F.DIST</td><td>Az F-eloszlás értékét számítja ki.</td><td>F.DIST</td><td>Returns the F probability distribution</td></tr>
+        <tr><td>F.DIST.RT</td><td>Az F-eloszlás értékét számítja ki.</td><td>F.DIST.RT</td><td>Returns the F probability distribution</td></tr>
+        <tr><td>F.INV</td><td>Az F-eloszlás inverzének értékét számítja ki.</td><td>F.INV</td><td>Returns the inverse of the F probability distribution</td></tr>
+        <tr><td>F.INV.RT</td><td>Az F-eloszlás inverzének értékét számítja ki.</td><td>F.INV.RT</td><td>Returns the inverse of the F probability distribution</td></tr>
+        <tr><td>F.TEST</td><td>Az F-próba értékét adja eredményül.</td><td>F.TEST</td><td>Returns the result of an F-test</td></tr>
+        <tr><td>FACT</td><td>Egy szám faktoriálisát számítja ki.</td><td>FACT</td><td>Returns the factorial of a number</td></tr>
+        <tr><td>FACTDOUBLE</td><td>Egy szám dupla faktoriálisát adja eredményül.</td><td>FACTDOUBLE</td><td>Returns the double factorial of a number</td></tr>
+        <tr><td>FALSE</td><td>A HAMIS logikai értéket adja eredményül.</td><td>FALSE</td><td>Returns the logical value FALSE</td></tr>
+        <tr><td>FDIST</td><td>Az F-eloszlás értékét számítja ki.</td><td>FDIST</td><td>Returns the F probability distribution</td></tr>
+        <tr><td>FIND</td><td>Karakterláncot keres egy másikban (a kis- és nagybetűk megkülönböztetésével).</td><td>FIND</td><td>Finds one text value within another (case-sensitive)</td></tr>
+        <tr><td>FINDB</td><td>Karakterláncot keres egy másikban (a kis- és nagybetűk megkülönböztetésével).</td><td>FINDB</td><td>Finds one text value within another (case-sensitive)</td></tr>
+        <tr><td>FINV</td><td>Az F-eloszlás inverzének értékét számítja ki.</td><td>FINV</td><td>Returns the inverse of the F probability distribution</td></tr>
+        <tr><td>FISHER</td><td>Fisher-transzformációt hajt végre.</td><td>FISHER</td><td>Returns the Fisher transformation</td></tr>
+        <tr><td>FISHERINV</td><td>A Fisher-transzformáció inverzét hajtja végre.</td><td>FISHERINV</td><td>Returns the inverse of the Fisher transformation</td></tr>
+        <tr><td>FIX</td><td>Számot szöveges formátumúra alakít adott számú tizedesjegyre kerekítve.</td><td>FIXED</td><td>Formats a number as text with a fixed number of decimals</td></tr>
+        <tr><td>FKERES</td><td>A megadott tömb bal szélső oszlopában megkeres egy értéket, majd annak sora és a megadott oszlop metszéspontjában levő értéket adja eredményül.</td><td>VLOOKUP</td><td>Looks in the first column of an array and moves across the row to return the value of a cell</td></tr>
+        <tr><td>FLOOR</td><td>Egy számot lefelé, a nulla felé kerekít.</td><td>FLOOR</td><td>Rounds a number down, toward zero</td></tr>
+        <tr><td>FLOOR.PRECISE</td><td>Egy számot a legközelebbi egészre vagy a pontosságként megadott érték legközelebb eső többszörösére kerekít. A szám előjelétől függetlenül a számot felfelé kerekíti.</td><td>FLOOR.PRECISE</td><td>Rounds a number the nearest integer or to the nearest multiple of significance. Regardless of the sign of the number, the number is rounded up.</td></tr>
+        <tr><td>FORECAST</td><td>Az ismert értékek alapján lineáris regresszióval becsült értéket ad eredményül.</td><td>FORECAST</td><td>Returns a value along a linear trend</td></tr>
+        <tr><td>FORINT</td><td>Számot pénznem formátumú szöveggé alakít át.</td><td>DOLLAR</td><td>Converts a number to text, using the $ (dollar) currency format</td></tr>
+        <tr><td>FREQUENCY</td><td>A gyakorisági vagy empirikus eloszlás értékét függőleges tömbként adja eredményül.</td><td>FREQUENCY</td><td>Returns a frequency distribution as a vertical array</td></tr>
+        <tr><td>FTEST</td><td>None</td><td>FTEST</td><td>None</td></tr>
+        <tr><td>FV</td><td>Befektetés jövőbeli értékét számítja ki.</td><td>FV</td><td>Returns the future value of an investment</td></tr>
+        <tr><td>FVSCHEDULE</td><td>A kezdőtőke adott kamatlábak szerint megnövelt jövőbeli értékét adja eredményül.</td><td>FVSCHEDULE</td><td>Returns the future value of an initial principal after applying a series of compound interest rates</td></tr>
+        <tr><td>GAMMA.DIST</td><td>A gamma-eloszlás értékét számítja ki.</td><td>GAMMA.DIST</td><td>Returns the gamma distribution</td></tr>
+        <tr><td>GAMMA.INV</td><td>A gamma-eloszlás eloszlásfüggvénye inverzének értékét számítja ki.</td><td>GAMMA.INV</td><td>Returns the inverse of the gamma cumulative distribution</td></tr>
+        <tr><td>GAMMADIST</td><td>A gamma-eloszlás értékét számítja ki.</td><td>GAMMADIST</td><td>Returns the gamma distribution</td></tr>
+        <tr><td>GAMMAINV</td><td>A gamma-eloszlás eloszlásfüggvénye inverzének értékét számítja ki.</td><td>GAMMAINV</td><td>Returns the inverse of the gamma cumulative distribution</td></tr>
+        <tr><td>GAMMALN</td><td>A Γ(x) gamma-függvény természetes logaritmusát számítja ki.</td><td>GAMMALN</td><td>Returns the natural logarithm of the gamma function, Γ(x)</td></tr>
+        <tr><td>GAMMALN.PRECISE</td><td>A Γ(x) gamma-függvény természetes logaritmusát számítja ki.</td><td>GAMMALN.PRECISE</td><td>Returns the natural logarithm of the gamma function, Γ(x)</td></tr>
+        <tr><td>GCD</td><td>A legnagyobb közös osztót adja eredményül.</td><td>GCD</td><td>Returns the greatest common divisor</td></tr>
+        <tr><td>GEOMEAN</td><td>Argumentumai mértani középértékét számítja ki.</td><td>GEOMEAN</td><td>Returns the geometric mean</td></tr>
+        <tr><td>GESTEP</td><td>Azt vizsgálja, hogy egy szám nagyobb-e adott küszöbértéknél.</td><td>GESTEP</td><td>Tests whether a number is greater than a threshold value</td></tr>
+        <tr><td>GETPIVOTDATA</td><td>A kimutatásokban tárolt adatok visszaadására használható.</td><td>GETPIVOTDATA</td><td>Returns data stored in a PivotTable report</td></tr>
+        <tr><td>GROWTH</td><td>Exponenciális regresszió alapján ad becslést.</td><td>GROWTH</td><td>Returns values along an exponential trend</td></tr>
+        <tr><td>HA</td><td>Logikai vizsgálatot hajt végre.</td><td>IF</td><td>Specifies a logical test to perform</td></tr>
+        <tr><td>HARMEAN</td><td>Argumentumai harmonikus átlagát számítja ki.</td><td>HARMEAN</td><td>Returns the harmonic mean</td></tr>
+        <tr><td>HEX2BIN</td><td>Hexadecimális számot binárissá alakít át.</td><td>HEX2BIN</td><td>Converts a hexadecimal number to binary</td></tr>
+        <tr><td>HEX2DEC</td><td>Hexadecimális számot decimálissá alakít át.</td><td>HEX2DEC</td><td>Converts a hexadecimal number to decimal</td></tr>
+        <tr><td>HEX2OCT</td><td>Hexadecimális számot oktálissá alakít át.</td><td>HEX2OCT</td><td>Converts a hexadecimal number to octal</td></tr>
+        <tr><td>HINYZIK</td><td>Eredménye a #HIÁNYZIK hibaérték.</td><td>NA</td><td>Returns the error value #N/A</td></tr>
+        <tr><td>HIPERHIVATKOZS</td><td>Hálózati kiszolgálón, intraneten vagy az interneten tárolt dokumentumot megnyitó parancsikont vagy hivatkozást hoz létre.</td><td>HYPERLINK</td><td>Creates a shortcut or jump that opens a document stored on a network server, an intranet, or the Internet</td></tr>
+        <tr><td>HLOOKUP</td><td>A megadott tömb felső sorában adott értékű elemet keres, és a megtalált elem oszlopából adott sorban elhelyezkedő értékkel tér vissza.</td><td>HLOOKUP</td><td>Looks in the top row of an array and returns the value of the indicated cell</td></tr>
+        <tr><td>HNAP.UTOLS.NAP</td><td>Adott dátumnál adott számú hónappal korábbi vagy későbbi hónap utolsó napjának dátumértékét adja eredményül.</td><td>EOMONTH</td><td>Returns the serial number of the last day of the month before or after a specified number of months</td></tr>
+        <tr><td>HOSSZ</td><td>Szöveg karakterekben mért hosszát adja eredményül.</td><td>LEN</td><td>Returns the number of characters in a text string</td></tr>
+        <tr><td>HOSSZ2</td><td>Szöveg karakterekben mért hosszát adja eredményül.</td><td>LENB</td><td>Returns the number of characters in a text string</td></tr>
+        <tr><td>HOUR</td><td>Időértéket órává alakít át.</td><td>HOUR</td><td>Converts a serial number to an hour</td></tr>
+        <tr><td>HOZAM</td><td>Periodikusan kamatozó értékpapír hozamát adja eredményül.</td><td>YIELD</td><td>Returns the yield on a security that pays periodic interest</td></tr>
+        <tr><td>HOZAM.LEJRAT</td><td>Lejáratkor kamatozó értékpapír éves hozamát adja eredményül.</td><td>YIELDMAT</td><td>Returns the annual yield of a security that pays interest at maturity</td></tr>
+        <tr><td>HOZAM.LESZM</td><td>Leszámítolt értékpapír (például kincstárjegy) éves hozamát adja eredményül.</td><td>YIELDDISC</td><td>Returns the annual yield for a discounted security; for example, a Treasury bill</td></tr>
+        <tr><td>HT.NAPJA</td><td>Dátumértéket a hét napjává alakít át.</td><td>WEEKDAY</td><td>Converts a serial number to a day of the week</td></tr>
+        <tr><td>HT.SZMA</td><td>Visszatérési értéke egy szám, amely azt mutatja meg, hogy a megadott dátum az év hányadik hetére esik.</td><td>WEEKNUM</td><td>Converts a serial number to a number representing where the week falls numerically with a year</td></tr>
+        <tr><td>HVS</td><td>Egy dinamikus csatolású függvénytár vagy kódforrás eljárását hívja.</td><td>CALL</td><td>Calls a procedure in a dynamic link library or code resource</td></tr>
+        <tr><td>HYPGEOM.DIST</td><td>A hipergeometriai eloszlás értékét számítja ki.</td><td>HYPGEOM.DIST</td><td>Returns the hypergeometric distribution</td></tr>
+        <tr><td>HYPGEOMDIST</td><td>A hipergeometriai eloszlás értékét számítja ki.</td><td>HYPGEOMDIST</td><td>Returns the hypergeometric distribution</td></tr>
+        <tr><td>IDSZAKI.KAMAT</td><td>Periodikusan kamatozó értékpapír felszaporodott kamatát adja eredményül.</td><td>ACCRINT</td><td>Returns the accrued interest for a security that pays periodic interest</td></tr>
+        <tr><td>IFERROR</td><td>Megadott értéket ad eredményül, ha egy képlet hibát ad; ellenkező esetben a képlet eredményét adja vissza.</td><td>IFERROR</td><td>Returns a value you specify if a formula evaluates to an error; otherwise, returns the result of the formula</td></tr>
+        <tr><td>INDEX</td><td>Tömb vagy hivatkozás indexszel megadott értékét adja vissza.</td><td>INDEX</td><td>Uses an index to choose a value from a reference or array</td></tr>
+        <tr><td>INDIREKT</td><td>Szövegértékkel megadott hivatkozást ad eredményül.</td><td>INDIRECT</td><td>Returns a reference indicated by a text value</td></tr>
+        <tr><td>INF</td><td>A rendszer- és munkakörnyezet pillanatnyi állapotáról ad felvilágosítást.</td><td>INFO</td><td>Returns information about the current operating environment</td></tr>
+        <tr><td>INT</td><td>Egy számot lefelé kerekít a legközelebbi egészre.</td><td>INT</td><td>Rounds a number down to the nearest integer</td></tr>
+        <tr><td>INVERZ.MTRIX</td><td>Egy tömb mátrixinverzét adja eredményül.</td><td>MINVERSE</td><td>Returns the matrix inverse of an array</td></tr>
+        <tr><td>INVERZ.STNORM</td><td>A standard normális eloszlás eloszlásfüggvénye inverzének értékét számítja ki.</td><td>NORMSINV</td><td>Returns the inverse of the standard normal cumulative distribution</td></tr>
+        <tr><td>ISBLANK</td><td>Eredménye IGAZ, ha az érték üres.</td><td>ISBLANK</td><td>Returns TRUE if the value is blank</td></tr>
+        <tr><td>ISERR</td><td>Eredménye IGAZ, ha az érték üres.</td><td>ISERR</td><td>Returns TRUE if the value is any error value except #N/A</td></tr>
+        <tr><td>ISERROR</td><td>Eredménye IGAZ, ha az érték üres.</td><td>ISERROR</td><td>Returns TRUE if the value is any error value</td></tr>
+        <tr><td>ISLOGICAL</td><td>Eredménye IGAZ, ha az érték üres.</td><td>ISLOGICAL</td><td>Returns TRUE if the value is a logical value</td></tr>
+        <tr><td>ISNA</td><td>Eredménye IGAZ, ha az érték üres.</td><td>ISNA</td><td>Returns TRUE if the value is the #N/A error value</td></tr>
+        <tr><td>ISNONTEXT</td><td>Eredménye IGAZ, ha az érték üres.</td><td>ISNONTEXT</td><td>Returns TRUE if the value is not text</td></tr>
+        <tr><td>ISNUMBER</td><td>Eredménye IGAZ, ha az érték üres.</td><td>ISNUMBER</td><td>Returns TRUE if the value is a number</td></tr>
+        <tr><td>ISO.CEILING</td><td>Egy számot a legközelebbi egészre vagy a pontosságként megadott érték legközelebb eső többszörösére kerekít.</td><td>ISO.CEILING</td><td>Returns a number that is rounded up to the nearest integer or to the nearest multiple of significance</td></tr>
+        <tr><td>ISREF</td><td>Eredménye IGAZ, ha az érték üres.</td><td>ISREF</td><td>Returns TRUE if the value is a reference</td></tr>
+        <tr><td>ISTEXT</td><td>Eredménye IGAZ, ha az érték üres.</td><td>ISTEXT</td><td>Returns TRUE if the value is text</td></tr>
+        <tr><td>JIS</td><td>A félszélességű (egybájtos) latin és a katakana karaktereket teljes szélességű (kétbájtos) karakterekké alakítja.</td><td>JIS</td><td>Changes half-width (single-byte) English letters or katakana within a character string to full-width (double-byte) characters</td></tr>
+        <tr><td>KALK.DTUM</td><td>Adott dátumnál adott számú hónappal korábbi vagy későbbi dátum dátumértékét adja eredményül.</td><td>EDATE</td><td>Returns the serial number of the date that is the indicated number of months before or after the start date</td></tr>
+        <tr><td>KALK.MUNKANAP</td><td>Adott dátumnál adott munkanappal korábbi vagy későbbi dátum dátumértékét adja eredményül.</td><td>WORKDAY</td><td>Returns the serial number of the date before or after a specified number of workdays</td></tr>
+        <tr><td>KALK.MUNKANAP.INTL</td><td>Adott dátumnál adott munkanappal korábbi vagy későbbi dátum dátumértékét adja eredményül úgy, hogy paramétereket alkalmaz a hétvége napjainak, illetve ezek számának a megjelölésére.</td><td>WORKDAY.INTL</td><td>Returns the serial number of the date before or after a specified number of workdays using parameters to indicate which and how many days are weekend days</td></tr>
+        <tr><td>KAMATRTA</td><td>A lejáratig teljesen lekötött értékpapír kamatrátáját adja eredményül.</td><td>INTRATE</td><td>Returns the interest rate for a fully invested security</td></tr>
+        <tr><td>KAMATRZ</td><td>Periodikus kamatfizetésű értékpapír éves kamatérzékenységét adja eredményül.</td><td>DURATION</td><td>Returns the annual duration of a security with periodic interest payments</td></tr>
+        <tr><td>KERES</td><td>Vektorban vagy tömbben keres meg értékeket.</td><td>LOOKUP</td><td>Looks up values in a vector or array</td></tr>
+        <tr><td>KJEGY.EGYENRT</td><td>Kincstárjegy kötvény-egyenértékű hozamát adja eredményül.</td><td>TBILLEQ</td><td>Returns the bond-equivalent yield for a Treasury bill</td></tr>
+        <tr><td>KPZ.ABSZ</td><td>Komplex szám abszolút értékét (modulusát) adja eredményül.</td><td>IMABS</td><td>Returns the absolute value (modulus) of a complex number</td></tr>
+        <tr><td>KPZ.ARGUMENT</td><td>A komplex szám radiánban kifejezett théta argumentumát adja eredményül.</td><td>IMARGUMENT</td><td>Returns the argument theta, an angle expressed in radians</td></tr>
+        <tr><td>KPZ.COS</td><td>Komplex szám koszinuszát adja eredményül.</td><td>IMCOS</td><td>Returns the cosine of a complex number</td></tr>
+        <tr><td>KPZ.EXP</td><td>Az e szám komplex kitevőjű hatványát adja eredményül.</td><td>IMEXP</td><td>Returns the exponential of a complex number</td></tr>
+        <tr><td>KPZ.GYK</td><td>Komplex szám négyzetgyökét adja eredményül.</td><td>IMSQRT</td><td>Returns the square root of a complex number</td></tr>
+        <tr><td>KPZ.HATV</td><td>Komplex szám hatványát adja eredményül.</td><td>IMPOWER</td><td>Returns a complex number raised to an integer power</td></tr>
+        <tr><td>KPZ.HNYAD</td><td>Két komplex szám hányadosát adja eredményül.</td><td>IMDIV</td><td>Returns the quotient of two complex numbers</td></tr>
+        <tr><td>KPZ.KL</td><td>Két komplex szám különbségét adja eredményül.</td><td>IMSUB</td><td>Returns the difference between two complex numbers</td></tr>
+        <tr><td>KPZ.KONJUGLT</td><td>Komplex szám komplex konjugáltját adja eredményül.</td><td>IMCONJUGATE</td><td>Returns the complex conjugate of a complex number</td></tr>
+        <tr><td>KPZ.LN</td><td>Komplex szám természetes logaritmusát adja eredményül.</td><td>IMLN</td><td>Returns the natural logarithm of a complex number</td></tr>
+        <tr><td>KPZ.LOG10</td><td>Komplex szám tízes alapú logaritmusát adja eredményül.</td><td>IMLOG10</td><td>Returns the base-10 logarithm of a complex number</td></tr>
+        <tr><td>KPZ.LOG2</td><td>Komplex szám kettes alapú logaritmusát adja eredményül.</td><td>IMLOG2</td><td>Returns the base-2 logarithm of a complex number</td></tr>
+        <tr><td>KPZ.SIN</td><td>Komplex szám szinuszát adja eredményül.</td><td>IMSIN</td><td>Returns the sine of a complex number</td></tr>
+        <tr><td>KPZ.SSZEG</td><td>Komplex számok összegét adja eredményül.</td><td>IMSUM</td><td>Returns the sum of complex numbers</td></tr>
+        <tr><td>KPZ.SZORZAT</td><td>Komplex számok szorzatát adja eredményül.</td><td>IMPRODUCT</td><td>Returns the product of complex numbers</td></tr>
+        <tr><td>KPZ.VALS</td><td>Komplex szám valós részét adja eredményül.</td><td>IMREAL</td><td>Returns the real coefficient of a complex number</td></tr>
+        <tr><td>KPZETES</td><td>Komplex szám képzetes részét adja eredményül.</td><td>IMAGINARY</td><td>Returns the imaginary coefficient of a complex number</td></tr>
+        <tr><td>KURT</td><td>Egy adathalmaz csúcsosságát számítja ki.</td><td>KURT</td><td>Returns the kurtosis of a data set</td></tr>
+        <tr><td>KVARTILIS.KIZR</td><td>Az adathalmaz kvartilisét számítja ki a 0..1 tartományba eső percentilis értékek alapján (a végpontok nélkül).</td><td>QUARTILE.EXC</td><td>Returns the quartile of the data set, based on percentile values from 0..1, exclusive</td></tr>
+        <tr><td>LARGE</td><td>Egy adathalmaz k-adik legnagyobb elemét adja eredményül.</td><td>LARGE</td><td>Returns the k-th largest value in a data set</td></tr>
+        <tr><td>LCM</td><td>A legkisebb közös többszöröst adja eredményül.</td><td>LCM</td><td>Returns the least common multiple</td></tr>
+        <tr><td>LEJRATI.KAMAT</td><td>Lejáratkor kamatozó értékpapír felszaporodott kamatát adja eredményül.</td><td>ACCRINTM</td><td>Returns the accrued interest for a security that pays interest at maturity</td></tr>
+        <tr><td>LESZM</td><td>Értékpapír leszámítolási kamatlábát adja eredményül.</td><td>DISC</td><td>Returns the discount rate for a security</td></tr>
+        <tr><td>LIN.ILL</td><td>A legkisebb négyzetek módszerével az adatokra illesztett egyenes paramétereit határozza meg.</td><td>LINEST</td><td>Returns the parameters of a linear trend</td></tr>
+        <tr><td>LN</td><td>Egy szám természetes logaritmusát számítja ki.</td><td>LN</td><td>Returns the natural logarithm of a number</td></tr>
+        <tr><td>LOG</td><td>Egy szám adott alapú logaritmusát számítja ki.</td><td>LOG</td><td>Returns the logarithm of a number to a specified base</td></tr>
+        <tr><td>LOG.ILL</td><td>Az adatokra illesztett exponenciális görbe paramétereit határozza meg.</td><td>LOGEST</td><td>Returns the parameters of an exponential trend</td></tr>
+        <tr><td>LOG10</td><td>Egy szám 10-es alapú logaritmusát számítja ki.</td><td>LOG10</td><td>Returns the base-10 logarithm of a number</td></tr>
+        <tr><td>LOGINV</td><td>A lognormális eloszlás inverzét számítja ki.</td><td>LOGINV</td><td>Returns the inverse of the lognormal cumulative distribution</td></tr>
+        <tr><td>LOGNORM.DIST</td><td>A lognormális eloszlásfüggvény értékét számítja ki.</td><td>LOGNORM.DIST</td><td>Returns the cumulative lognormal distribution</td></tr>
+        <tr><td>LOGNORM.INV</td><td>A lognormális eloszlás inverzét számítja ki.</td><td>LOGNORM.INV</td><td>Returns the inverse of the lognormal cumulative distribution</td></tr>
+        <tr><td>LOGNORMDIST</td><td>A lognormális eloszlásfüggvény értékét számítja ki.</td><td>LOGNORMDIST</td><td>Returns the cumulative lognormal distribution</td></tr>
+        <tr><td>LOWER</td><td>Szöveget kisbetűssé alakít át.</td><td>LOWER</td><td>Converts text to lowercase</td></tr>
+        <tr><td>LRSZLETKAMAT</td><td>A befektetés adott időszakára fizetett kamatot számítja ki.</td><td>ISPMT</td><td>Calculates the interest paid during a specific period of an investment</td></tr>
+        <tr><td>MATCH</td><td>Hivatkozásban vagy tömbben értékeket keres.</td><td>MATCH</td><td>Looks up values in a reference or array</td></tr>
+        <tr><td>MAX</td><td>Az argumentumai között szereplő legnagyobb számot adja meg.</td><td>MAX</td><td>Returns the maximum value in a list of arguments</td></tr>
+        <tr><td>MAXA</td><td>Az argumentumai között szereplő legnagyobb számot adja meg (beleértve a számokat, szöveget és logikai értékeket).</td><td>MAXA</td><td>Returns the maximum value in a list of arguments, including numbers, text, and logical values</td></tr>
+        <tr><td>MDETERM</td><td>Egy tömb mátrixdeterminánsát számítja ki.</td><td>MDETERM</td><td>Returns the matrix determinant of an array</td></tr>
+        <tr><td>MDUSZ.TBB</td><td>Egy tömb vagy tartomány leggyakrabban előforduló vagy ismétlődő értékeinek függőleges tömbjét adja eredményül.</td><td>MODE.MULT</td><td>Returns a vertical array of the most frequently occurring, or repetitive values in an array or range of data</td></tr>
+        <tr><td>MEDIAN</td><td>Adott számhalmaz mediánját számítja ki.</td><td>MEDIAN</td><td>Returns the median of the given numbers</td></tr>
+        <tr><td>METSZ</td><td>A regressziós egyenes y tengellyel való metszéspontját határozza meg.</td><td>INTERCEPT</td><td>Returns the intercept of the linear regression line</td></tr>
+        <tr><td>MID</td><td>A szöveg adott pozíciójától kezdve megadott számú karaktert ad vissza eredményként.</td><td>MID</td><td>Returns a specific number of characters from a text string starting at the position you specify</td></tr>
+        <tr><td>MIDB</td><td>A szöveg adott pozíciójától kezdve megadott számú karaktert ad vissza eredményként.</td><td>MIDB</td><td>Returns a specific number of characters from a text string starting at the position you specify</td></tr>
+        <tr><td>MIN</td><td>Az argumentumai között szereplő legkisebb számot adja meg.</td><td>MIN</td><td>Returns the minimum value in a list of arguments</td></tr>
+        <tr><td>MINA</td><td>Az argumentumai között szereplő legkisebb számot adja meg, beleértve a számokat, szöveget és logikai értékeket.</td><td>MINA</td><td>Returns the smallest value in a list of arguments, including numbers, text, and logical values</td></tr>
+        <tr><td>MIRR</td><td>A befektetés belső megtérülési rátáját számítja ki a költségek és a bevételek különböző kamatlába mellett.</td><td>MIRR</td><td>Returns the internal rate of return where positive and negative cash flows are financed at different rates</td></tr>
+        <tr><td>MKAMATRZ</td><td>Egy 100 Ft névértékű értékpapír Macauley-féle módosított kamatérzékenységét adja eredményül.</td><td>MDURATION</td><td>Returns the Macauley modified duration for a security with an assumed par value of $100</td></tr>
+        <tr><td>MOD</td><td>Egy szám osztási maradékát adja eredményül.</td><td>MOD</td><td>Returns the remainder from division</td></tr>
+        <tr><td>MODE</td><td>Egy adathalmazból kiválasztja a leggyakrabban előforduló számot.</td><td>MODE</td><td>Returns the most common value in a data set</td></tr>
+        <tr><td>MODE.SNGL</td><td>Egy adathalmazból kiválasztja a leggyakrabban előforduló számot.</td><td>MODE.SNGL</td><td>Returns the most common value in a data set</td></tr>
+        <tr><td>MONTH</td><td>Dátumértéket hónappá alakít át.</td><td>MONTH</td><td>Converts a serial number to a month</td></tr>
+        <tr><td>MOST</td><td>Az aktuális dátum dátumértékét és a pontos idő időértékét adja eredményül.</td><td>NOW</td><td>Returns the serial number of the current date and time</td></tr>
+        <tr><td>MROUND</td><td>A kívánt többszörösére kerekített értéket ad eredményül.</td><td>MROUND</td><td>Returns a number rounded to the desired multiple</td></tr>
+        <tr><td>MSZORZAT</td><td>Két tömb mátrixszorzatát adja meg.</td><td>MMULT</td><td>Returns the matrix product of two arrays</td></tr>
+        <tr><td>MULTINOMIAL</td><td>Számhalmaz multinomiálisát adja eredményül.</td><td>MULTINOMIAL</td><td>Returns the multinomial of a set of numbers</td></tr>
+        <tr><td>NEGBINOM.DIST</td><td>A negatív binomiális eloszlás értékét számítja ki.</td><td>NEGBINOM.DIST</td><td>Returns the negative binomial distribution</td></tr>
+        <tr><td>NEGBINOMDIST</td><td>A negatív binomiális eloszlás értékét számítja ki.</td><td>NEGBINOMDIST</td><td>Returns the negative binomial distribution</td></tr>
+        <tr><td>NM</td><td>Befektetéshez kapcsolódó pénzáramlás nettó jelenértékét számítja ki ismert pénzáramlás és kamatláb mellett.</td><td>NPV</td><td>Returns the net present value of an investment based on a series of periodic cash flows and a discount rate</td></tr>
+        <tr><td>NOMINAL</td><td>Az éves névleges kamatláb értékét adja eredményül.</td><td>NOMINAL</td><td>Returns the annual nominal interest rate</td></tr>
+        <tr><td>NORM.DIST</td><td>A normális eloszlás értékét számítja ki.</td><td>NORM.DIST</td><td>Returns the normal cumulative distribution</td></tr>
+        <tr><td>NORM.ELOSZL</td><td>A normális eloszlás értékét számítja ki.</td><td>NORMDIST</td><td>Returns the normal cumulative distribution</td></tr>
+        <tr><td>NORM.INV</td><td>A normális eloszlás eloszlásfüggvénye inverzének értékét számítja ki.</td><td>NORM.INV</td><td>Returns the inverse of the normal cumulative distribution</td></tr>
+        <tr><td>NORM.S.DIST</td><td>A standard normális eloszlás eloszlásfüggvényének értékét számítja ki.</td><td>NORM.S.DIST</td><td>Returns the standard normal cumulative distribution</td></tr>
+        <tr><td>NORM.S.INVERZ</td><td>A standard normális eloszlás eloszlásfüggvénye inverzének értékét számítja ki.</td><td>NORM.S.INV</td><td>R    eturns the inverse of the standard normal cumulative distribution</td></tr>
+        <tr><td>NORMINV</td><td>A normális eloszlás eloszlásfüggvénye inverzének értékét számítja ki.</td><td>NORMINV</td><td>Returns the inverse of the normal cumulative distribution</td></tr>
+        <tr><td>NORMSDIST</td><td>A standard normális eloszlás eloszlásfüggvényének értékét számítja ki.</td><td>NORMSDIST</td><td>Returns the standard normal cumulative distribution</td></tr>
+        <tr><td>NOT</td><td>Argumentuma értékének ellentettjét adja eredményül.</td><td>NOT</td><td>Reverses the logic of its argument</td></tr>
+        <tr><td>NPER</td><td>A törlesztési időszakok számát adja meg.</td><td>NPER</td><td>Returns the number of periods for an investment</td></tr>
+        <tr><td>OCT2BIN</td><td>Oktális számot binárissá alakít át.</td><td>OCT2BIN</td><td>Converts an octal number to binary</td></tr>
+        <tr><td>OCT2DEC</td><td>Oktális számot decimálissá alakít át.</td><td>OCT2DEC</td><td>Converts an octal number to decimal</td></tr>
+        <tr><td>OCT2HEX</td><td>Oktális számot hexadecimálissá alakít át.</td><td>OCT2HEX</td><td>Converts an octal number to hexadecimal</td></tr>
+        <tr><td>ODD</td><td>Egy számot a legközelebbi páratlan számra kerekít.</td><td>ODD</td><td>Rounds a number up to the nearest odd integer</td></tr>
+        <tr><td>OFFSET</td><td>Hivatkozásnak egy másik hivatkozástól számított távolságát adja meg.</td><td>OFFSET</td><td>Returns a reference offset from a given reference</td></tr>
+        <tr><td>OR</td><td>Eredménye IGAZ, ha bármelyik argumentuma IGAZ.</td><td>OR</td><td>Returns TRUE if any argument is TRUE</td></tr>
+        <tr><td>OSZLOP</td><td>Egy hivatkozás oszlopszámát adja eredményül.</td><td>COLUMN</td><td>Returns the column number of a reference</td></tr>
+        <tr><td>PEARSON</td><td>A Pearson-féle korrelációs együtthatót számítja ki.</td><td>PEARSON</td><td>Returns the Pearson product moment correlation coefficient</td></tr>
+        <tr><td>PERCEK</td><td>Időértéket perccé alakít.</td><td>MINUTE</td><td>Converts a serial number to a minute</td></tr>
+        <tr><td>PERCENTILE</td><td>Egy tartományban található értékek k-adik percentilisét, azaz százalékosztályát adja eredményül.</td><td>PERCENTILE</td><td>Returns the k-th percentile of values in a range</td></tr>
+        <tr><td>PERCENTILE.EXC</td><td>Egy tartomány értékeinek a k-adik percentilisét adja eredményül, ahol k a 0..1 tartományba esik, a végpontok nélkül.</td><td>PERCENTILE.EXC</td><td>Returns the k-th percentile of values in a range, where k is in the range 0..1, exclusive</td></tr>
+        <tr><td>PERCENTILE.INC</td><td>Egy tartományban található értékek k-adik percentilisét, azaz százalékosztályát adja eredményül.</td><td>PERCENTILE.INC</td><td>Returns the k-th percentile of values in a range</td></tr>
+        <tr><td>PERCENTRANK</td><td>Egy értéknek egy adathalmazon belül vett százalékos rangját (elhelyezkedését) számítja ki.</td><td>PERCENTRANK</td><td>Returns the percentage rank of a value in a data set</td></tr>
+        <tr><td>PERCENTRANK.EXC</td><td>Érték adathalmazon belül vett százalékos rangját (elhelyezkedését) számítja ki (a 0 és 1 végpont kizárásával).</td><td>PERCENTRANK.EXC</td><td>Returns the rank of a value in a data set as a percentage (0..1, exclusive) of the data set</td></tr>
+        <tr><td>PERCENTRANK.INC</td><td>Egy értéknek egy adathalmazon belül vett százalékos rangját (elhelyezkedését) számítja ki.</td><td>PERCENTRANK.INC</td><td>Returns the percentage rank of a value in a data set</td></tr>
+        <tr><td>PERMUT</td><td>Adott számú objektum k-ad osztályú ismétlés nélküli variációinak számát számítja ki.</td><td>PERMUT</td><td>Returns the number of permutations for a given number of objects</td></tr>
+        <tr><td>PHONETIC</td><td>Szöveg furigana (fonetikus) karaktereit adja vissza.</td><td>PHONETIC</td><td>Extracts the phonetic (furigana) characters from a text string</td></tr>
+        <tr><td>PI</td><td>A pi matematikai állandót adja vissza.</td><td>PI</td><td>Returns the value of pi</td></tr>
+        <tr><td>POISSON</td><td>A Poisson-eloszlás értékét számítja ki.</td><td>POISSON</td><td>Returns the Poisson distribution</td></tr>
+        <tr><td>POISSON.DIST</td><td>A Poisson-eloszlás értékét számítja ki.</td><td>POISSON.DIST</td><td>Returns the Poisson distribution</td></tr>
+        <tr><td>POWER</td><td>Egy szám adott kitevőjű hatványát számítja ki.</td><td>POWER</td><td>Returns the result of a number raised to a power</td></tr>
+        <tr><td>PPMT</td><td>Hiteltörlesztésen belül a tőketörlesztés mértékét számítja ki adott időszakra.</td><td>PPMT</td><td>Returns the payment on the principal for an investment for a given period</td></tr>
+        <tr><td>PRATLANE</td><td>Eredménye IGAZ, ha argumentuma páratlan szám.</td><td>ISODD</td><td>Returns TRUE if the number is odd</td></tr>
+        <tr><td>PRICE</td><td>Egy 100 Ft névértékű, periodikusan kamatozó értékpapír árát adja eredményül.</td><td>PRICE</td><td>Returns the price per $100 face value of a security that pays periodic interest</td></tr>
+        <tr><td>PROB</td><td>Annak valószínűségét számítja ki, hogy adott értékek két határérték közé esnek.</td><td>PROB</td><td>Returns the probability that values in a range are between two limits</td></tr>
+        <tr><td>PRODUCT</td><td>Argumentumai szorzatát számítja ki.</td><td>PRODUCT</td><td>Multiplies its arguments</td></tr>
+        <tr><td>PROPER</td><td>Szöveg minden szavának kezdőbetűjét nagybetűsre cseréli.</td><td>PROPER</td><td>Capitalizes the first letter in each word of a text value</td></tr>
+        <tr><td>PV</td><td>Befektetés jelenlegi értékét számítja ki.</td><td>PV</td><td>Returns the present value of an investment</td></tr>
+        <tr><td>QUARTILE</td><td>Egy adathalmaz kvartilisét (negyedszintjét) számítja ki.</td><td>QUARTILE</td><td>Returns the quartile of a data set</td></tr>
+        <tr><td>QUARTILE.INC</td><td>Egy adathalmaz kvartilisét (negyedszintjét) számítja ki.</td><td>QUARTILE.INC</td><td>Returns the quartile of a data set</td></tr>
+        <tr><td>QUOTIENT</td><td>Egy hányados egész részét adja eredményül.</td><td>QUOTIENT</td><td>Returns the integer portion of a division</td></tr>
+        <tr><td>R.LEJRAT</td><td>Egy 100 Ft névértékű, a lejáratkor kamatozó értékpapír árát adja eredményül.</td><td>PRICEMAT</td><td>Returns the price per $100 face value of a security that pays interest at maturity</td></tr>
+        <tr><td>R.LESZM</td><td>Egy 100 Ft névértékű leszámítolt értékpapír árát adja eredményül.</td><td>PRICEDISC</td><td>Returns the price per $100 face value of a discounted security</td></tr>
+        <tr><td>RADIANS</td><td>Fokot radiánná alakít át.</td><td>RADIANS</td><td>Converts degrees to radians</td></tr>
+        <tr><td>RAND</td><td>Egy 0 és 1 közötti véletlen számot ad eredményül.</td><td>RAND</td><td>Returns a random number between 0 and 1</td></tr>
+        <tr><td>RANDBETWEEN</td><td>Megadott számok közé eső véletlen számot állít elő.</td><td>RANDBETWEEN</td><td>Returns a random number between the numbers you specify</td></tr>
+        <tr><td>RANK</td><td>Kiszámítja, hogy egy szám hányadik egy számsorozatban.</td><td>RANK</td><td>Returns the rank of a number in a list of numbers</td></tr>
+        <tr><td>RANK.AVG</td><td>Kiszámítja, hogy egy szám hányadik egy számsorozatban.</td><td>RANK.AVG</td><td>Returns the rank of a number in a list of numbers</td></tr>
+        <tr><td>RANK.EQ</td><td>Kiszámítja, hogy egy szám hányadik egy számsorozatban.</td><td>RANK.EQ</td><td>Returns the rank of a number in a list of numbers</td></tr>
+        <tr><td>RATE</td><td>Egy törlesztési időszakban az egy időszakra eső kamatláb mértékét számítja ki.</td><td>RATE</td><td>Returns the interest rate per period of an annuity</td></tr>
+        <tr><td>RECEIVED</td><td>A lejáratig teljesen lekötött értékpapír lejáratakor kapott összeget adja eredményül.</td><td>RECEIVED</td><td>Returns the amount received at maturity for a fully invested security</td></tr>
+        <tr><td>REGISTER.ID</td><td>A megadott dinamikus csatolású függvénytár (DLL) vagy az előzőleg külső függvényként megadott kódforrás azonosítóját határozza meg.</td><td>REGISTER.ID</td><td>Returns the register ID of the specified dynamic link library (DLL) or code resource that has been previously registered</td></tr>
+        <tr><td>REPLACE</td><td>A szövegen belül karaktereket cserél.</td><td>REPLACE</td><td>Replaces characters within text</td></tr>
+        <tr><td>REPLACEB</td><td>A szövegen belül karaktereket cserél.</td><td>REPLACEB</td><td>Replaces characters within text</td></tr>
+        <tr><td>REPT</td><td>Megadott számú alkalommal megismétel egy szövegrészt.</td><td>REPT</td><td>Repeats text a given number of times</td></tr>
+        <tr><td>RIGHT</td><td>Szövegrész jobb szélső karaktereit adja eredményül.</td><td>RIGHT</td><td>Returns the rightmost characters from a text value</td></tr>
+        <tr><td>RIGHTB</td><td>Szövegrész jobb szélső karaktereit adja eredményül.</td><td>RIGHTB</td><td>Returns the rightmost characters from a text value</td></tr>
+        <tr><td>ROMAN</td><td>Egy számot római számokkal kifejezve szövegként ad eredményül.</td><td>ROMAN</td><td>Converts an arabic numeral to roman, as text</td></tr>
+        <tr><td>ROUND</td><td>Egy számot adott számú számjegyre kerekít.</td><td>ROUND</td><td>Rounds a number to a specified number of digits</td></tr>
+        <tr><td>ROUNDDOWN</td><td>Egy számot lefelé, a nulla felé kerekít.</td><td>ROUNDDOWN</td><td>Rounds a number down, toward zero</td></tr>
+        <tr><td>ROUNDUP</td><td>Egy számot felfelé, a nullától távolabbra kerekít.</td><td>ROUNDUP</td><td>Rounds a number up, away from zero</td></tr>
+        <tr><td>ROW</td><td>Egy hivatkozás sorának számát adja meg.</td><td>ROW</td><td>Returns the row number of a reference</td></tr>
+        <tr><td>ROWS</td><td>Egy hivatkozás sorainak számát adja meg.</td><td>ROWS</td><td>Returns the number of rows in a reference</td></tr>
+        <tr><td>RRSZLET</td><td>Hiteltörlesztésen belül a tőketörlesztés mértékét számítja ki adott időszakra.</td><td>IPMT</td><td>Returns the interest payment for an investment for a given period</td></tr>
+        <tr><td>RSQ</td><td>Kiszámítja a Pearson-féle szorzatmomentum korrelációs együtthatójának négyzetét.</td><td>RSQ</td><td>Returns the square of the Pearson product moment correlation coefficient</td></tr>
+        <tr><td>RSZLET</td><td>A törlesztési időszakra vonatkozó törlesztési összeget számítja ki.</td><td>PMT</td><td>Returns the periodic payment for an annuity</td></tr>
+        <tr><td>RSZSSZEG</td><td>Lista vagy adatbázis részösszegét adja eredményül.</td><td>SUBTOTAL</td><td>Returns a subtotal in a list or database</td></tr>
+        <tr><td>RTD</td><td>Valós idejű adatokat keres vissza egy, a COM automatizmust (automatizálás: Egy alkalmazás objektumaival való munka másik alkalmazásból vagy fejlesztőeszközből. A korábban OLE automatizmusnak nevezett automatizálás iparági szabvány, a Component Object Model (COM) szolgáltatása.) támogató programból.</td><td>RTD</td><td>Retrieves real-time data from a program that supports COM automation (Automation: A way to work with an application's objects from another application or development tool. Formerly called OLE Automation, Automation is an industry standard and a feature of the Component Object Model (COM).)</td></tr>
+        <tr><td>RTKCSKK</td><td>Az egyes könyvelési időszakokban az értékcsökkenést adja meg.</td><td>AMORLINC</td><td>Returns the depreciation for each accounting period</td></tr>
+        <tr><td>RTKCSKK.TNYEZVEL</td><td>Állóeszköz lineáris értékcsökkenését adja meg az egyes könyvelési időszakokra vonatkozóan.</td><td>AMORDEGRC</td><td>Returns the depreciation for each accounting period by using a depreciation coefficient</td></tr>
+        <tr><td>S</td><td>Argumentumának értékét számmá alakítja.</td><td>N</td><td>Returns a value converted to a number</td></tr>
+        <tr><td>SECOND</td><td>Időértéket másodperccé alakít át.</td><td>SECOND</td><td>Converts a serial number to a second</td></tr>
+        <tr><td>SERIESSUM</td><td>Hatványsor összegét adja eredményül.</td><td>SERIESSUM</td><td>Returns the sum of a power series based on the formula</td></tr>
+        <tr><td>SIGN</td><td>Egy szám előjelét adja meg.</td><td>SIGN</td><td>Returns the sign of a number</td></tr>
+        <tr><td>SIN</td><td>Egy szög szinuszát számítja ki.</td><td>SIN</td><td>Returns the sine of the given angle</td></tr>
+        <tr><td>SINH</td><td>Egy szám szinusz hiperbolikuszát számítja ki.</td><td>SINH</td><td>Returns the hyperbolic sine of a number</td></tr>
+        <tr><td>SKEW</td><td>Egy eloszlás ferdeségét határozza meg.</td><td>SKEW</td><td>Returns the skewness of a distribution</td></tr>
+        <tr><td>SLN</td><td>Tárgyi eszköz egy időszakra eső amortizációját adja meg bruttó érték szerinti lineáris leírási kulcsot alkalmazva.</td><td>SLN</td><td>Returns the straight-line depreciation of an asset for one period</td></tr>
+        <tr><td>SLOPE</td><td>Egy lineáris regressziós egyenes meredekségét számítja ki.</td><td>SLOPE</td><td>Returns the slope of the linear regression line</td></tr>
+        <tr><td>SMALL</td><td>Egy adathalmaz k-adik legkisebb elemét adja meg.</td><td>SMALL</td><td>Returns the k-th smallest value in a data set</td></tr>
+        <tr><td>SQL.REQUEST</td><td>Külső adatforráshoz kapcsolódik, és egy munkalapról futtat lekérdezést, majd az eredményeket tömbként adja vissza. Használatához nincs szükség makróírásra.</td><td>SQL.REQUEST</td><td>Connects with an external data source and runs a query from a worksheet, then returns the result as an array without the need for macro programming</td></tr>
+        <tr><td>SQRT</td><td>Egy szám pozitív négyzetgyökét számítja ki.</td><td>SQRT</td><td>Returns a positive square root</td></tr>
+        <tr><td>SQRTPI</td><td>A (szám*pi) négyzetgyökét adja eredményül.</td><td>SQRTPI</td><td>Returns the square root of (number * pi)</td></tr>
+        <tr><td>SSZ.MUNKANAP</td><td>Két dátum között a teljes munkanapok számát adja meg.</td><td>NETWORKDAYS</td><td>Returns the number of whole workdays between two dates</td></tr>
+        <tr><td>SSZ.MUNKANAP.INTL</td><td>Kiszámítja a teljes munkanapok számát két dátum között úgy, hogy paramétereket alkalmaz a hétvége napjainak, illetve ezek számának a megjelölésére.</td><td>NETWORKDAYS.INTL</td><td>Returns the number of whole workdays between two dates using parameters to indicate which and how many days are weekend days</td></tr>
+        <tr><td>SSZES.KAMAT</td><td>Két fizetési időszak között kifizetett kamat halmozott értékét adja eredményül.</td><td>CUMIPMT</td><td>Returns the cumulative interest paid between two periods</td></tr>
+        <tr><td>SSZES.TKERSZ</td><td>Két fizetési időszak között kifizetett részletek halmozott (kamatot nem tartalmazó) értékét adja eredményül.</td><td>CUMPRINC</td><td>Returns the cumulative principal paid on a loan between two periods</td></tr>
+        <tr><td>STANDARDIZE</td><td>Normalizált értéket ad eredményül.</td><td>STANDARDIZE</td><td>Returns a normalized value</td></tr>
+        <tr><td>STDEV</td><td>Egy statisztikai sokaság mintájából annak szórására ad becslést.</td><td>STDEV</td><td>Estimates standard deviation based on a sample</td></tr>
+        <tr><td>STDEV.P</td><td>Egy statisztikai sokaság egészéből kiszámítja annak szórását.</td><td>STDEV.P</td><td>Calculates standard deviation based on the entire population</td></tr>
+        <tr><td>STDEV.S</td><td>Egy statisztikai sokaság mintájából kiszámítja annak szórását.</td><td>STDEV.S</td><td>Estimates standard deviation based on a sample</td></tr>
+        <tr><td>STDEVA</td><td>Egy statisztikai sokaság mintájából annak szórására ad becslést (beleértve a számokat, szöveget és logikai értékeket).</td><td>STDEVA</td><td>Estimates standard deviation based on a sample, including numbers, text, and logical values</td></tr>
+        <tr><td>STDEVP</td><td>Egy statisztikai sokaság egészéből kiszámítja annak szórását.</td><td>STDEVP</td><td>Calculates standard deviation based on the entire population</td></tr>
+        <tr><td>STDEVPA</td><td>Egy statisztikai sokaság egészéből kiszámítja annak szórását (beleértve számokat, szöveget és logikai értékeket).</td><td>STDEVPA</td><td>Calculates standard deviation based on the entire population, including numbers, text, and logical values</td></tr>
+        <tr><td>STEYX</td><td>Egy regresszió esetén az egyes x-értékek alapján meghatározott y-értékek standard hibáját számítja ki.</td><td>STEYX</td><td>Returns the standard error of the predicted y-value for each x in the regression</td></tr>
+        <tr><td>SUBSTITUTE</td><td>Szövegben adott karaktereket másikra cserél.</td><td>SUBSTITUTE</td><td>Substitutes new text for old text in a text string</td></tr>
+        <tr><td>SUMIFS</td><td>Több megadott feltételnek eleget tevő tartománycellák összegét adja eredményül.</td><td>SUMIFS</td><td>Adds the cells in a range that meet multiple criteria</td></tr>
+        <tr><td>SUMSQ</td><td>Argumentumai négyzetének összegét számítja ki.</td><td>SUMSQ</td><td>Returns the sum of the squares of the arguments</td></tr>
+        <tr><td>SUMX2MY2</td><td>Két tömb megfelelő elemei négyzetének különbségét összegzi.</td><td>SUMX2MY2</td><td>Returns the sum of the difference of squares of corresponding values in two arrays</td></tr>
+        <tr><td>SUMX2PY2</td><td>Két tömb megfelelő elemei négyzetének összegét összegzi.</td><td>SUMX2PY2</td><td>Returns the sum of the sum of squares of corresponding values in two arrays</td></tr>
+        <tr><td>SUMXMY2</td><td>Két tömb megfelelő elemei különbségének négyzetösszegét számítja ki.</td><td>SUMXMY2</td><td>Returns the sum of squares of differences of corresponding values in two arrays</td></tr>
+        <tr><td>SYD</td><td>Tárgyi eszköz értékcsökkenését számítja ki adott időszakra az évek számjegyösszegével dolgozó módszer alapján.</td><td>SYD</td><td>Returns the sum-of-years' digits depreciation of an asset for a specified period</td></tr>
+        <tr><td>SZELVNYID</td><td>A kifizetés időpontját magában foglaló szelvényperiódus hosszát adja meg napokban.</td><td>COUPDAYS</td><td>Returns the number of days in the coupon period that contains the settlement date</td></tr>
+        <tr><td>SZELVNYID.KEZDETTL</td><td>A szelvényidőszak kezdetétől a kifizetés időpontjáig eltelt napokat adja vissza.</td><td>COUPDAYBS</td><td>Returns the number of days from the beginning of the coupon period to the settlement date</td></tr>
+        <tr><td>SZELVNYID.KIFIZETSTL</td><td>A kifizetés időpontja és a legközelebbi szelvénydátum közötti napok számát adja meg.</td><td>COUPDAYSNC</td><td>Returns the number of days from the settlement date to the next coupon date</td></tr>
+        <tr><td>SZELVNYSZM</td><td>A kifizetés és a lejárat időpontja között kifizetendő szelvények számát adja eredményül.</td><td>COUPNUM</td><td>Returns the number of coupons payable between the settlement date and maturity date</td></tr>
+        <tr><td>SZORZATSSZEG</td><td>A megfelelő tömbelemek szorzatának összegét számítja ki.</td><td>SUMPRODUCT</td><td>Returns the sum of the products of corresponding array components</td></tr>
+        <tr><td>SZUM</td><td>Összeadja az argumentumlistájában lévő számokat.</td><td>SUM</td><td>Adds its arguments</td></tr>
+        <tr><td>SZUMHA</td><td>A megadott feltételeknek eleget tevő cellákban található értékeket adja össze.</td><td>SUMIF</td><td>Adds the cells specified by a given criteria</td></tr>
+        <tr><td>SZVEG.KERES</td><td>Karakterláncot keres egy másikban (a kis- és nagybetűk között nem tesz különbséget).</td><td>SEARCH</td><td>Finds one text value within another (not case-sensitive)</td></tr>
+        <tr><td>SZVEG.KERES2</td><td>Karakterláncot keres egy másikban (a kis- és nagybetűk között nem tesz különbséget).</td><td>SEARCHB</td><td>Finds one text value within another (not case-sensitive)</td></tr>
+        <tr><td>T</td><td>Az adott dátumok közötti teljes napok számát törtévként adja meg.</td><td>T</td><td>Converts its arguments to text</td></tr>
+        <tr><td>T.DIST</td><td>A Student-féle t-eloszlás szerinti százalékpontokat (valószínűséget) számítja ki.</td><td>T.DIST</td><td>Returns the Percentage Points (probability) for the Student t-distribution</td></tr>
+        <tr><td>T.DIST.RT</td><td>A Student-féle t-eloszlás értékét számítja ki.</td><td>T.DIST.RT</td><td>Returns the Student's t-distribution</td></tr>
+        <tr><td>T.ELOSZLS</td><td>A Student-féle t-eloszlás értékét számítja ki.</td><td>TDIST</td><td>Returns the Student's t-distribution</td></tr>
+        <tr><td>T.ELOSZLS.2SZ</td><td>A Student-féle t-eloszlás szerinti százalékpontokat (valószínűséget) számítja ki.</td><td>T.DIST.2T</td><td>Returns the Percentage Points (probability) for the Student t-distribution</td></tr>
+        <tr><td>T.INV</td><td>A Student-féle t-eloszlás t értékét számítja ki a megadott valószínűség és szabadságfok mellett.</td><td>T.INV</td><td>Returns the t-value of the Student's t-distribution as a function of the probability and the degrees of freedom</td></tr>
+        <tr><td>T.INV.2T</td><td>A Student-féle t-eloszlás inverzét számítja ki.</td><td>T.INV.2T</td><td>Returns the inverse of the Student's t-distribution</td></tr>
+        <tr><td>T.TEST</td><td>A Student-féle t-próbához tartozó valószínűséget számítja ki.</td><td>T.TEST</td><td>Returns the probability associated with a Student's t-test</td></tr>
+        <tr><td>TAN</td><td>Egy szám tangensét számítja ki.</td><td>TAN</td><td>Returns the tangent of a number</td></tr>
+        <tr><td>TANH</td><td>Egy szám tangens hiperbolikuszát számítja ki.</td><td>TANH</td><td>Returns the hyperbolic tangent of a number</td></tr>
+        <tr><td>TBILLPRICE</td><td>Egy 100 Ft névértékű kincstárjegy árát adja eredményül.</td><td>TBILLPRICE</td><td>Returns the price per $100 face value for a Treasury bill</td></tr>
+        <tr><td>TBILLYIELD</td><td>Kincstárjegy hozamát adja eredményül.</td><td>TBILLYIELD</td><td>Returns the yield for a Treasury bill</td></tr>
+        <tr><td>TEXT</td><td>Számértéket alakít át adott számformátumú szöveggé.</td><td>TEXT</td><td>Formats a number and converts it to text</td></tr>
+        <tr><td>TIME</td><td>Adott időpont időértékét adja meg.</td><td>TIME</td><td>Returns the serial number of a particular time</td></tr>
+        <tr><td>TIMEVALUE</td><td>Szövegként megadott időpontot időértékké alakít át.</td><td>TIMEVALUE</td><td>Converts a time in the form of text to a serial number</td></tr>
+        <tr><td>TINV</td><td>A Student-féle t-eloszlás inverzét számítja ki.</td><td>TINV</td><td>Returns the inverse of the Student's t-distribution</td></tr>
+        <tr><td>TISZTT</td><td>A szövegből eltávolítja az összes nem nyomtatható karaktert.</td><td>CLEAN</td><td>Removes all nonprintable characters from text</td></tr>
+        <tr><td>TLAG</td><td>Argumentumai átlagát számítja ki.</td><td>AVERAGE</td><td>Returns the average of its arguments</td></tr>
+        <tr><td>TLAGA</td><td>Argumentumai átlagát számítja ki (beleértve a számokat, szöveget és logikai értékeket).</td><td>AVERAGEA</td><td>Returns the average of its arguments, including numbers, text, and logical values</td></tr>
+        <tr><td>TODAY</td><td>Az aktuális dátum dátumértékét adja eredményül.</td><td>TODAY</td><td>Returns the serial number of today's date</td></tr>
+        <tr><td>TRANSZPONLS</td><td>Egy tömb transzponáltját adja eredményül.</td><td>TRANSPOSE</td><td>Returns the transpose of an array</td></tr>
+        <tr><td>TREND</td><td>Lineáris trend értékeit számítja ki.</td><td>TREND</td><td>Returns values along a linear trend</td></tr>
+        <tr><td>TRIM</td><td>A szövegből eltávolítja a szóközöket.</td><td>TRIM</td><td>Removes spaces from text</td></tr>
+        <tr><td>TRIMMEAN</td><td>Egy adathalmaz középső részének átlagát számítja ki.</td><td>TRIMMEAN</td><td>Returns the mean of the interior of a data set</td></tr>
+        <tr><td>TRTV</td><td>Az adott dátumok közötti teljes napok számát törtévként adja meg.</td><td>YEARFRAC</td><td>Returns the year fraction representing the number of whole days between start_date and end_date</td></tr>
+        <tr><td>TRUE</td><td>Az IGAZ logikai értéket adja eredményül.</td><td>TRUE</td><td>Returns the logical value TRUE</td></tr>
+        <tr><td>TRUNC</td><td>Egy számot egésszé csonkít.</td><td>TRUNC</td><td>Truncates a number to an integer</td></tr>
+        <tr><td>TTEST</td><td>A Student-féle t-próbához tartozó valószínűséget számítja ki.</td><td>TTEST</td><td>Returns the probability associated with a Student's t-test</td></tr>
+        <tr><td>TYPE</td><td>Az érték adattípusát jelölő számot adja eredményül.</td><td>TYPE</td><td>Returns a number indicating the data type of a value</td></tr>
+        <tr><td>UPPER</td><td>Szöveget nagybetűssé alakít át.</td><td>UPPER</td><td>Converts text to uppercase</td></tr>
+        <tr><td>UTOLS.SZELVNYDTUM</td><td>A kifizetés előtti utolsó szelvénydátumot adja eredményül.</td><td>COUPPCD</td><td>Returns the previous coupon date before the settlement date</td></tr>
+        <tr><td>VALUE</td><td>Szöveget számmá alakít át.</td><td>VALUE</td><td>Converts a text argument to a number</td></tr>
+        <tr><td>VAR</td><td>Minta alapján becslést ad a varianciára.</td><td>VAR</td><td>Estimates variance based on a sample</td></tr>
+        <tr><td>VAR.M</td><td>Minta alapján becslést ad a varianciára.</td><td>VAR.S</td><td>Estimates variance based on a sample</td></tr>
+        <tr><td>VAR.P</td><td>Egy statisztikai sokaság varianciáját számítja ki.</td><td>VAR.P</td><td>Calculates variance based on the entire population</td></tr>
+        <tr><td>VARA</td><td>Minta alapján becslést ad a varianciára (beleértve számokat, szöveget és logikai értékeket).</td><td>VARA</td><td>Estimates variance based on a sample, including numbers, text, and logical values</td></tr>
+        <tr><td>VARP</td><td>Egy statisztikai sokaság varianciáját számítja ki.</td><td>VARP</td><td>Calculates variance based on the entire population</td></tr>
+        <tr><td>VARPA</td><td>Egy statisztikai sokaság varianciáját számítja ki (beleértve számokat, szöveget és logikai értékeket).</td><td>VARPA</td><td>Calculates variance based on the entire population, including numbers, text, and logical values</td></tr>
+        <tr><td>VDB</td><td>Tárgyi eszköz amortizációját számítja ki megadott vagy részidőszakra a csökkenő egyenleg módszerének alkalmazásával.</td><td>VDB</td><td>Returns the depreciation of an asset for a specified or partial period by using a declining balance method</td></tr>
+        <tr><td>WEIBULL</td><td>Egy statisztikai sokaság varianciáját számítja ki (beleértve számokat, szöveget és logikai értékeket).</td><td>WEIBULL</td><td>Calculates variance based on the entire population, including numbers, text, and logical values</td></tr>
+        <tr><td>WEIBULL.DIST</td><td>A Weibull-féle eloszlás értékét számítja ki.</td><td>WEIBULL.DIST</td><td>Returns the Weibull distribution</td></tr>
+        <tr><td>XBMR</td><td>Ütemezett készpénzforgalom (cash flow) belső megtérülési kamatrátáját adja eredményül.</td><td>XIRR</td><td>Returns the internal rate of return for a schedule of cash flows that is not necessarily periodic</td></tr>
+        <tr><td>XNJ</td><td>Ütemezett, nem feltétlenül periodikus készpénzforgalom (cash flow) nettó jelenlegi értékét adja eredményül.</td><td>XNPV</td><td>Returns the net present value for a schedule of cash flows that is not necessarily periodic</td></tr>
+        <tr><td>YEAR</td><td>Dátumértéket évvé alakít át.</td><td>YEAR</td><td>Converts a serial number to a year</td></tr>
+        <tr><td>Z.TEST</td><td>Az egyszélű z-próbával kapott valószínűségértéket számítja ki.</td><td>Z.TEST</td><td>Returns the one-tailed probability-value of a z-test</td></tr>
+        <tr><td>ZTEST</td><td>Az egyszélű z-próbával kapott valószínűségértéket számítja ki.</td><td>ZTEST</td><td>Returns the one-tailed probability-value of a z-test</td></tr>
+        </tbody></table>
+        
+</body>
+</html>
